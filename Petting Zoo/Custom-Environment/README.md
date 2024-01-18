@@ -1,0 +1,1 @@
+A test environemnt to get familiarised with pettingzoo
