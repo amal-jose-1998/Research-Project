@@ -4,7 +4,8 @@ from copy import copy
 import numpy as np
 from gymnasium.spaces import Discrete, MultiDiscrete
 from pettingzoo import ParallelEnv
-
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 
 class CustomEnvironment(ParallelEnv):
     # metadata holds environment constants
@@ -12,13 +13,13 @@ class CustomEnvironment(ParallelEnv):
 
     # to initialise the environment attributes
     def __init__(self):
-        self.escape_y = None
-        self.escape_x = None
-        self.guard_y = None
-        self.guard_x = None
-        self.prisoner_y = None
-        self.prisoner_x = None
-        self.timestep = None
+        self.escape_y = 0
+        self.escape_x = 0
+        self.guard_y = 0
+        self.guard_x = 0
+        self.prisoner_y = 0
+        self.prisoner_x = 0
+        self.timestep = 0
         self.possible_agents = ["prisoner", "guard"]
 
     # to reset the environment to a starting point
@@ -49,6 +50,7 @@ class CustomEnvironment(ParallelEnv):
         # Execute actions
         prisoner_action = actions["prisoner"]
         guard_action = actions["guard"]
+        
         if prisoner_action == 0 and self.prisoner_x > 0:
             self.prisoner_x -= 1
         elif prisoner_action == 1 and self.prisoner_x < 6:
@@ -93,6 +95,9 @@ class CustomEnvironment(ParallelEnv):
             guard_action_mask[2] = 0     # Block down movement
         elif self.guard_y + 1 == self.escape_y:
             guard_action_mask[3] = 0     # Block up movement
+        # Apply action masks to the actions
+        prisoner_action *= prisoner_action_mask
+        guard_action *= guard_action_mask
         # Check termination conditions
         terminations = {a: False for a in self.agents}
         rewards = {a: 0 for a in self.agents}
@@ -130,8 +135,8 @@ class CustomEnvironment(ParallelEnv):
         grid[self.prisoner_y, self.prisoner_x] = "P"
         grid[self.guard_y, self.guard_x] = "G"
         grid[self.escape_y, self.escape_x] = "E"
-        print(f"{grid} \n")
-    
+        return grid
+
     @functools.lru_cache(maxsize=None) # # lru_cache allows observation and action spaces to be memoized
     def observation_space(self, agent):
         return MultiDiscrete([7 * 7] * 3) # observation space consists of three discrete variables, each with a range of 7 * 7. The multiplication by 3 indicates that there are three values in the tuple for each agent.
