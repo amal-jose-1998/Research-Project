@@ -12,7 +12,7 @@ import os
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class dddQ_Net(nn.Module):
-	def __init__(self, obs_dim, hidden, lr, chkpt_dir, name):
+	def __init__(self, obs_dim, hidden, lr, chkpt_dir):
 		super(dddQ_Net, self).__init__()
 		if obs_dim == 8:
 			i = 4
@@ -33,7 +33,7 @@ class dddQ_Net(nn.Module):
 		self.optimizer = optim.Adam(self.parameters(), lr=lr)
 		self.loss = nn.MSELoss()	
 		self.chkpt_dir = chkpt_dir
-		self.checkpoint_file = os.path.join(self.chkpt_dir, name)
+		self.checkpoint_file = os.path.join(self.chkpt_dir, 'Saved Network')
 
 	def forward(self,obs):
 		conv_output = self.conv_layers(obs)
@@ -51,7 +51,7 @@ class dddQ_Net(nn.Module):
 		torch.save(self.state_dict(), self.checkpoint_file)
 	
 	# to load the state dictionary from the file
-	def load_checkpoint(self, file):
+	def load_checkpoint(self):
 		print('... loading checkpoint ....')
 		self.load_state_dict(torch.load(self.checkpoint_file))
 
@@ -91,20 +91,25 @@ class ReplayBuffer():
 		)
 	
 class dddQN_Agent(object):
-	def __init__(self,opt):
-		self.q_net = dddQ_Net(opt.obs_dim, opt.hidden, opt.lr).to(device)
+	def __init__(self, opt, chkpt_dir='tmp/duel_double_dqn'):
+		self.q_net = dddQ_Net(opt.obs_dim, opt.hidden, opt.lr, chkpt_dir).to(device)
 		self.q_target = copy.deepcopy(self.q_net)
+		self.replay_buffer = ReplayBuffer(opt.obs_dim, max_size=int(1e5))
 		# Freeze target networks with respect to optimizers (only update via polyak averaging)
-		for p in self.q_target.parameters(): p.requires_grad = False
-		self.gamma = opt.gamma
-		self.counter = 0
-		self.batch_size = opt.batch_size
-		self.action_dim = opt.action_dim
-		self.DDQN = opt.DDQN
-		self.target_freq = opt.target_freq
-		self.hardtarget = opt.hardtarget
-		self.tau = 1/opt.target_freq
-		self.huber_loss = opt.huber_loss
+		for p in self.q_target.parameters(): 
+			p.requires_grad = False
+		self.gamma = opt.gamma             # discount factor for future rewards
+		self.epsilon = opt.epsilon         # probability of choosing a random action during exploration
+		self.eps_min = opt.eps_min         # minimum value for the exploration parameter epsilon
+		self.eps_dec = opt.eps_dec         # the rate at which the exploration parameter epsilon is decayed
+		self.lr = opt.lr                   # learning rate controls the size of the steps the optimizer takes during gradient descent
+		self.counter = 0                   # to keep track of the number of steps
+		self.batch_size = opt.batch_size   #  size of the mini-batches sampled from the replay buffer 
+		self.action_dim = opt.action_dim   # the number of possible actions the agent can take in its environment
+		self.target_freq = opt.target_freq # determines how often the target network is updated
+		self.hardtarget = opt.hardtarget   # this flag determines whether to perform hard updates or soft updates for the target network
+		self.tau = 1/opt.target_freq       #  used in soft updates to control the rate at which the target network parameters are updated. It represents the interpolation factor for the weighted average between the online and target network parameters.
+
 
 
 	def select_action(self, state, evaluate):
