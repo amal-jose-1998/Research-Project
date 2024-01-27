@@ -12,7 +12,7 @@ import os
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class dddQ_Net(nn.Module):
-	def __init__(self, obs_dim, hidden, lr, chkpt_dir):
+	def __init__(self, obs_dim, hidden):
 		super(dddQ_Net, self).__init__()
 		if obs_dim == 8:
 			i = 4
@@ -30,10 +30,6 @@ class dddQ_Net(nn.Module):
 			)                                                                      
 		self.V = nn.Linear(hidden, 1)  # the value
 		self.A = nn.Linear(hidden, 5)  # the advantage of actions, relative value of each action
-		self.optimizer = optim.Adam(self.parameters(), lr=lr)
-		self.loss = nn.MSELoss()	
-		self.chkpt_dir = chkpt_dir
-		self.checkpoint_file = os.path.join(self.chkpt_dir, 'Saved Network')
 
 	def forward(self,obs):
 		conv_output = self.conv_layers(obs)
@@ -44,17 +40,6 @@ class dddQ_Net(nn.Module):
 		Q = V + (A - A.mean(dim=1, keepdim=True))
 		return V,A,Q
 	
-	# to save the state dictionary to a file in the specified path.
-	def save_checkpoint(self):
-		print('.......saving a checkpoint....')
-		print(self.state_dict())
-		torch.save(self.state_dict(), self.checkpoint_file)
-	
-	# to load the state dictionary from the file
-	def load_checkpoint(self):
-		print('... loading checkpoint ....')
-		self.load_state_dict(torch.load(self.checkpoint_file))
-
 	
 class ReplayBuffer():
 	def __init__(self, obs_dim, max_size=int(1e5)):
@@ -91,66 +76,56 @@ class ReplayBuffer():
 		)
 	
 class dddQN_Agent(object):
-	def __init__(self, opt, chkpt_dir='tmp/duel_double_dqn'):
-		self.q_net = dddQ_Net(opt.obs_dim, opt.hidden, opt.lr, chkpt_dir).to(device)
+	def __init__(self, opt):
+		self.q_net = dddQ_Net(opt.obs_dim, opt.hidden).to(device)
+		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=opt.lr)
 		self.q_target = copy.deepcopy(self.q_net)
 		self.replay_buffer = ReplayBuffer(opt.obs_dim, max_size=int(1e5))
 		# Freeze target networks with respect to optimizers (only update via polyak averaging)
 		for p in self.q_target.parameters(): 
 			p.requires_grad = False
 		self.gamma = opt.gamma             # discount factor for future rewards
-		self.epsilon = opt.epsilon         # probability of choosing a random action during exploration
-		self.eps_min = opt.eps_min         # minimum value for the exploration parameter epsilon
-		self.eps_dec = opt.eps_dec         # the rate at which the exploration parameter epsilon is decayed
 		self.lr = opt.lr                   # learning rate controls the size of the steps the optimizer takes during gradient descent
 		self.counter = 0                   # to keep track of the number of steps
-		self.batch_size = opt.batch_size   #  size of the mini-batches sampled from the replay buffer 
+		self.batch_size = opt.batch_size   # size of the mini-batches sampled from the replay buffer 
 		self.action_dim = opt.action_dim   # the number of possible actions the agent can take in its environment
 		self.target_freq = opt.target_freq # determines how often the target network is updated
 		self.hardtarget = opt.hardtarget   # this flag determines whether to perform hard updates or soft updates for the target network
-		self.tau = 1/opt.target_freq       #  used in soft updates to control the rate at which the target network parameters are updated. It represents the interpolation factor for the weighted average between the online and target network parameters.
+		self.tau = 1/opt.target_freq       # used in soft updates to control the rate at which the target network parameters are updated. It represents the interpolation factor for the weighted average between the online and target network parameters.
 
-
-
+    # this function balances exploration and exploitation during decision-making. If in evaluation mode, the agent mostly exploits its knowledge, but with a small probability of exploration. 
+	# if in training mode, the agent explores with a probability determined by the exploration noise parameter (self.exp_noise)
 	def select_action(self, state, evaluate):
 		with torch.no_grad():
 			state = state.unsqueeze(0).to(device)
-			p = 0.01 if evaluate else self.exp_noise
+			epsilon = 0.01 if evaluate else self.exp_noise
 
-			if np.random.rand() < p:
+			if np.random.rand() < epsilon:
 				a = np.random.randint(0,self.action_dim)
 			else:
 				a = self.q_net(state).argmax().item()
-
 		return a
-
-
-	def train(self,replay_buffer):
+	
+    # for training the neural network using the Q-learning algorithm and updating the target network.
+	def train(self, replay_buffer):
 		s, a, r, s_prime, dw_mask = replay_buffer.sample(self.batch_size)
-
-		'''Compute the target Q value'''
+		
+		# Compute the target Q value
 		with torch.no_grad():
-			if self.DDQN:
-				argmax_a = self.q_net(s_prime).argmax(dim=1).unsqueeze(-1)
-				max_q_prime = self.q_target(s_prime).gather(1,argmax_a)
-			else:
-				max_q_prime = self.q_target(s_prime).max(1)[0].unsqueeze(1)
-
-			'''Avoid impacts caused by reaching max episode steps'''
-			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime #dw: die or win
+			argmax_a = self.q_net(s_prime).argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
+			max_q_prime = self.q_target(s_prime).gather(1, argmax_a) # Q-values of the chosen actions in the next state from the target network 
+			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
 
 		# Get current Q estimates
 		current_q = self.q_net(s)
-		current_q_a = current_q.gather(1,a)
-
-		if self.huber_loss: q_loss = F.huber_loss(current_q_a, target_Q)
-		else: q_loss = F.mse_loss(current_q_a, target_Q)
-
-		self.q_net_optimizer.zero_grad()
-		q_loss.backward()
-		# for param in self.q_net.parameters(): param.grad.data.clamp_(-1, 1) #Gradient Clip
-		self.q_net_optimizer.step()
-
+		current_q_a = current_q.gather(1, a) #  selects the Q-values corresponding to the actions taken in the current state.
+		
+		q_loss = F.mse_loss(current_q_a, target_Q)  
+		self.q_net_optimizer.zero_grad() # Clears the gradients of the model parameters to avoid accumulation.
+		q_loss.backward() # Computes the gradients of the Q-loss with respect to the model parameters using backpropagation.
+		# for param in self.q_net.parameters(): param.grad.data.clamp_(-1, 1) # Gradient Clip
+		self.q_net_optimizer.step() # Updates the model parameters based on the computed gradients
+        
 		if self.hardtarget:
 			# Hard update
 			self.counter = (self.counter + 1) % self.target_freq
@@ -159,10 +134,10 @@ class dddQN_Agent(object):
 		else:
 			# Soft Update
 			for param, target_param in zip(self.q_net.parameters(), self.q_target.parameters()):
-				target_param.data.copy_(self.tau * param.data + (1 - self.tau) * target_param.data)
-		for p in self.q_target.parameters(): p.requires_grad = False
+				target_param.data.copy_(self.tau * param.data + (1 - self.tau) * target_param.data) #  parameters of the target network are updated as a weighted average of the online and target parameters.
+		for p in self.q_target.parameters(): p.requires_grad = False #  to prevent backpropagation through the target network during subsequent training steps.
 
-
+    
 	def save(self,algo,EnvName,steps):
 		torch.save(self.q_net.state_dict(), "./model/{}_{}_{}.pth".format(algo,EnvName,steps))
 
