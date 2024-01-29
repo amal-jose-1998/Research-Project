@@ -1,18 +1,21 @@
 import numpy as np
 import torch
 import gym
-from dddqn import DQN_Agent,ReplayBuffer
+from dddqn import dddQN_Agent,ReplayBuffer
 import os, shutil
 from datetime import datetime
 import argparse
 from utils import evaluate_policy, str2bool, LinearSchedule
 from pettingzoo.mpe import simple_adversary_v3
+import copy
 
+# cd "Tutorials\Tutorial 2 simple adversarial transfer learning"
 
 '''Hyperparameter Setting'''
 parser = argparse.ArgumentParser()
 parser.add_argument('--write', type=str2bool, default=False, help='Use SummaryWriter to record the training')
 parser.add_argument('--render', type=str2bool, default=False, help='Render or Not')
+parser.add_argument('--Loadmodel', type=str2bool, default=False, help='Load pretrained model or Not')
 
 parser.add_argument('--seed', type=int, default=5, help='random seed')
 parser.add_argument('--Max_train_steps', type=int, default=1E6, help='Max training steps')
@@ -35,45 +38,47 @@ parser.add_argument('--anneal_frac', type=int, default=3e5, help='annealing frac
 parser.add_argument('--FC_hidden', type=int, default=200, help='number of units in Fully Connected layer')
 parser.add_argument('--train_freq', type=int, default=1, help='model trainning frequency')
 
-
 opt = parser.parse_args()
 print(opt)
-
 
 def main():
     torch.manual_seed(opt.seed)
     np.random.seed(opt.seed)
-
     env = simple_adversary_v3.env(render_mode="human", N=2, max_cycles=25, continuous_actions=False)
-    opt.action_dim = env.action_space.n
-
-
+    opt.action_dim = 5
     print('  action_dim:',opt.action_dim,'  Random Seed:',opt.seed, '\n')
-
+  
     if opt.write:
         from torch.utils.tensorboard import SummaryWriter
         timenow = str(datetime.now())[0:-7]
         timenow = ' ' + timenow[0:13] + '_' + timenow[14:16] + '_' + timenow[-2::]
-        writepath = 'runs/S{}_{}_{}'.format(opt.seed,algo_name,EnvName[opt.EnvIdex]) + timenow
+        writepath = 'runs/S{}_{}'.format(opt.seed,'dddQN') + timenow
         if os.path.exists(writepath): shutil.rmtree(writepath)
         writer = SummaryWriter(log_dir=writepath)
 
-
     #Build model and replay buffer
     if not os.path.exists('model'): os.mkdir('model')
-    model = DQN_Agent(opt)
-    if opt.Loadmodel: model.load(algo_name,EnvName[opt.EnvIdex],opt.ModelIdex)
+    agents = []
+    for agent_id in range(env.N):  
+        agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
+        agent_opt.agent_id = agent_id  # Add an attribute to store the agent's ID
+        agent_opt.obs_dim = agent_id
+        model = dddQN_Agent(agent_opt)
 
-    #explore noise linearly annealed from 1.0 to 0.02 within 200k steps
-    schedualer = LinearSchedule(schedule_timesteps=opt.anneal_frac, final_p=0.02, initial_p=opt.exp_noise)
-    model.exp_noise = opt.exp_noise
+        if opt.Loadmodel:
+            model.load(algo_name, EnvName[opt.EnvIdex], opt.ModelIdex)
+        agents.append(model)
+
+        #explore noise linearly annealed from 1.0 to 0.02 within 200k steps
+        schedualer = LinearSchedule(schedule_timesteps=opt.anneal_frac, final_p=0.02, initial_p=opt.exp_noise)
+        model.exp_noise = opt.exp_noise
 
     if opt.render:
         score = evaluate_policy(eval_env, model,opt.render,20)
         print('EnvName:', EnvName[opt.EnvIdex], 'seed:', opt.seed, 'score:', score)
     else:
         #build replay buffer
-        buffer = ReplayBuffer_torch(max_size=int(opt.buffersize))
+        buffer = ReplayBuffer(max_size=int(opt.buffersize))
 
         #begin to iterate
         total_steps = -1
