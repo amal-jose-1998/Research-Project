@@ -91,6 +91,7 @@ class Scenario(BaseScenario):
         world = World()
         # set any world properties first
         world.dim_c = 2
+        world.dim_p = 2
         num_agents = N + 1
         world.num_agents = num_agents
         num_adversaries = 1

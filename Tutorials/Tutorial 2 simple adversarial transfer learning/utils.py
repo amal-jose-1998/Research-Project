@@ -4,15 +4,16 @@ import time
 import argparse
 
 
-def evaluate_policy(env, model,render=False,turns = 3):
-    scores = 0
+def evaluate_policy(env, agents, render=False, turns = 10):
+    average_score = 0
     for j in range(turns):
-        s, done, ep_r, steps = env.reset(), False, 0, 0
+        s, infos = env.reset()
+        done = False
         while not done:
             if render:
                 env.render()
                 time.sleep(0.04)
-            a = model.select_action(s, evaluate=True)
+            actions = {agent_name: agent.select_action(obs[agent_name], evaluate=True) for agent_name, agent in agents.items()}
             s_prime, r, done, info = env.step(a)
             ep_r += r
             steps += 1
