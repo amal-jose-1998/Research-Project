@@ -89,6 +89,14 @@ def main():
 
                     s_prime, r, terminations, truncations, info = env.step(actions)
                     
+                    for agent_name in env.agents:
+                        s[agent_name]=torch.tensor(s[agent_name])
+                        s_prime[agent_name]=torch.tensor(s_prime[agent_name])
+                    
+                    s = torch.stack([s[key] for key in env.agents], dim=0)
+                    s_prime = torch.stack([s_prime[key] for key in env.agents], dim=0)
+
+
                     buffer.add(s, actions, r, s_prime, done)
                     s = s_prime
                     
