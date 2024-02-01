@@ -109,12 +109,12 @@ class dddQN_Agent(object):
 		# Compute the target Q value
 		with torch.no_grad():
 			argmax_a = self.q_net(s_prime).argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
-			max_q_prime = self.q_target(s_prime).gather(1, argmax_a) # Q-values of the chosen actions in the next state from the target network 
+			max_q_prime = self.q_target(s_prime).gather(1, argmax_a) # Q-values of the chosen action in the next state from the target network 
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
 
 		# Get current Q estimates
 		current_q = self.q_net(s)
-		current_q_a = current_q.gather(1, a) #  selects the Q-values corresponding to the actions taken in the current state.
+		current_q_a = current_q.gather(1, a) #  selects the Q-values corresponding to the action taken in the current state.
 		
 		q_loss = F.mse_loss(current_q_a, target_Q)  
 		self.q_net_optimizer.zero_grad() # Clears the gradients of the model parameters to avoid accumulation.
@@ -131,8 +131,9 @@ class dddQN_Agent(object):
 			# Soft Update
 			for param, target_param in zip(self.q_net.parameters(), self.q_target.parameters()):
 				target_param.data.copy_(self.tau * param.data + (1 - self.tau) * target_param.data) #  parameters of the target network are updated as a weighted average of the online and target parameters.
-		for p in self.q_target.parameters(): p.requires_grad = False #  to prevent backpropagation through the target network during subsequent training steps.
-
+		for p in self.q_target.parameters(): 
+			p.requires_grad = False #  to prevent backpropagation through the target network during subsequent training steps.
+       
     
 	def save(self,algo,EnvName,steps):
 		torch.save(self.q_net.state_dict(), "./model/{}_{}_{}.pth".format(algo,EnvName,steps))

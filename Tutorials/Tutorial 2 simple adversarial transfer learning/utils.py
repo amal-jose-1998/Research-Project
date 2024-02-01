@@ -4,20 +4,31 @@ import time
 import argparse
 
 
-def evaluate_policy(env, agents, render=False, turns = 10):
+def evaluate_policy(env, agent_models, render=False, turns = 10):
     average_score = 0
     for j in range(turns):
+        actions={}
+        terminations = False
+        truncations = False
         s, infos = env.reset()
         done = False
         while not done:
-            if render:
-                env.render()
-                time.sleep(0.04)
-            actions = {agent_name: agent.select_action(obs[agent_name], evaluate=True) for agent_name, agent in agents.items()}
-            s_prime, r, done, info = env.step(a)
-            ep_r += r
-            steps += 1
-            s = s_prime
+            if terminations or truncations:
+                done = True
+            else:
+                i = 0
+                for agent_name in env.agents:
+                    model = agent_models[i]
+                    i+=1
+                    a = model.select_action(torch.tensor(s[agent_name]), evaluate=True)
+                    actions[agent_name]=a
+                s_prime, r, terminations, truncations, info = env.step(actions)
+                s = s_prime
+                if render:
+                    env.render()
+                    time.sleep(0.04)
+                ep_r += r
+                
         scores += ep_r
         print(ep_r)
     return int(scores/turns)
