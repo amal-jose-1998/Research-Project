@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--write', type=str2bool, default=True, help='Use SummaryWriter to record the training')
 parser.add_argument('--render', type=str, default="human", help='Render or Not')
 parser.add_argument('--seed', type=int, default=5, help='random seed')
-parser.add_argument('--save_interval', type=int, default=100, help='Model saving interval, in steps.')
+parser.add_argument('--save_interval', type=int, default=1000, help='Model saving interval, in steps.')
 parser.add_argument('--eval_interval', type=int, default=100, help='Model evaluating interval, in steps.')
 parser.add_argument('--random_steps', type=int, default=50, help=' min no of replay buffer experiences to start training')
 parser.add_argument('--gamma', type=float, default=0.99, help='Discounted Factor')
@@ -47,7 +47,7 @@ def main():
         from torch.utils.tensorboard import SummaryWriter
         timenow = str(datetime.now())[0:-7]
         timenow = ' ' + timenow[0:13] + '_' + timenow[14:16] + '_' + timenow[-2::]
-        writepath = 'runs/S{}_{}'.format(opt.seed,'dddQN') + timenow
+        writepath = 'runs/Seed{}_{}'.format(opt.seed,'dddQN') + timenow
         if os.path.exists(writepath): shutil.rmtree(writepath)
         writer = SummaryWriter(log_dir=writepath)
 
