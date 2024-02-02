@@ -116,14 +116,14 @@ def main():
                                 loss = model.train(buffer)
                                 #e-greedy decay
                                 model.exp_noise = schedualer.value(total_steps)
-                                print('loss',total_steps,': ',loss)
+                                print('episode: ',j,'  loss',total_steps,': ',loss)
                         #record & log 
                         if total_steps % opt.eval_interval == 0:
-                            score = evaluate_policy(eval_env, agent_models )
+                            score = evaluate_policy(eval_env, agent_models)
                             if opt.write:
-                                writer.add_scalar('ep_r', score, global_step=e)
+                                writer.add_scalars('ep_r', score, global_step=e)
                                 writer.add_scalar('noise', model.exp_noise, global_step=e)
-                                print('seed:',opt.seed,'steps: {}k'.format(int(total_steps/1000)),'score:', int(score))
+                                print('seed:',opt.seed,'steps: {}k'.format(int(total_steps/1000)),'score:', score)
 
                         if total_steps % opt.save_interval == 0:
                             model.save("dddQN","simple_adversary",int(total_steps/1000))
