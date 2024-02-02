@@ -4,34 +4,25 @@ import time
 import argparse
 
 
-def evaluate_policy(env, agent_models, render=False, turns = 10):
-    average_score = 0
-    for j in range(turns):
-        actions={}
-        terminations = False
-        truncations = False
-        s, infos = env.reset()
+def evaluate_policy(eval_env, agent_models, num_episodes=10):
+    total_reward = 0
+    for _ in range(num_episodes):
         done = False
+        observations, _ = eval_env.reset()
         while not done:
-            if terminations or truncations:
-                done = True
-            else:
-                i = 0
-                for agent_name in env.agents:
-                    model = agent_models[i]
-                    i+=1
-                    a = model.select_action(torch.tensor(s[agent_name]), evaluate=True)
-                    actions[agent_name]=a
-                s_prime, r, terminations, truncations, info = env.step(actions)
-                s = s_prime
-                if render:
-                    env.render()
-                    time.sleep(0.04)
-                ep_r += r
-                
-        scores += ep_r
-        print(ep_r)
-    return int(scores/turns)
+            actions = {}
+            for agent_name, model in zip(eval_env.agents, agent_models):
+                state = torch.tensor(observations[agent_name], dtype=torch.float32)
+                action = model.select_action(state, evaluate=True)
+                actions[agent_name] = action
+
+            next_observations, rewards, terminations, truncations, info = eval_env.step(actions)
+            done = any(terminations.values()) or any(truncations.values())
+            total_reward += sum(rewards.values())
+            observations = next_observations
+
+    average_reward = total_reward / num_episodes
+    return average_reward
 
 
 def str2bool(v):

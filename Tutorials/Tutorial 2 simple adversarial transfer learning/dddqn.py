@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import os
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -11,9 +12,9 @@ class dddQ_Net(nn.Module):
 	def __init__(self, obs_dim, hidden):
 		super(dddQ_Net, self).__init__()
 		if obs_dim == 8:
-			i = 4
+			i = 256
 		elif obs_dim == 10:
-			i = 6
+			i = 384
 		self.conv_layers = nn.Sequential(                                                  # convolutional layers
 			nn.Conv1d(in_channels=1, out_channels=32, kernel_size=3, stride=1),
 			nn.ReLU(),
@@ -48,7 +49,7 @@ class ReplayBuffer():
 		self.action = torch.zeros((max_size, 1), dtype=torch.int64)
 		self.reward = torch.zeros((max_size, 1))
 		self.next_state = torch.zeros((max_size, obs_dim))
-		self.dw = torch.zeros((max_size, 1), dtype=torch.bool) # binary indicator that helps the learning algorithm understand when an episode or trajectory has ended.
+		self.dw = torch.zeros((max_size, 1), dtype=torch.int8) # binary indicator that helps the learning algorithm understand when an episode or trajectory has ended.
 
 	def add(self, state, action, reward, next_state, dw):
 		self.state[self.ptr] = state
@@ -88,33 +89,36 @@ class dddQN_Agent(object):
 		self.target_freq = opt.target_freq # determines how often the target network is updated
 		self.hardtarget = opt.hardtarget   # this flag determines whether to perform hard updates or soft updates for the target network
 		self.tau = 1/opt.target_freq       # used in soft updates to control the rate at which the target network parameters are updated. It represents the interpolation factor for the weighted average between the online and target network parameters.
+		self.obs_dim = opt.obs_dim
 
     # this function balances exploration and exploitation during decision-making. If in evaluation mode, the agent mostly exploits its knowledge, but with a small probability of exploration. 
 	# if in training mode, the agent explores with a probability determined by the exploration noise parameter (self.exp_noise)
 	def select_action(self, state, evaluate):
 		with torch.no_grad():
-			state = state.unsqueeze(0).to(device)
+			state = state.view(1, 1, -1).to(device)
 			epsilon = 0.01 if evaluate else self.exp_noise
-
 			if np.random.rand() < epsilon:
 				a = np.random.randint(0,self.action_dim)
 			else:
-				a = self.q_net(state).argmax().item()
+				V, A, Q = self.q_net.forward(state)
+				a = torch.argmax(A).item()
 		return a
 	
     # for training the neural network using the Q-learning algorithm and updating the target network.
 	def train(self, replay_buffer):
 		s, a, r, s_prime, dw_mask = replay_buffer.sample(self.batch_size)
-		
 		# Compute the target Q value
 		with torch.no_grad():
-			argmax_a = self.q_net(s_prime).argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
-			max_q_prime = self.q_target(s_prime).gather(1, argmax_a) # Q-values of the chosen action in the next state from the target network 
+			s_prime = s_prime.view(self.batch_size,1,s_prime.shape[1])
+			argmax_a = self.q_net(s_prime)[2].argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
+			max_q_prime = self.q_target(s_prime)[2].gather(1, argmax_a) # Q-values of the chosen action in the next state from the target network 
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
 
 		# Get current Q estimates
-		current_q = self.q_net(s)
-		current_q_a = current_q.gather(1, a) #  selects the Q-values corresponding to the action taken in the current state.
+		s = s.view(self.batch_size,1,s.shape[1])
+		current_q = self.q_net(s)[2] # Q-values for all possible actions in the current state
+		print(current_q)
+		current_q_a = current_q.gather(1, a) #  selects the Q-value corresponding to the action taken in the current state.
 		
 		q_loss = F.mse_loss(current_q_a, target_Q)  
 		self.q_net_optimizer.zero_grad() # Clears the gradients of the model parameters to avoid accumulation.
@@ -134,9 +138,12 @@ class dddQN_Agent(object):
 		for p in self.q_target.parameters(): 
 			p.requires_grad = False #  to prevent backpropagation through the target network during subsequent training steps.
        
+		return q_loss 
     
 	def save(self,algo,EnvName,steps):
-		torch.save(self.q_net.state_dict(), "./model/{}_{}_{}.pth".format(algo,EnvName,steps))
+		save_path = "./model/{}_{}_{}.pth".format(algo, EnvName, steps)
+		os.makedirs(os.path.dirname(save_path), exist_ok=True)  # Create the directory if it doesn't exist
+		torch.save(self.q_net.state_dict(), save_path)
 
 	def load(self,algo,EnvName,steps):
 		self.q_net.load_state_dict(torch.load("./model/{}_{}_{}.pth".format(algo,EnvName,steps)))
