@@ -117,7 +117,6 @@ class dddQN_Agent(object):
 		# Get current Q estimates
 		s = s.view(self.batch_size,1,s.shape[1])
 		current_q = self.q_net(s)[2] # Q-values for all possible actions in the current state
-		print(current_q)
 		current_q_a = current_q.gather(1, a) #  selects the Q-value corresponding to the action taken in the current state.
 		
 		q_loss = F.mse_loss(current_q_a, target_Q)  
