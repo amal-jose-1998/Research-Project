@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import gym
 from dddqn import dddQN_Agent,ReplayBuffer
-import os, shutil
+import os
 from datetime import datetime
 import argparse
 from utils import evaluate_policy, str2bool, LinearSchedule
@@ -10,16 +10,14 @@ from pettingzoo.mpe import simple_adversary_v3
 import copy
 import wandb
 
-# cd "Tutorials\Tutorial 2 simple adversarial transfer learning"
-
 '''Hyperparameter Setting'''
 parser = argparse.ArgumentParser()
 parser.add_argument('--write', type=str2bool, default=True, help='Use SummaryWriter to record the training')
 parser.add_argument('--render', type=str, default="human", help='Render or Not')
 parser.add_argument('--seed', type=int, default=5, help='random seed')
 parser.add_argument('--save_interval', type=int, default=1000, help='Model saving interval, in steps.')
-parser.add_argument('--eval_interval', type=int, default=100, help='Model evaluating interval, in steps.')
-parser.add_argument('--random_steps', type=int, default=50, help=' min no of replay buffer experiences to start training')
+parser.add_argument('--eval_interval', type=int, default=1000, help='Model evaluating interval, in steps.')
+parser.add_argument('--random_steps', type=int, default=500, help=' min no of replay buffer experiences to start training')
 parser.add_argument('--gamma', type=float, default=0.99, help='Discounted Factor')
 parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate')
 parser.add_argument('--batch_size', type=int, default=32, help='lenth of sliced trajectory')
@@ -31,7 +29,7 @@ parser.add_argument('--hardtarget', type=str2bool, default=True, help='True: upd
 parser.add_argument('--action_dim', type=int, default=5, help='no of possible actions')
 parser.add_argument('--anneal_frac', type=int, default=3e5, help='annealing fraction of e-greedy nosise')
 parser.add_argument('--hidden', type=int, default=200, help='number of units in Fully Connected layer')
-parser.add_argument('--train_freq', type=int, default=1, help='model trainning frequency')
+parser.add_argument('--train_freq', type=int, default=3, help='model trainning frequency')
 parser.add_argument('--good_agents', type=int, default=2, help='no of good agents')
 parser.add_argument('--games', type=int, default=10, help='no of episodes')
 opt = parser.parse_args()
@@ -67,7 +65,7 @@ def main():
         buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
         agent_buffers.append(buffer)
     e = 0 # total steps including the non training ones
-    total_steps = 0 # total training step
+    total_steps = 1 # total training step
     for j in range(num_games):
         print('episode:', j)
         actions={}
@@ -80,6 +78,7 @@ def main():
         while not done:
             if any(terminations.values()) or any(truncations.values()):
                 print('episode',j, 'terminated at', e)
+                wandb.log({f'episode {j} terminated at global step {e}'})
                 done = 1
             else:
                 e += 1
@@ -92,7 +91,7 @@ def main():
                     actions[agent_name]=a
                 s_prime, r, terminations, truncations, info = env.step(actions)
                 i=0
-
+                flag = 0
                 for agent_name in env.agents:
                     current_state = torch.tensor(s[agent_name])
                     next_state = torch.tensor(s_prime[agent_name])
@@ -102,32 +101,36 @@ def main():
                         done = 1
                     buffer = agent_buffers[i]
                     buffer.add(current_state, action, reward, next_state, done)
-                    i+=1
-                    # train, e-decay, log, save
+                    flag = 0
                     if buffer.size >= opt.random_steps: #checks if the replay buffer has accumulated enough experiences to start training.
-                        total_steps += 1
+                        flag = 1
                         if total_steps % opt.train_freq == 0: 
-                            for a in range(opt.good_agents+1):
-                                model = agent_models[a]
-                                buffer = agent_buffers[a]
-                                loss[a] = model.train(buffer)
-                                if opt.write:
-                                    wandb.log({f'Loss for agent{a}': loss[a].item(), 'step': total_steps})
-                                #e-greedy decay
-                                model.exp_noise = schedualer.value(total_steps)
-                                print(model.exp_noise)
-                                print('episode: ',j,'training step: ',total_steps,  'loss of agent ',a,': ',loss[a].item())
-                        #record & log 
-                        if total_steps % opt.eval_interval == 0:
-                            score = evaluate_policy(eval_env, agent_models)
+                            model = agent_models[i]
+                            loss[a] = model.train(buffer)
                             if opt.write:
-                                wandb.log({'step reward': score, 'global_step':e, 'noise': model.exp_noise, 'episode': j})
-                                print('seed:',opt.seed,'steps: {}k'.format(int(total_steps/1000)),'score:', score)
+                                wandb.log({f'Loss for agent{a}': loss[a].item()})
+                            #e-greedy decay
+                            model.exp_noise = schedualer.value(total_steps)
+                            print(model.exp_noise)
+                            print('episode: ',j,'training step: ',total_steps,  'loss of agent ',a,': ',loss[a].item())
+                    i+=1
+                if flag:
+                    wandb.log({'training step': total_steps})
+                        #record & log 
+                    if total_steps % opt.eval_interval == 0:
+                        score = evaluate_policy(eval_env, agent_models)
+                        if opt.write:
+                            wandb.log({'reward': score, 'global step':e, 'episode': j})
+                            print('seed:',opt.seed,'training steps: ',total_steps,'score:', score)
 
-                        if total_steps % opt.save_interval == 0:
-                            model.save("dddQN","simple_adversary",int(total_steps/1000))
+                    if total_steps % opt.save_interval == 0:
+                        for a in range(opt.good_agents+1):
+                            model = agent_models[a]
+                            model.save("dddQN_source","simple_adversary_2",int(total_steps/1000))
+                    
+                    total_steps+=1
+
                 s = s_prime
-
     env.close()
     eval_env.close()
 
