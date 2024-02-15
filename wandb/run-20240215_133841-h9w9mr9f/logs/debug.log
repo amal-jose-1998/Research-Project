@@ -1,0 +1,26 @@
+2024-02-15 13:38:41,883 INFO    MainThread:18268 [wandb_setup.py:_flush():76] Configure stats pid to 18268
+2024-02-15 13:38:41,883 INFO    MainThread:18268 [wandb_setup.py:_flush():76] Loading settings from C:\Users\amalj\.config\wandb\settings
+2024-02-15 13:38:41,883 INFO    MainThread:18268 [wandb_setup.py:_flush():76] Loading settings from C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\wandb\settings
+2024-02-15 13:38:41,883 INFO    MainThread:18268 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-15 13:38:41,883 INFO    MainThread:18268 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-15 13:38:41,884 INFO    MainThread:18268 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'Transfer learning in simple adversarial MPE env\\main.py', 'program': 'c:\\Users\\amalj\\OneDrive\\Desktop\\lecture materials\\S3\\Research Project\\Local Git Repo\\Adversarial-MATL\\Transfer learning in simple adversarial MPE env\\main.py'}
+2024-02-15 13:38:41,885 INFO    MainThread:18268 [wandb_init.py:_log_setup():506] Logging user logs to C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\wandb\run-20240215_133841-h9w9mr9f\logs\debug.log
+2024-02-15 13:38:41,885 INFO    MainThread:18268 [wandb_init.py:_log_setup():507] Logging internal logs to C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\wandb\run-20240215_133841-h9w9mr9f\logs\debug-internal.log
+2024-02-15 13:38:41,885 INFO    MainThread:18268 [wandb_init.py:init():546] calling init triggers
+2024-02-15 13:38:41,885 INFO    MainThread:18268 [wandb_init.py:init():552] wandb.init called with sweep_config: {}
+config: {'write': True, 'render': 'human', 'seed': 5, 'save_interval': 1000, 'eval_interval': 100, 'random_steps': 50, 'gamma': 0.99, 'lr': 0.0001, 'batch_size': 32, 'exp_noise': 1.0, 'obs_dim': 10, 'buffersize': 100000.0, 'target_freq': 10, 'hardtarget': True, 'action_dim': 5, 'anneal_frac': 300000.0, 'hidden': 200, 'train_freq': 1, 'good_agents': 2, 'games': 10}
+2024-02-15 13:38:41,886 INFO    MainThread:18268 [wandb_init.py:init():602] starting backend
+2024-02-15 13:38:41,886 INFO    MainThread:18268 [wandb_init.py:init():606] setting up manager
+2024-02-15 13:38:41,890 INFO    MainThread:18268 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2024-02-15 13:38:41,895 INFO    MainThread:18268 [wandb_init.py:init():613] backend started and connected
+2024-02-15 13:38:41,898 INFO    MainThread:18268 [wandb_init.py:init():701] updated telemetry
+2024-02-15 13:38:41,968 INFO    MainThread:18268 [wandb_init.py:init():741] communicating run to backend with 60.0 second timeout
+2024-02-15 13:38:42,425 INFO    MainThread:18268 [wandb_run.py:_on_init():2131] communicating current version
+2024-02-15 13:38:42,494 INFO    MainThread:18268 [wandb_run.py:_on_init():2140] got version response upgrade_message: "wandb version 0.16.3 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-02-15 13:38:42,494 INFO    MainThread:18268 [wandb_init.py:init():789] starting run threads in backend
+2024-02-15 13:38:59,356 INFO    MainThread:18268 [wandb_run.py:_console_start():2112] atexit reg
+2024-02-15 13:38:59,356 INFO    MainThread:18268 [wandb_run.py:_redirect():1967] redirect: SettingsConsole.WRAP_RAW
+2024-02-15 13:38:59,356 INFO    MainThread:18268 [wandb_run.py:_redirect():2032] Wrapping output streams.
+2024-02-15 13:38:59,356 INFO    MainThread:18268 [wandb_run.py:_redirect():2057] Redirects installed.
+2024-02-15 13:38:59,357 INFO    MainThread:18268 [wandb_init.py:init():831] run started, returning control to user process

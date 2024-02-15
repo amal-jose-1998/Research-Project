@@ -90,6 +90,7 @@ class dddQN_Agent(object):
 		self.hardtarget = opt.hardtarget   # this flag determines whether to perform hard updates or soft updates for the target network
 		self.tau = 1/opt.target_freq       # used in soft updates to control the rate at which the target network parameters are updated. It represents the interpolation factor for the weighted average between the online and target network parameters.
 		self.obs_dim = opt.obs_dim
+		self.exp_noise = 0
 
     # this function balances exploration and exploitation during decision-making. If in evaluation mode, the agent mostly exploits its knowledge, but with a small probability of exploration. 
 	# if in training mode, the agent explores with a probability determined by the exploration noise parameter (self.exp_noise)

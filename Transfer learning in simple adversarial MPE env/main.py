@@ -8,6 +8,7 @@ import argparse
 from utils import evaluate_policy, str2bool, LinearSchedule
 from pettingzoo.mpe import simple_adversary_v3
 import copy
+import wandb
 
 # cd "Tutorials\Tutorial 2 simple adversarial transfer learning"
 
@@ -44,16 +45,12 @@ def main():
     eval_env = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents, max_cycles=100, continuous_actions=False)
   
     if opt.write:
-        from torch.utils.tensorboard import SummaryWriter
-        timenow = str(datetime.now())[0:-7]
-        timenow = ' ' + timenow[0:13] + '_' + timenow[14:16] + '_' + timenow[-2::]
-        writepath = 'runs/Seed{}_{}'.format(opt.seed,'dddQN') + timenow
-        if os.path.exists(writepath): shutil.rmtree(writepath)
-        writer = SummaryWriter(log_dir=writepath)
+        wandb.init(project='Simple Adversary', name='2 Good Agents', config=vars(opt))
 
     #Build model and replay buffer
     agent_models = [] # agent[0] is the adversary
     agent_buffers = []
+    loss = {}
     terminations = {}
     truncations = {}
     
@@ -113,16 +110,18 @@ def main():
                             for a in range(opt.good_agents+1):
                                 model = agent_models[a]
                                 buffer = agent_buffers[a]
-                                loss = model.train(buffer)
+                                loss[a] = model.train(buffer)
+                                if opt.write:
+                                    wandb.log({f'Loss for agent{a}': loss[a].item(), 'step': total_steps})
                                 #e-greedy decay
                                 model.exp_noise = schedualer.value(total_steps)
-                                print('episode: ',j,'  loss',total_steps,': ',loss)
+                                print(model.exp_noise)
+                                print('episode: ',j,'training step: ',total_steps,  'loss of agent ',a,': ',loss[a].item())
                         #record & log 
                         if total_steps % opt.eval_interval == 0:
                             score = evaluate_policy(eval_env, agent_models)
                             if opt.write:
-                                writer.add_scalars('ep_r', score, global_step=e)
-                                writer.add_scalar('noise', model.exp_noise, global_step=e)
+                                wandb.log({'step reward': score, 'global_step':e, 'noise': model.exp_noise, 'episode': j})
                                 print('seed:',opt.seed,'steps: {}k'.format(int(total_steps/1000)),'score:', score)
 
                         if total_steps % opt.save_interval == 0:
