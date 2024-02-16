@@ -9,15 +9,16 @@ from utils import evaluate_policy, str2bool, LinearSchedule
 from pettingzoo.mpe import simple_adversary_v3
 import copy
 import wandb
+from torchsummary import summary
 
 '''Hyperparameter Setting'''
 parser = argparse.ArgumentParser()
-parser.add_argument('--write', type=str2bool, default=True, help='Use SummaryWriter to record the training')
+parser.add_argument('--write', type=str2bool, default=True, help='Use wandb to record the training')
 parser.add_argument('--render', type=str, default="human", help='Render or Not')
 parser.add_argument('--seed', type=int, default=5, help='random seed')
-parser.add_argument('--save_interval', type=int, default=1000, help='Model saving interval, in steps.')
-parser.add_argument('--eval_interval', type=int, default=1000, help='Model evaluating interval, in steps.')
-parser.add_argument('--random_steps', type=int, default=500, help=' min no of replay buffer experiences to start training')
+parser.add_argument('--save_interval', type=int, default=10, help='Model saving interval, in steps.')
+parser.add_argument('--eval_interval', type=int, default=10, help='Model evaluating interval, in steps.')
+parser.add_argument('--random_steps', type=int, default=100, help=' min no of replay buffer experiences to start training')
 parser.add_argument('--gamma', type=float, default=0.99, help='Discounted Factor')
 parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate')
 parser.add_argument('--batch_size', type=int, default=32, help='lenth of sliced trajectory')
@@ -28,10 +29,10 @@ parser.add_argument('--target_freq', type=int, default=10, help='frequency of ta
 parser.add_argument('--hardtarget', type=str2bool, default=True, help='True: update target net hardly(copy)')
 parser.add_argument('--action_dim', type=int, default=5, help='no of possible actions')
 parser.add_argument('--anneal_frac', type=int, default=3e5, help='annealing fraction of e-greedy nosise')
-parser.add_argument('--hidden', type=int, default=200, help='number of units in Fully Connected layer')
-parser.add_argument('--train_freq', type=int, default=3, help='model trainning frequency')
+parser.add_argument('--hidden', type=int, default=100, help='number of units in Fully Connected layer')
+parser.add_argument('--train_freq', type=int, default=5, help='model trainning frequency')
 parser.add_argument('--good_agents', type=int, default=2, help='no of good agents')
-parser.add_argument('--games', type=int, default=10, help='no of episodes')
+parser.add_argument('--games', type=int, default=10000, help='no of episodes')
 opt = parser.parse_args()
 print(opt)
 
@@ -39,11 +40,11 @@ def main():
     num_games = opt.games
     torch.manual_seed(opt.seed)
     np.random.seed(opt.seed)
-    env = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents, max_cycles=100, continuous_actions=False)
-    eval_env = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents, max_cycles=100, continuous_actions=False)
+    env = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents, max_cycles=25, continuous_actions=False)
+    eval_env = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents, max_cycles=25, continuous_actions=False)
   
     if opt.write:
-        wandb.init(project='Simple Adversary', name='2 Good Agents', config=vars(opt))
+        wandb.init(project='Simple Adversary', name='1 Adversary and 2 Good Agents', config=vars(opt))
 
     #Build model and replay buffer
     agent_models = [] # agent[0] is the adversary
@@ -78,7 +79,6 @@ def main():
         while not done:
             if any(terminations.values()) or any(truncations.values()):
                 print('episode',j, 'terminated at', e)
-                wandb.log({f'episode {j} terminated at global step {e}'})
                 done = 1
             else:
                 e += 1
@@ -106,17 +106,16 @@ def main():
                         flag = 1
                         if total_steps % opt.train_freq == 0: 
                             model = agent_models[i]
-                            loss[a] = model.train(buffer)
+                            loss[i] = model.train(buffer)
                             if opt.write:
-                                wandb.log({f'Loss for agent{a}': loss[a].item()})
+                                wandb.log({f'Loss for agent{i}': loss[i].item()})
                             #e-greedy decay
                             model.exp_noise = schedualer.value(total_steps)
                             print(model.exp_noise)
-                            print('episode: ',j,'training step: ',total_steps,  'loss of agent ',a,': ',loss[a].item())
+                            print('episode: ',j,'training step: ',total_steps,  'loss of agent ',i,': ',loss[i].item())
                     i+=1
                 if flag:
                     wandb.log({'training step': total_steps})
-                        #record & log 
                     if total_steps % opt.eval_interval == 0:
                         score = evaluate_policy(eval_env, agent_models)
                         if opt.write:

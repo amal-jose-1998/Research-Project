@@ -12,13 +12,17 @@ class dddQ_Net(nn.Module):
 	def __init__(self, obs_dim, hidden):
 		super(dddQ_Net, self).__init__()
 		if obs_dim == 8:
-			i = 256
+			i = 64                      #  2*32
 		elif obs_dim == 10:
-			i = 384
+			i = 128                     #  4*32
 		self.conv_layers = nn.Sequential(                                                  # convolutional layers
-			nn.Conv1d(in_channels=1, out_channels=32, kernel_size=3, stride=1),
+			nn.Conv1d(in_channels=1, out_channels=4, kernel_size=3, stride=1),            # input length-kernal+1
 			nn.ReLU(),
-			nn.Conv1d(in_channels=32, out_channels=64, kernel_size=3, stride=1),
+			nn.Conv1d(in_channels=4, out_channels=8, kernel_size=3, stride=1),
+			nn.ReLU(),
+			nn.Conv1d(in_channels=8, out_channels=16, kernel_size=3, stride=1),
+			nn.ReLU(),
+			nn.Conv1d(in_channels=16, out_channels=32, kernel_size=1, stride=1),
 			nn.ReLU(),
 			nn.Flatten())
 		self.fc_layers = nn.Sequential(	                                                   # fully connected layers
@@ -112,14 +116,13 @@ class dddQN_Agent(object):
 		with torch.no_grad():
 			s_prime = s_prime.view(self.batch_size,1,s_prime.shape[1])
 			argmax_a = self.q_net(s_prime)[2].argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
-			max_q_prime = self.q_target(s_prime)[2].gather(1, argmax_a) # Q-values of the chosen action in the next state from the target network 
+			max_q_prime = self.q_target(s_prime)[2].gather(1, argmax_a) # Q-values of the chosen action in the next state, from the target network 
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
 
 		# Get current Q estimates
 		s = s.view(self.batch_size,1,s.shape[1])
 		current_q = self.q_net(s)[2] # Q-values for all possible actions in the current state
 		current_q_a = current_q.gather(1, a) #  selects the Q-value corresponding to the action taken in the current state.
-		
 		q_loss = F.mse_loss(current_q_a, target_Q)  
 		self.q_net_optimizer.zero_grad() # Clears the gradients of the model parameters to avoid accumulation.
 		q_loss.backward() # Computes the gradients of the Q-loss with respect to the model parameters using backpropagation.

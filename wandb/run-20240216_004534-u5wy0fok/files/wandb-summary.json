@@ -1,0 +1,1 @@
+{"training step": 87900, "_timestamp": 1708042497.8678725, "_runtime": 1763.295051574707, "_step": 115147, "Loss for agent0": 2386.37939453125, "Loss for agent1": 59079.0, "Loss for agent2": 4486.19287109375, "reward": {"adversary_0": -43.858797667367625, "agent_0": -0.24728833444712855, "agent_1": -0.24728833444712855}, "global step": 91561, "episode": 3662}

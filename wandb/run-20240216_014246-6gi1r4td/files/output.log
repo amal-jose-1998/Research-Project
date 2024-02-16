@@ -1,0 +1,23 @@
+episode: 0
+episode 0 terminated at 25
+episode: 1
+episode 1 terminated at 50
+episode: 2
+episode 2 terminated at 75
+episode: 3
+episode 3 terminated at 100
+episode: 4
+0.9999836666666667
+episode:  4 training step:  5 loss of agent  0 :  1.2895283699035645
+0.9999836666666667
+episode:  4 training step:  5 loss of agent  1 :  0.4810856878757477
+0.9999836666666667
+episode:  4 training step:  5 loss of agent  2 :  0.4590010344982147
+0.9999673333333333
+episode:  4 training step:  10 loss of agent  0 :  1.356337308883667
+0.9999673333333333
+episode:  4 training step:  10 loss of agent  1 :  0.37468597292900085
+0.9999673333333333
+episode:  4 training step:  10 loss of agent  2 :  0.35292109847068787
+seed: 5 training steps:  10 score: {'adversary_0': -38.66328677735466, 'agent_0': 13.993379156310706, 'agent_1': 13.993379156310706}
+0.999951

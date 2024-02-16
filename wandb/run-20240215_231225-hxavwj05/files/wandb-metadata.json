@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.10.9",
+    "heartbeatAt": "2024-02-15T22:12:26.410221",
+    "startedAt": "2024-02-15T22:12:25.236288",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "c:\\Users\\amalj\\OneDrive\\Desktop\\lecture materials\\S3\\Research Project\\Local Git Repo\\Adversarial-MATL\\Transfer learning in simple adversarial MPE env\\main.py",
+    "codePath": "Transfer learning in simple adversarial MPE env\\main.py",
+    "git": {
+        "remote": "https://github.tik.uni-stuttgart.de/St184634/Adversarial-MATL.git",
+        "commit": "87caafff537c83d10673dc125a7dee6b36531bb5"
+    },
+    "email": "amaljose1998@gmail.com",
+    "root": "C:/Users/amalj/OneDrive/Desktop/lecture materials/S3/Research Project/Local Git Repo/Adversarial-MATL",
+    "host": "DESKTOP-LVTMK5A",
+    "username": "amalj",
+    "executable": "C:\\Users\\amalj\\anaconda3\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2400.0,
+        "min": 0.0,
+        "max": 2400.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2400.0,
+            "min": 0.0,
+            "max": 2400.0
+        }
+    ],
+    "disk": {
+        "total": 236.76073837280273,
+        "used": 131.7264175415039
+    },
+    "gpu": "NVIDIA GeForce GTX 1650",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1650",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.846302032470703
+    }
+}
