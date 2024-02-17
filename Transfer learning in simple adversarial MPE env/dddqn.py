@@ -143,13 +143,13 @@ class dddQN_Agent(object):
        
 		return q_loss 
     
-	def save(self,algo,EnvName,steps):
-		save_path = "./model/{}_{}_{}.pth".format(algo, EnvName, steps)
+	def save(self,algo,EnvName):
+		save_path = "./model/{}_{}.pth".format(algo, EnvName)
 		os.makedirs(os.path.dirname(save_path), exist_ok=True)  # Create the directory if it doesn't exist
 		torch.save(self.q_net.state_dict(), save_path)
 
-	def load(self,algo,EnvName,steps):
-		self.q_net.load_state_dict(torch.load("./model/{}_{}_{}.pth".format(algo,EnvName,steps)))
-		self.q_target.load_state_dict(torch.load("./model/{}_{}_{}.pth".format(algo,EnvName,steps)))
+	def load(self,algo,EnvName):
+		self.q_net.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
+		self.q_target.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
 
 

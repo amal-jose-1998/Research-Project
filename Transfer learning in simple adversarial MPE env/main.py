@@ -25,14 +25,14 @@ parser.add_argument('--batch_size', type=int, default=32, help='lenth of sliced 
 parser.add_argument('--exp_noise', type=float, default=1.0, help='explore noise')
 parser.add_argument('--obs_dim', type=int, default=10, help='observation dimension')
 parser.add_argument('--buffersize', type=int, default=1e5, help='Size of the replay buffer, max 8e5')
-parser.add_argument('--target_freq', type=int, default=10, help='frequency of target net updating')
+parser.add_argument('--target_freq', type=int, default=100, help='frequency of target net updating')
 parser.add_argument('--hardtarget', type=str2bool, default=True, help='True: update target net hardly(copy)')
 parser.add_argument('--action_dim', type=int, default=5, help='no of possible actions')
 parser.add_argument('--anneal_frac', type=int, default=3e5, help='annealing fraction of e-greedy nosise')
 parser.add_argument('--hidden', type=int, default=100, help='number of units in Fully Connected layer')
-parser.add_argument('--train_freq', type=int, default=5, help='model trainning frequency')
+parser.add_argument('--train_freq', type=int, default=1, help='model trainning frequency')
 parser.add_argument('--good_agents', type=int, default=2, help='no of good agents')
-parser.add_argument('--games', type=int, default=10000, help='no of episodes')
+parser.add_argument('--games', type=int, default=100, help='no of episodes')
 opt = parser.parse_args()
 print(opt)
 
@@ -125,7 +125,7 @@ def main():
                     if total_steps % opt.save_interval == 0:
                         for a in range(opt.good_agents+1):
                             model = agent_models[a]
-                            model.save("dddQN_source","simple_adversary_2",int(total_steps/1000))
+                            model.save("dddQN_source","simple_adversary_2")
                     
                     total_steps+=1
 

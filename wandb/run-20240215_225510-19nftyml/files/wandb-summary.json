@@ -1,1 +1,0 @@
-{"training step": 50, "_timestamp": 1708034134.2578862, "_runtime": 23.58068823814392, "_step": 97, "Loss for agent0": 0.5253592729568481, "Loss for agent1": 0.3957459032535553, "Loss for agent3": 0.5552135705947876, "Loss for agent4": 0.4970274567604065, "Loss for agent2": 0.39008668065071106, "_wandb": {"runtime": 23}}
