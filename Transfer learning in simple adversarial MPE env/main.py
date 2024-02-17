@@ -125,7 +125,7 @@ def main():
                     if total_steps % opt.save_interval == 0:
                         for a in range(opt.good_agents+1):
                             model = agent_models[a]
-                            model.save("dddQN_source","simple_adversary_2")
+                            model.save(f"dddQN_source_agent_{a}","simple_adversary_2")
                     
                     total_steps+=1
 
