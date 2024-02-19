@@ -9,7 +9,7 @@ def evaluate_policy(eval_env, agent_models, num_episodes=10):
     total_reward = {}
     for _ in range(num_episodes):
         done = False
-        observations, _ = eval_env.reset()
+        observations, info = eval_env.reset()
         while not done:
             actions = {}
             for agent_name, model in zip(eval_env.agents, agent_models):
@@ -19,12 +19,13 @@ def evaluate_policy(eval_env, agent_models, num_episodes=10):
 
             next_observations, rewards, terminations, truncations, info = eval_env.step(actions)
             done = any(terminations.values()) or any(truncations.values())
+            
             for agent_name in eval_env.agents:
                 if agent_name not in total_reward:
                     total_reward[agent_name] = 0.0
                 total_reward[agent_name] += rewards[agent_name]
             observations = next_observations
-    observations, _ = eval_env.reset()
+    observations, info = eval_env.reset()
     for agent_name in eval_env.agents:
         total_reward[agent_name] = total_reward[agent_name] / num_episodes
     return total_reward

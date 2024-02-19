@@ -11,7 +11,6 @@ from pettingzoo.mpe import simple_adversary_v3
 import copy
 import wandb
 
-
 '''Hyperparameter Setting'''
 parser = argparse.ArgumentParser()
 parser.add_argument('--write', type=str2bool, default=True, help='Use wandb to record the training')
@@ -34,7 +33,7 @@ parser.add_argument('--hidden', type=int, default=100, help='number of units in 
 parser.add_argument('--train_freq', type=int, default=1, help='model trainning frequency')
 parser.add_argument('--good_agents_pretrain', type=int, default=2, help='no of good agents for the pretraining')
 parser.add_argument('--good_agents_transfer_train', type=int, default=3, help='no of good agents for the transfer training')
-parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not')
+parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
 parser.add_argument('--games', type=int, default=100, help='no of episodes')
 opt = parser.parse_args()
 print(opt)
@@ -43,6 +42,7 @@ def main():
     num_games = opt.games
     torch.manual_seed(opt.seed)
     np.random.seed(opt.seed)
+
     env_pretrain = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_pretrain, max_cycles=25, continuous_actions=False)
     eval_env_pretrain = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_pretrain, max_cycles=25, continuous_actions=False)
 
@@ -57,7 +57,7 @@ def main():
 
     if opt.transfer_train == False:
         if opt.write:
-            wandb.init(project='Simple Adversary', name='1 Adversary and 2 Good Agents', config=vars(opt))
+            wandb.init(project='Simple Adversary Pretraining', name='1 Adversary and 2 Good Agents', config=vars(opt))
 
         #Build model and replay buffer
         for agent_id in range(opt.good_agents_pretrain+1):  
@@ -141,6 +141,8 @@ def main():
         eval_env_pretrain.close()
     
     else:
+        if opt.write:
+            wandb.init(project='Simple Adversary transfer training', name='1 Adversary and 3 Good Agents', config=vars(opt))
         transfer_train(opt, agent_models)
 
 if __name__ == '__main__':
