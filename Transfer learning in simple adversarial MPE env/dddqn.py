@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import os
+from torchsummary import summary
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -129,7 +130,7 @@ class dddQN_Agent(object):
 		s = s.view(self.batch_size,1,s.shape[1])
 		current_q = self.q_net(s)[2] # Q-values for all possible actions in the current state
 		current_q_a = current_q.gather(1, a) #  selects the Q-value corresponding to the action taken in the current state.
-		
+
 		q_loss = F.mse_loss(current_q_a, target_Q)  
 		self.q_net_optimizer.zero_grad() # Clears the gradients of the model parameters to avoid accumulation.
 		q_loss.backward() # Computes the gradients of the Q-loss with respect to the model parameters using backpropagation.

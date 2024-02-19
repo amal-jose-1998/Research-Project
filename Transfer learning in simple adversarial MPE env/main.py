@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import gym
 from dddqn import dddQN_Agent,ReplayBuffer
-from transfer learning import tansfer_train
+from transfer_learn import transfer_train
 import os
 from datetime import datetime
 import argparse
@@ -10,7 +10,6 @@ from utils import evaluate_policy, str2bool, LinearSchedule
 from pettingzoo.mpe import simple_adversary_v3
 import copy
 import wandb
-from torchsummary import summary
 
 
 '''Hyperparameter Setting'''
