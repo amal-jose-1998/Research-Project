@@ -95,6 +95,7 @@ class dddQN_Agent(object):
 		self.tau = 1/opt.target_freq       # used in soft updates to control the rate at which the target network parameters are updated. It represents the interpolation factor for the weighted average between the online and target network parameters.
 		self.obs_dim = opt.obs_dim
 		self.exp_noise = 0
+		self.transfer_train = opt.transfer_train
 
     # this function balances exploration and exploitation during decision-making. If in evaluation mode, the agent mostly exploits its knowledge, but with a small probability of exploration. 
 	# if in training mode, the agent explores with a probability determined by the exploration noise parameter (self.exp_noise)
@@ -118,11 +119,17 @@ class dddQN_Agent(object):
 			argmax_a = self.q_net(s_prime)[2].argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
 			max_q_prime = self.q_target(s_prime)[2].gather(1, argmax_a) # Q-values of the chosen action in the next state, from the target network 
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
+			
+		# Set requires_grad to False for convolutional layers if it is transfer learning
+		if self.transfer_train:
+			for param in self.q_net.conv_layers.parameters():
+				param.requires_grad = False
 
 		# Get current Q estimates
 		s = s.view(self.batch_size,1,s.shape[1])
 		current_q = self.q_net(s)[2] # Q-values for all possible actions in the current state
 		current_q_a = current_q.gather(1, a) #  selects the Q-value corresponding to the action taken in the current state.
+		
 		q_loss = F.mse_loss(current_q_a, target_Q)  
 		self.q_net_optimizer.zero_grad() # Clears the gradients of the model parameters to avoid accumulation.
 		q_loss.backward() # Computes the gradients of the Q-loss with respect to the model parameters using backpropagation.
@@ -151,5 +158,7 @@ class dddQN_Agent(object):
 	def load(self,algo,EnvName):
 		self.q_net.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
 		self.q_target.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
+
+	
 
 
