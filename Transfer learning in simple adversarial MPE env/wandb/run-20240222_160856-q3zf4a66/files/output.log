@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 95, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 85, in main
+    model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2") # Load pretrained models for the first two good agents and the adversary
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\dddqn.py", line 175, in load
+    self.q_net.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\nn\modules\module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for dddQ_Net:
+	size mismatch for fc_layers.0.weight: copying a param with shape torch.Size([100, 60]) from checkpoint, the shape in current model is torch.Size([100, 180]).

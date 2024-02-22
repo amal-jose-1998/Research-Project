@@ -3,13 +3,13 @@ import torch
 import time
 import argparse
 import numpy as np
+import wandb
 
-
-def evaluate_policy(eval_env, agent_models, num_episodes=10):
+def evaluate_policy(s, eval_env, agent_models, num_episodes=10):
     total_reward = {}
     for _ in range(num_episodes):
         done = False
-        observations, info = eval_env.reset()
+        observations, info = eval_env.reset(seed = s+1)
         while not done:
             actions = {}
             for agent_name, model in zip(eval_env.agents, agent_models):
@@ -19,7 +19,7 @@ def evaluate_policy(eval_env, agent_models, num_episodes=10):
 
             next_observations, rewards, terminations, truncations, info = eval_env.step(actions)
             done = any(terminations.values()) or any(truncations.values())
-            
+
             for agent_name in eval_env.agents:
                 if agent_name not in total_reward:
                     total_reward[agent_name] = 0.0
@@ -30,6 +30,83 @@ def evaluate_policy(eval_env, agent_models, num_episodes=10):
         total_reward[agent_name] = total_reward[agent_name] / num_episodes
     return total_reward
 
+def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers):
+    schedualer = LinearSchedule(schedule_timesteps=opt.anneal_frac, final_p=0.02, initial_p=opt.exp_noise) #explore noise linearly annealed from 1.0 to 0.02 within 200k steps
+    loss = {}
+    terminations = {}
+    truncations = {}
+    total_steps = 0 # total steps including the non training ones
+    total_training_steps = 1 # total training step
+    for i in range(num_games):
+        print('episode:', i)
+        actions={}
+        done = False
+        s, infos = env.reset(seed=opt.seed)
+        for agent_name in env.agents:
+            terminations[agent_name] = False
+            truncations[agent_name] = False
+        while not done:
+            if any(terminations.values()) or any(truncations.values()):
+                print('episode',i, 'terminated at', total_steps)
+                done = 1
+            else:
+                total_steps += 1
+                j = 0
+                for agent_name in env.agents:
+                    model = agent_models[j]
+                    buffer = agent_buffers[j]
+                    j+=1
+                    a = model.select_action(torch.tensor(s[agent_name]), evaluate=False)
+                    actions[agent_name]=a
+
+                s_prime, r, terminations, truncations, info = env.step(actions)
+
+                j = 0
+                flag = 0
+                for agent_name in env.agents:
+                    current_state = torch.tensor(s[agent_name])
+                    next_state = torch.tensor(s_prime[agent_name])
+                    reward = torch.tensor(r[agent_name])
+                    action = torch.tensor(actions[agent_name])
+                    if terminations[agent_name] or truncations[agent_name]:
+                        done = 1
+                    buffer = agent_buffers[j]
+                    buffer.add(current_state, action, reward, next_state, done)
+                    flag = 0
+                    if buffer.size >= opt.random_steps: #checks if the replay buffer has accumulated enough experiences to start training.
+                        flag = 1
+                        if total_steps % opt.train_freq == 0: 
+                            model = agent_models[j]
+                            loss[j] = model.train(buffer)
+                            if opt.write:
+                                wandb.log({f'training Loss for agent{j}': loss[j].item()})
+                            model.exp_noise = schedualer.value(total_training_steps) #e-greedy decay
+                            print('episode: ',i,'training step: ',total_training_steps,'loss of agent ',j,': ',loss[j].item())
+                    j+=1
+
+                if flag:
+                    wandb.log({'training step': total_training_steps})
+                    if total_training_steps % opt.eval_interval == 0:
+                        score = evaluate_policy(opt.seed, eval_env, agent_models)
+                        if opt.write:
+                            wandb.log({'evaluation_env  avg_reward': score, 'total steps': total_steps, 'episode': i})
+                            print("Evaluation")
+                            print('env seed:',opt.seed+1,'evaluation score at the training step: ',total_training_steps,': ', score)
+                    if total_training_steps % opt.save_interval == 0:
+                        if opt.transfer_train == True:
+                            value = opt.good_agents_transfer_train+1
+                            algo = 'dddQN_target_agent'
+                            EnvName = "simple_adversary_3"
+                        else:
+                            value = opt.good_agents_pretrain+1
+                            algo = 'dddQN_source_agent'
+                            EnvName = "simple_adversary_2"
+                        for a in range(value):
+                            model = agent_models[a]
+                            model.save(f"{algo}_{a}",EnvName)                    
+                    total_training_steps+=1
+
+                s = s_prime
 
 def str2bool(v):
     '''Transfer str to bool for argparse'''
