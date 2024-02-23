@@ -61,6 +61,7 @@ class dddQ_Net(nn.Module):
 
 	def forward(self,obs):
 		conv_output = self.conv_layers(obs)
+		#print("conv_output shape:", conv_output.shape)
 		fc_output = self.fc_layers(conv_output)
 		V = self.V(fc_output)
 		A = self.A(fc_output)
@@ -113,9 +114,10 @@ class dddQN_Agent(object):
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
 			
 		# Set requires_grad to False for convolutional layers if it is transfer learning
-		if self.transfer_train:
-			for param in self.q_net.conv_layers.parameters():
-				param.requires_grad = False
+	#	if self.transfer_train:
+	#		print(self.q_net)
+	#		for param in self.q_net.conv_layers.parameters():
+	#			param.requires_grad = False
 
 		# Get current Q estimates
 		s = s.view(self.batch_size,1,s.shape[1])
@@ -151,15 +153,19 @@ class dddQN_Agent(object):
 		self.q_net.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
 		self.q_target.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
 		if transfer_train:
-			input_net = Inputnet(input_obs_dim, conv_input_dim)
+			self.obs_dim = input_obs_dim
+			input_net = Inputnet(self.obs_dim, conv_input_dim)
 			self.q_net = Combine(input_net, self.q_net)
-	
+			self.q_target = Combine(input_net, self.q_target)
 
 class Combine(nn.Module):
 	def __init__(self,input_net, q_net):
 		super(Combine, self).__init__()
 		self.input_net = input_net
 		self.q_net = q_net
+		# Set requires_grad to False for convolutional layers if it is transfer learning
+		for param in self.q_net.conv_layers.parameters():
+			param.requires_grad = False
 
 	def forward(self, obs):
 		input = self.input_net(obs)

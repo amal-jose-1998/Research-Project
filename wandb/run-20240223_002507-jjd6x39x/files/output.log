@@ -1,0 +1,12 @@
+
+episode: 0
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 114, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 109, in main
+    loop_iteration(num_games, env_transfer_train, eval_env_transfer_train, opt, agent_models, agent_buffers)
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\utils.py", line 74, in loop_iteration
+    buffer.add(current_state, action, reward, next_state, done)
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\dddqn.py", line 182, in add
+    self.state[self.ptr] = state
+RuntimeError: The expanded size of the tensor (12) must match the existing size (14) at non-singleton dimension 0.  Target sizes: [12].  Tensor sizes: [14]

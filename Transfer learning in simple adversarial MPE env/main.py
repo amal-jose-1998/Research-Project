@@ -1,11 +1,11 @@
 import numpy as np
 import torch
 #import gym
-from dddqn import dddQN_Agent, ReplayBuffer, Inputnet, Combine
+from dddqn import dddQN_Agent, ReplayBuffer
 #import os
 #from datetime import datetime
 import argparse
-from utils import str2bool, loop_iteration, adapt
+from utils import str2bool, loop_iteration
 from pettingzoo.mpe import simple_adversary_v3
 import copy
 import wandb
@@ -23,7 +23,6 @@ parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate')
 parser.add_argument('--batch_size', type=int, default=32, help='lenth of sliced trajectory')
 parser.add_argument('--exp_noise', type=float, default=1.0, help='explore noise')
 parser.add_argument('--obs_dim', type=int, default=10, help='observation dimension')
-parser.add_argument('--conv_input_dim', type=int, default=10, help='input dimension for the convolutional layers')
 parser.add_argument('--buffersize', type=int, default=1e5, help='Size of the replay buffer, max 8e5')
 parser.add_argument('--target_freq', type=int, default=100, help='frequency of target net updating')
 parser.add_argument('--hardtarget', type=str2bool, default=False, help='True: update target net hardly(copy)')
@@ -48,7 +47,7 @@ def set_observation_dimension(agent_id, transfer_train=False):
         if agent_id==0:
             return 12
         else:
-            return 12
+            return 14
 
 
 def main():
@@ -67,7 +66,7 @@ def main():
     if opt.transfer_train == False:
         if opt.write:
             wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining', config=vars(opt))
-        
+        print(env_pretrain.observation_space)
         #Build model and replay buffer
         for agent_id in range(opt.good_agents_pretrain+1):  
             agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
@@ -87,15 +86,16 @@ def main():
     else:
         if opt.write:
             wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training', config=vars(opt))
-        
+        print(env_transfer_train.observation_space)
         for agent_id in range(opt.good_agents_transfer_train+1):  
             agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
-            
             if agent_id < opt.good_agents_pretrain:
                 agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=False)
+                conv_input_dim = agent_opt.obs_dim
                 model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent 
                 agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)
-                model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2", agent_opt.obs_dim, opt.conv_input_dim, opt.transfer_train) # Load pretrained models for the first two good agents and the adversary  
+                input_obs_dim = agent_opt.obs_dim
+                model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2", input_obs_dim, conv_input_dim, opt.transfer_train) # Load pretrained models for the first two good agents and the adversary  
             else:
                 agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)
                 model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent 
