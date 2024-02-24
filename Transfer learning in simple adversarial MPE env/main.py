@@ -16,7 +16,7 @@ parser.add_argument('--write', type=str2bool, default=True, help='Use wandb to r
 parser.add_argument('--render', type=str, default="human", help='Render or Not')
 parser.add_argument('--seed', type=int, default=5, help='random seed')
 parser.add_argument('--save_interval', type=int, default=10, help='Model saving interval, in steps.')
-parser.add_argument('--eval_interval', type=int, default=10, help='Model evaluating interval, in steps.')
+parser.add_argument('--eval_interval', type=int, default=1, help='Model evaluating interval, in steps.')
 parser.add_argument('--random_steps', type=int, default=100, help=' min no of replay buffer experiences to start training')
 parser.add_argument('--gamma', type=float, default=0.99, help='Discounted Factor')
 parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate')
@@ -31,18 +31,25 @@ parser.add_argument('--anneal_frac', type=int, default=2e5, help='annealing frac
 parser.add_argument('--hidden', type=int, default=100, help='number of units in Fully Connected layer')
 parser.add_argument('--train_freq', type=int, default=1, help='model trainning frequency')
 parser.add_argument('--good_agents_pretrain', type=int, default=2, help='no of good agents for the pretraining')
-parser.add_argument('--good_agents_transfer_train', type=int, default=3, help='no of good agents for the transfer training')
-parser.add_argument('--transfer_train', type=str2bool, default=True, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
+parser.add_argument('--good_agents_target', type=int, default=3, help='no of good agents for the target')
+parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
+parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
 parser.add_argument('--games', type=int, default=50, help='no of episodes')
 opt = parser.parse_args()
 print(opt)
 
-def set_observation_dimension(agent_id, transfer_train=False):
+def set_observation_dimension(agent_id, transfer_train=False, pretrain = False):
     if transfer_train == False:
-        if agent_id==0:
-            return 8
+        if pretrain == True:
+            if agent_id==0:
+                return 8
+            else:
+                return 10
         else:
-            return 10
+            if agent_id==0:
+                return 12
+            else:
+                return 14
     else:
         if agent_id==0:
             return 12
@@ -57,37 +64,56 @@ def main():
 
     env_pretrain = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_pretrain, max_cycles=25, continuous_actions=False)
     eval_env_pretrain = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_pretrain, max_cycles=25, continuous_actions=False)
-    env_transfer_train = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_transfer_train, max_cycles=25, continuous_actions=False)
-    eval_env_transfer_train = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_transfer_train, max_cycles=25, continuous_actions=False)
-    
+    env_transfer_train = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
+    eval_env_transfer_train = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
+    env_train_from_scratch = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
+    eval_env_train_from_scratch= simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
+
+
     agent_models = [] # agent[0] is the adversary
     agent_buffers = []
     
     if opt.transfer_train == False:
-        if opt.write:
-            wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining', config=vars(opt))
-        print(env_pretrain.observation_space)
-        #Build model and replay buffer
-        for agent_id in range(opt.good_agents_pretrain+1):  
-            agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
-            if agent_id==0:
-               agent_opt.obs_dim = 8
-            else:
-                agent_opt.obs_dim = 10
-            model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent    
-            agent_models.append(model)
-            buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
-            agent_buffers.append(buffer)
+        if opt.pretrain == True:
+            if opt.write:
+                wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining', config=vars(opt))
+            print(env_pretrain.observation_space)
+            #Build model and replay buffer
+            for agent_id in range(opt.good_agents_pretrain+1):  
+                agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
+                agent_opt.obs_dim = set_observation_dimension(agent_id, pretrain = True)
+                model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent    
+                agent_models.append(model)
+                buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
+                agent_buffers.append(buffer)
 
-        loop_iteration(num_games, env_pretrain, eval_env_pretrain, opt, agent_models, agent_buffers)
-        env_pretrain.close()
-        eval_env_pretrain.close()
+            loop_iteration(num_games, env_pretrain, eval_env_pretrain, opt, agent_models, agent_buffers)
+            env_pretrain.close()
+            eval_env_pretrain.close()
+       
+        else:
+            if opt.write:
+                wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Training from scratch', config=vars(opt))
+            print(env_train_from_scratch.observation_space)
+            #Build model and replay buffer
+            for agent_id in range(opt.good_agents_target+1):  
+                agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
+                agent_opt.obs_dim = set_observation_dimension(agent_id)
+                model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent    
+                agent_models.append(model)
+                buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
+                agent_buffers.append(buffer)
+
+            loop_iteration(num_games, env_train_from_scratch, eval_env_train_from_scratch, opt, agent_models, agent_buffers)
+            env_train_from_scratch.close()
+            eval_env_train_from_scratch.close()
+
     
     else:
         if opt.write:
             wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training', config=vars(opt))
         print(env_transfer_train.observation_space)
-        for agent_id in range(opt.good_agents_transfer_train+1):  
+        for agent_id in range(opt.good_agents_target+1):  
             agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
             if agent_id < opt.good_agents_pretrain:
                 agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=False)
