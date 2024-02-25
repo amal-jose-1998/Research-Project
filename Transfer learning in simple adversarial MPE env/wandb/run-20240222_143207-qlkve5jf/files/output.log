@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 92, in <module>
-    main()
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 78, in main
-    model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2")   # Load pretrained models for the first two good agents and the adversary
-UnboundLocalError: local variable 'model' referenced before assignment

@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 90, in <module>
-    main()
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 79, in main
-    agent_models[a].load(f"dddQN_source_agent_{a}","simple_adversary_2")   # Load pretrained models for the first two good agents and the adversary
-IndexError: list index out of range
-0
-3

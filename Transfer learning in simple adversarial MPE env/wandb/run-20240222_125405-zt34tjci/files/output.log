@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 89, in <module>
-    main()
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 69, in main
-    loop_iteration(num_games, env_pretrain, eval_env_pretrain, opt, agent_models, agent_buffers)
-TypeError: loop_iteration() missing 2 required positional arguments: 'agent_models' and 'agent_buffers'
