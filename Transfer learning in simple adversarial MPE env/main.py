@@ -86,8 +86,9 @@ def main():
                 agent_models.append(model)
                 buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
                 agent_buffers.append(buffer)
-
-            loop_iteration(num_games, env_pretrain, eval_env_pretrain, opt, agent_models, agent_buffers)
+            
+            good_agents = opt.good_agents_pretrain
+            loop_iteration(num_games, env_pretrain, eval_env_pretrain, opt, agent_models, agent_buffers, good_agents)
             env_pretrain.close()
             eval_env_pretrain.close()
        
@@ -104,7 +105,8 @@ def main():
                 buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
                 agent_buffers.append(buffer)
 
-            loop_iteration(num_games, env_train_from_scratch, eval_env_train_from_scratch, opt, agent_models, agent_buffers)
+            good_agents = opt.good_agents_target
+            loop_iteration(num_games, env_train_from_scratch, eval_env_train_from_scratch, opt, agent_models, agent_buffers, good_agents)
             env_train_from_scratch.close()
             eval_env_train_from_scratch.close()
 
@@ -130,8 +132,9 @@ def main():
             agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)
             buffer = ReplayBuffer(agent_opt.obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
             agent_buffers.append(buffer)             
-       
-        loop_iteration(num_games, env_transfer_train, eval_env_transfer_train, opt, agent_models, agent_buffers)
+        
+        good_agents = opt.good_agents_target
+        loop_iteration(num_games, env_transfer_train, eval_env_transfer_train, opt, agent_models, agent_buffers, good_agents)
         env_transfer_train.close()
         eval_env_transfer_train.close()
 

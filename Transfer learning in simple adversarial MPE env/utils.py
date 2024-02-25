@@ -30,7 +30,7 @@ def evaluate_policy(s, eval_env, agent_models, num_episodes=10):
         total_reward[agent_name] = total_reward[agent_name] / num_episodes
     return total_reward
 
-def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers):
+def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, good_agents):
     schedualer = LinearSchedule(schedule_timesteps=opt.anneal_frac, final_p=0.02, initial_p=opt.exp_noise) #explore noise linearly annealed from 1.0 to 0.02 within 200k steps
     loss = {}
     terminations = {}
@@ -93,14 +93,13 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers):
                             print("Evaluation")
                             print('env seed:',opt.seed+1,'evaluation score at the training step: ',total_training_steps,': ', score)
                     if total_training_steps % opt.save_interval == 0:
+                        value = good_agents+1
                         if opt.transfer_train == True:
-                            value = opt.good_agents_transfer_train+1
                             algo = 'dddQN_target_agent'
-                            EnvName = "simple_adversary_3"
+                            EnvName = "simple_adversary_3Good_Agents"
                         else:
-                            value = opt.good_agents_pretrain+1
                             algo = 'dddQN_source_agent'
-                            EnvName = "simple_adversary_2"
+                            EnvName = "simple_adversary_2Good_Agents"
                         for a in range(value):
                             model = agent_models[a]
                             model.save(f"{algo}_{a}",EnvName)                    
