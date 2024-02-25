@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 95, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 85, in main
+    model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2") # Load pretrained models for the first two good agents and the adversary
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\dddqn.py", line 175, in load
+    self.q_net.load_state_dict(torch.load("./model/{}_{}.pth".format(algo,EnvName)))
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\nn\modules\module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for dddQ_Net:
+	Missing key(s) in state_dict: "conv_layers.8.weight", "conv_layers.8.bias", "conv_layers.10.weight", "conv_layers.10.bias".
+	size mismatch for conv_layers.0.weight: copying a param with shape torch.Size([4, 1, 3]) from checkpoint, the shape in current model is torch.Size([5, 1, 3]).
+	size mismatch for conv_layers.0.bias: copying a param with shape torch.Size([4]) from checkpoint, the shape in current model is torch.Size([5]).
+	size mismatch for conv_layers.2.weight: copying a param with shape torch.Size([8, 4, 3]) from checkpoint, the shape in current model is torch.Size([10, 5, 3]).
+	size mismatch for conv_layers.2.bias: copying a param with shape torch.Size([8]) from checkpoint, the shape in current model is torch.Size([10]).
+	size mismatch for conv_layers.4.weight: copying a param with shape torch.Size([16, 8, 3]) from checkpoint, the shape in current model is torch.Size([15, 10, 3]).
+	size mismatch for conv_layers.4.bias: copying a param with shape torch.Size([16]) from checkpoint, the shape in current model is torch.Size([15]).
+	size mismatch for conv_layers.6.weight: copying a param with shape torch.Size([32, 16, 1]) from checkpoint, the shape in current model is torch.Size([20, 15, 3]).
+	size mismatch for conv_layers.6.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([20]).
+	size mismatch for fc_layers.0.weight: copying a param with shape torch.Size([100, 64]) from checkpoint, the shape in current model is torch.Size([100, 180]).

@@ -1,0 +1,95 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.11
+    framework: huggingface
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.10.9
+    start_time: 1708608943.901976
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 11
+      - 49
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.10.9
+      5: 0.13.11
+      8:
+      - 3
+      - 5
+action_dim:
+  desc: null
+  value: 5
+anneal_frac:
+  desc: null
+  value: 200000.0
+batch_size:
+  desc: null
+  value: 32
+buffersize:
+  desc: null
+  value: 100000.0
+eval_interval:
+  desc: null
+  value: 10
+exp_noise:
+  desc: null
+  value: 1.0
+games:
+  desc: null
+  value: 100
+gamma:
+  desc: null
+  value: 0.99
+good_agents_pretrain:
+  desc: null
+  value: 2
+good_agents_transfer_train:
+  desc: null
+  value: 3
+hardtarget:
+  desc: null
+  value: true
+hidden:
+  desc: null
+  value: 100
+lr:
+  desc: null
+  value: 0.0001
+obs_dim:
+  desc: null
+  value: 10
+random_steps:
+  desc: null
+  value: 100
+render:
+  desc: null
+  value: human
+save_interval:
+  desc: null
+  value: 10
+seed:
+  desc: null
+  value: 5
+target_freq:
+  desc: null
+  value: 100
+train_freq:
+  desc: null
+  value: 1
+transfer_train:
+  desc: null
+  value: true
+write:
+  desc: null
+  value: true

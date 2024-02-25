@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 92, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 76, in main
+    for agent_id in range(opt.good_transfer_train+1):
+AttributeError: 'Namespace' object has no attribute 'good_transfer_train'

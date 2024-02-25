@@ -1,0 +1,189 @@
+episode: 0
+episode 0 terminated at 25
+episode: 1
+episode 1 terminated at 50
+episode: 2
+episode 2 terminated at 75
+episode: 3
+episode 3 terminated at 100
+episode: 4
+0.9999836666666667
+episode:  4 training step:  5 loss of agent  0 :  1.7072739601135254
+0.9999836666666667
+episode:  4 training step:  5 loss of agent  1 :  0.6741641163825989
+0.9999836666666667
+episode:  4 training step:  5 loss of agent  2 :  0.7123008370399475
+0.9999673333333333
+episode:  4 training step:  10 loss of agent  0 :  1.4474565982818604
+0.9999673333333333
+episode:  4 training step:  10 loss of agent  1 :  0.6823866963386536
+0.9999673333333333
+episode:  4 training step:  10 loss of agent  2 :  0.6669398546218872
+seed: 5 training steps:  10 score: {'adversary_0': -55.25820791128255, 'agent_0': 28.91047371425548, 'agent_1': 28.91047371425548}
+0.999951
+episode:  4 training step:  15 loss of agent  0 :  1.82145094871521
+0.999951
+episode:  4 training step:  15 loss of agent  1 :  0.47597625851631165
+0.999951
+episode:  4 training step:  15 loss of agent  2 :  0.7734024524688721
+0.9999346666666666
+episode:  4 training step:  20 loss of agent  0 :  1.4127269983291626
+0.9999346666666666
+episode:  4 training step:  20 loss of agent  1 :  0.4969108998775482
+0.9999346666666666
+episode:  4 training step:  20 loss of agent  2 :  0.5945149660110474
+seed: 5 training steps:  20 score: {'adversary_0': -43.363301069598606, 'agent_0': 20.427758776121898, 'agent_1': 20.427758776121898}
+episode 4 terminated at 125
+episode: 5
+0.9999183333333334
+episode:  5 training step:  25 loss of agent  0 :  1.5871803760528564
+0.9999183333333334
+episode:  5 training step:  25 loss of agent  1 :  0.5835956931114197
+0.9999183333333334
+episode:  5 training step:  25 loss of agent  2 :  0.7248198986053467
+0.999902
+episode:  5 training step:  30 loss of agent  0 :  1.5082141160964966
+0.999902
+episode:  5 training step:  30 loss of agent  1 :  0.7013691663742065
+0.999902
+episode:  5 training step:  30 loss of agent  2 :  0.5582295656204224
+seed: 5 training steps:  30 score: {'adversary_0': -43.26988734481115, 'agent_0': 23.825771808468918, 'agent_1': 23.825771808468918}
+0.9998856666666667
+episode:  5 training step:  35 loss of agent  0 :  1.9711170196533203
+0.9998856666666667
+episode:  5 training step:  35 loss of agent  1 :  0.6332256197929382
+0.9998856666666667
+episode:  5 training step:  35 loss of agent  2 :  0.6487466096878052
+0.9998693333333334
+episode:  5 training step:  40 loss of agent  0 :  1.3019797801971436
+0.9998693333333334
+episode:  5 training step:  40 loss of agent  1 :  0.519050121307373
+0.9998693333333334
+episode:  5 training step:  40 loss of agent  2 :  0.5207390189170837
+seed: 5 training steps:  40 score: {'adversary_0': -47.39257348079373, 'agent_0': 27.937303584904896, 'agent_1': 27.937303584904896}
+0.999853
+episode:  5 training step:  45 loss of agent  0 :  1.8193702697753906
+0.999853
+episode:  5 training step:  45 loss of agent  1 :  0.6559758186340332
+0.999853
+episode:  5 training step:  45 loss of agent  2 :  0.6531895995140076
+episode 5 terminated at 150
+episode: 6
+0.9998366666666667
+episode:  6 training step:  50 loss of agent  0 :  1.4396638870239258
+0.9998366666666667
+episode:  6 training step:  50 loss of agent  1 :  0.4685220718383789
+0.9998366666666667
+episode:  6 training step:  50 loss of agent  2 :  0.666026771068573
+seed: 5 training steps:  50 score: {'adversary_0': -50.290051778954606, 'agent_0': 28.11997576510625, 'agent_1': 28.11997576510625}
+0.9998203333333333
+episode:  6 training step:  55 loss of agent  0 :  1.153726577758789
+0.9998203333333333
+episode:  6 training step:  55 loss of agent  1 :  0.5167537927627563
+0.9998203333333333
+episode:  6 training step:  55 loss of agent  2 :  0.6405514478683472
+0.999804
+episode:  6 training step:  60 loss of agent  0 :  1.7250901460647583
+0.999804
+episode:  6 training step:  60 loss of agent  1 :  0.7277564406394958
+0.999804
+episode:  6 training step:  60 loss of agent  2 :  0.49282997846603394
+seed: 5 training steps:  60 score: {'adversary_0': -48.754677076958224, 'agent_0': 31.271634183515083, 'agent_1': 31.271634183515083}
+0.9997876666666666
+episode:  6 training step:  65 loss of agent  0 :  1.563422679901123
+0.9997876666666666
+episode:  6 training step:  65 loss of agent  1 :  0.5901051163673401
+0.9997876666666666
+episode:  6 training step:  65 loss of agent  2 :  0.5204782485961914
+episode 6 terminated at 175
+episode: 7
+0.9997713333333333
+episode:  7 training step:  70 loss of agent  0 :  1.2031363248825073
+0.9997713333333333
+episode:  7 training step:  70 loss of agent  1 :  0.5154765248298645
+0.9997713333333333
+episode:  7 training step:  70 loss of agent  2 :  0.4737267792224884
+seed: 5 training steps:  70 score: {'adversary_0': -56.553741210712566, 'agent_0': 35.66842940159306, 'agent_1': 35.66842940159306}
+0.999755
+episode:  7 training step:  75 loss of agent  0 :  1.3305292129516602
+0.999755
+episode:  7 training step:  75 loss of agent  1 :  0.5796382427215576
+0.999755
+episode:  7 training step:  75 loss of agent  2 :  0.655454695224762
+0.9997386666666667
+episode:  7 training step:  80 loss of agent  0 :  1.5573546886444092
+0.9997386666666667
+episode:  7 training step:  80 loss of agent  1 :  0.4121970236301422
+0.9997386666666667
+episode:  7 training step:  80 loss of agent  2 :  0.46802571415901184
+seed: 5 training steps:  80 score: {'adversary_0': -50.949233657267236, 'agent_0': 32.05770559704531, 'agent_1': 32.05770559704531}
+0.9997223333333334
+episode:  7 training step:  85 loss of agent  0 :  2.041210174560547
+0.9997223333333334
+episode:  7 training step:  85 loss of agent  1 :  0.4753369092941284
+0.9997223333333334
+episode:  7 training step:  85 loss of agent  2 :  0.6628088355064392
+0.999706
+episode:  7 training step:  90 loss of agent  0 :  1.138123869895935
+0.999706
+episode:  7 training step:  90 loss of agent  1 :  0.4661664664745331
+0.999706
+episode:  7 training step:  90 loss of agent  2 :  0.49007394909858704
+seed: 5 training steps:  90 score: {'adversary_0': -56.11349336672697, 'agent_0': 38.15025202695531, 'agent_1': 38.15025202695531}
+episode 7 terminated at 200
+episode: 8
+0.9996896666666667
+episode:  8 training step:  95 loss of agent  0 :  1.5183956623077393
+0.9996896666666667
+episode:  8 training step:  95 loss of agent  1 :  0.6828799843788147
+0.9996896666666667
+episode:  8 training step:  95 loss of agent  2 :  0.37053221464157104
+0.9996733333333333
+episode:  8 training step:  100 loss of agent  0 :  1.3589270114898682
+0.9996733333333333
+episode:  8 training step:  100 loss of agent  1 :  0.6317740678787231
+0.9996733333333333
+episode:  8 training step:  100 loss of agent  2 :  0.4592103362083435
+seed: 5 training steps:  100 score: {'adversary_0': -60.02906662907257, 'agent_0': 41.34479192716867, 'agent_1': 41.34479192716867}
+0.999657
+episode:  8 training step:  105 loss of agent  0 :  1.2667163610458374
+0.999657
+episode:  8 training step:  105 loss of agent  1 :  0.6162288188934326
+0.999657
+episode:  8 training step:  105 loss of agent  2 :  0.5504902601242065
+0.9996406666666666
+episode:  8 training step:  110 loss of agent  0 :  1.3334174156188965
+0.9996406666666666
+episode:  8 training step:  110 loss of agent  1 :  0.5613437294960022
+0.9996406666666666
+episode:  8 training step:  110 loss of agent  2 :  0.5494905710220337
+seed: 5 training steps:  110 score: {'adversary_0': -47.49912912804679, 'agent_0': 25.930457228094333, 'agent_1': 25.930457228094333}
+0.9996243333333333
+episode:  8 training step:  115 loss of agent  0 :  1.327678918838501
+0.9996243333333333
+episode:  8 training step:  115 loss of agent  1 :  0.70902419090271
+0.9996243333333333
+episode:  8 training step:  115 loss of agent  2 :  0.43773502111434937
+episode 8 terminated at 225
+episode: 9
+0.999608
+episode:  9 training step:  120 loss of agent  0 :  1.5244369506835938
+0.999608
+episode:  9 training step:  120 loss of agent  1 :  0.2870721220970154
+0.999608
+episode:  9 training step:  120 loss of agent  2 :  0.41556113958358765
+seed: 5 training steps:  120 score: {'adversary_0': -54.980444799048755, 'agent_0': 33.9362664609015, 'agent_1': 33.9362664609015}
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 137, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 128, in main
+    model.save("dddQN_source","simple_adversary_2")
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\dddqn.py", line 149, in save
+    torch.save(self.q_net.state_dict(), save_path)
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\serialization.py", line 618, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\serialization.py", line 492, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\serialization.py", line 463, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name))
+RuntimeError: File ./model/dddQN_source_simple_adversary_2.pth cannot be opened.

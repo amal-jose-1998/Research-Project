@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 95, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 83, in main
+    model = dddQN_Agent(agent_opt) # Create a model for each agent
+TypeError: dddQN_Agent.__init__() missing 1 required positional argument: 'id'

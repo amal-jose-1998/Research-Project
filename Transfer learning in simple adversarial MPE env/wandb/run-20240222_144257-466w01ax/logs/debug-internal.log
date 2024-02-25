@@ -1,0 +1,187 @@
+2024-02-22 14:42:57,126 INFO    StreamThr :8280 [internal.py:wandb_internal():87] W&B internal server running at pid: 8280, started at: 2024-02-22 14:42:57.126278
+2024-02-22 14:42:57,128 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: status
+2024-02-22 14:42:57,130 INFO    WriterThread:8280 [datastore.py:open_for_write():85] open: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\run-466w01ax.wandb
+2024-02-22 14:42:57,139 DEBUG   SenderThread:8280 [sender.py:send():336] send: header
+2024-02-22 14:42:57,194 DEBUG   SenderThread:8280 [sender.py:send():336] send: run
+2024-02-22 14:43:02,198 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: keepalive
+2024-02-22 14:43:02,355 INFO    SenderThread:8280 [dir_watcher.py:__init__():219] watching files in: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files
+2024-02-22 14:43:02,357 INFO    SenderThread:8280 [sender.py:_start_run_threads():1078] run started: 466w01ax with start time 1708609377.127573
+2024-02-22 14:43:02,357 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: summary_record
+2024-02-22 14:43:02,357 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: status_report
+2024-02-22 14:43:02,362 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: check_version
+2024-02-22 14:43:02,370 INFO    SenderThread:8280 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2024-02-22 14:43:02,371 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: check_version
+2024-02-22 14:43:02,503 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: run_start
+2024-02-22 14:43:02,527 DEBUG   HandlerThread:8280 [system_info.py:__init__():31] System info init
+2024-02-22 14:43:02,527 DEBUG   HandlerThread:8280 [system_info.py:__init__():46] System info init done
+2024-02-22 14:43:02,527 INFO    HandlerThread:8280 [system_monitor.py:start():183] Starting system monitor
+2024-02-22 14:43:02,528 INFO    SystemMonitor:8280 [system_monitor.py:_start():147] Starting system asset monitoring threads
+2024-02-22 14:43:02,528 INFO    HandlerThread:8280 [system_monitor.py:probe():204] Collecting system info
+2024-02-22 14:43:02,531 INFO    SystemMonitor:8280 [interfaces.py:start():187] Started cpu monitoring
+2024-02-22 14:43:02,532 INFO    SystemMonitor:8280 [interfaces.py:start():187] Started disk monitoring
+2024-02-22 14:43:02,532 INFO    SystemMonitor:8280 [interfaces.py:start():187] Started gpu monitoring
+2024-02-22 14:43:02,533 INFO    SystemMonitor:8280 [interfaces.py:start():187] Started memory monitoring
+2024-02-22 14:43:02,543 INFO    SystemMonitor:8280 [interfaces.py:start():187] Started network monitoring
+2024-02-22 14:43:02,543 DEBUG   HandlerThread:8280 [system_info.py:probe():195] Probing system
+2024-02-22 14:43:02,544 DEBUG   HandlerThread:8280 [system_info.py:_probe_git():180] Probing git
+2024-02-22 14:43:02,620 DEBUG   HandlerThread:8280 [system_info.py:_probe_git():188] Probing git done
+2024-02-22 14:43:02,620 DEBUG   HandlerThread:8280 [system_info.py:probe():240] Probing system done
+2024-02-22 14:43:02,620 DEBUG   HandlerThread:8280 [system_monitor.py:probe():213] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.9', 'heartbeatAt': '2024-02-22T13:43:02.544571', 'startedAt': '2024-02-22T13:42:57.102113', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'c:\\Users\\amalj\\OneDrive\\Desktop\\lecture materials\\S3\\Research Project\\Local Git Repo\\Adversarial-MATL\\Transfer learning in simple adversarial MPE env\\main.py', 'codePath': 'Transfer learning in simple adversarial MPE env\\main.py', 'git': {'remote': 'https://github.tik.uni-stuttgart.de/St184634/Adversarial-MATL.git', 'commit': 'd5f801557ea4f4d9f1bf4071c6e688851eddc2f0'}, 'email': 'amaljose1998@gmail.com', 'root': 'C:/Users/amalj/OneDrive/Desktop/lecture materials/S3/Research Project/Local Git Repo/Adversarial-MATL', 'host': 'DESKTOP-LVTMK5A', 'username': 'amalj', 'executable': 'C:\\Users\\amalj\\anaconda3\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2400.0, 'min': 0.0, 'max': 2400.0}, 'cpu_freq_per_core': [{'current': 2400.0, 'min': 0.0, 'max': 2400.0}], 'disk': {'total': 236.76073837280273, 'used': 133.11637496948242}, 'gpu': 'NVIDIA GeForce GTX 1650', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1650', 'memory_total': 4294967296}], 'memory': {'total': 7.846302032470703}}
+2024-02-22 14:43:02,620 INFO    HandlerThread:8280 [system_monitor.py:probe():214] Finished collecting system info
+2024-02-22 14:43:02,620 INFO    HandlerThread:8280 [system_monitor.py:probe():217] Publishing system info
+2024-02-22 14:43:02,620 DEBUG   HandlerThread:8280 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2024-02-22 14:43:02,621 DEBUG   HandlerThread:8280 [system_info.py:_save_pip():67] Saving pip packages done
+2024-02-22 14:43:02,622 DEBUG   HandlerThread:8280 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2024-02-22 14:43:02,623 ERROR   HandlerThread:8280 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\amalj\anaconda3\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\amalj\anaconda3\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\amalj\anaconda3\lib\subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\amalj\anaconda3\lib\subprocess.py", line 1440, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2024-02-22 14:43:02,625 DEBUG   HandlerThread:8280 [system_info.py:_save_conda():86] Saving conda packages done
+2024-02-22 14:43:02,626 INFO    HandlerThread:8280 [system_monitor.py:probe():219] Finished publishing system info
+2024-02-22 14:43:02,638 DEBUG   SenderThread:8280 [sender.py:send():336] send: files
+2024-02-22 14:43:02,638 INFO    SenderThread:8280 [sender.py:_save_file():1332] saving file wandb-metadata.json with policy now
+2024-02-22 14:43:02,645 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: stop_status
+2024-02-22 14:43:02,646 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: stop_status
+2024-02-22 14:43:03,043 DEBUG   SenderThread:8280 [sender.py:send():336] send: telemetry
+2024-02-22 14:43:03,048 DEBUG   SenderThread:8280 [sender.py:send():336] send: exit
+2024-02-22 14:43:03,048 INFO    SenderThread:8280 [sender.py:send_exit():559] handling exit code: 1
+2024-02-22 14:43:03,048 INFO    SenderThread:8280 [sender.py:send_exit():561] handling runtime: 0
+2024-02-22 14:43:03,049 INFO    SenderThread:8280 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2024-02-22 14:43:03,049 INFO    SenderThread:8280 [sender.py:send_exit():567] send defer
+2024-02-22 14:43:03,050 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,050 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 0
+2024-02-22 14:43:03,051 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,052 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 0
+2024-02-22 14:43:03,052 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 1
+2024-02-22 14:43:03,053 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,053 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 1
+2024-02-22 14:43:03,054 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,054 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 1
+2024-02-22 14:43:03,056 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 2
+2024-02-22 14:43:03,057 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,057 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 2
+2024-02-22 14:43:03,057 INFO    HandlerThread:8280 [system_monitor.py:finish():193] Stopping system monitor
+2024-02-22 14:43:03,059 DEBUG   SystemMonitor:8280 [system_monitor.py:_start():161] Starting system metrics aggregation loop
+2024-02-22 14:43:03,069 DEBUG   SystemMonitor:8280 [system_monitor.py:_start():168] Finished system metrics aggregation loop
+2024-02-22 14:43:03,069 DEBUG   SystemMonitor:8280 [system_monitor.py:_start():172] Publishing last batch of metrics
+2024-02-22 14:43:03,070 INFO    HandlerThread:8280 [interfaces.py:finish():199] Joined cpu monitor
+2024-02-22 14:43:03,071 INFO    HandlerThread:8280 [interfaces.py:finish():199] Joined disk monitor
+2024-02-22 14:43:03,137 INFO    HandlerThread:8280 [interfaces.py:finish():199] Joined gpu monitor
+2024-02-22 14:43:03,138 INFO    HandlerThread:8280 [interfaces.py:finish():199] Joined memory monitor
+2024-02-22 14:43:03,138 INFO    HandlerThread:8280 [interfaces.py:finish():199] Joined network monitor
+2024-02-22 14:43:03,139 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,139 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 2
+2024-02-22 14:43:03,139 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 3
+2024-02-22 14:43:03,139 DEBUG   SenderThread:8280 [sender.py:send():336] send: stats
+2024-02-22 14:43:03,139 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,139 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 3
+2024-02-22 14:43:03,139 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,140 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 3
+2024-02-22 14:43:03,140 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 4
+2024-02-22 14:43:03,140 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,140 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 4
+2024-02-22 14:43:03,140 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,140 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 4
+2024-02-22 14:43:03,140 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 5
+2024-02-22 14:43:03,140 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,140 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 5
+2024-02-22 14:43:03,141 DEBUG   SenderThread:8280 [sender.py:send():336] send: summary
+2024-02-22 14:43:03,141 INFO    SenderThread:8280 [sender.py:_save_file():1332] saving file wandb-summary.json with policy end
+2024-02-22 14:43:03,142 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,142 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 5
+2024-02-22 14:43:03,142 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 6
+2024-02-22 14:43:03,142 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,142 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 6
+2024-02-22 14:43:03,143 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,143 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 6
+2024-02-22 14:43:03,146 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: status_report
+2024-02-22 14:43:03,350 INFO    wandb-upload_0:8280 [upload_job.py:push():138] Uploaded file C:\Users\amalj\AppData\Local\Temp\tmphps_ksy4wandb\2nzcedrf-wandb-metadata.json
+2024-02-22 14:43:03,367 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_created():278] file/dir created: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\output.log
+2024-02-22 14:43:03,368 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_created():278] file/dir created: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\conda-environment.yaml
+2024-02-22 14:43:03,368 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_created():278] file/dir created: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\wandb-summary.json
+2024-02-22 14:43:03,368 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_created():278] file/dir created: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\requirements.txt
+2024-02-22 14:43:03,368 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_created():278] file/dir created: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\wandb-metadata.json
+2024-02-22 14:43:03,385 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 7
+2024-02-22 14:43:03,386 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:03,386 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 7
+2024-02-22 14:43:03,386 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:03,386 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 7
+2024-02-22 14:43:03,676 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: poll_exit
+2024-02-22 14:43:04,377 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_modified():295] file/dir modified: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\config.yaml
+2024-02-22 14:43:05,067 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 8
+2024-02-22 14:43:05,067 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: poll_exit
+2024-02-22 14:43:05,068 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:05,071 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 8
+2024-02-22 14:43:05,072 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:05,074 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 8
+2024-02-22 14:43:05,114 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 9
+2024-02-22 14:43:05,120 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:05,123 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 9
+2024-02-22 14:43:05,123 DEBUG   SenderThread:8280 [sender.py:send():336] send: artifact
+2024-02-22 14:43:05,389 INFO    Thread-17 :8280 [dir_watcher.py:_on_file_modified():295] file/dir modified: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\output.log
+2024-02-22 14:43:06,221 INFO    SenderThread:8280 [sender.py:send_artifact():1428] sent artifact job-https___github.tik.uni-stuttgart.de_St184634_Adversarial-MATL.git_Transfer_learning_in_simple_adversarial_MPE_env_main.py - {'id': 'QXJ0aWZhY3Q6NzI4NzkwMDc5', 'digest': '1442f2641816d2418dd856e26647da4a', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.tik.uni-stuttgart.de_St184634_Adversarial-MATL.git_Transfer_learning_in_simple_adversarial_MPE_env_main.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.tik.uni-stuttgart.de_St184634_Adversarial-MATL.git_Transfer_learning_in_simple_adversarial_MPE_env_main.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MjAwOTkxNw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzI4NzkzMjU0', 'versionIndex': 1}}, 'version': 'v0'}
+2024-02-22 14:43:06,221 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:06,221 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 9
+2024-02-22 14:43:06,222 INFO    SenderThread:8280 [dir_watcher.py:finish():365] shutting down directory watcher
+2024-02-22 14:43:06,403 INFO    SenderThread:8280 [dir_watcher.py:finish():395] scan: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files
+2024-02-22 14:43:06,406 INFO    SenderThread:8280 [dir_watcher.py:finish():409] scan save: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\conda-environment.yaml conda-environment.yaml
+2024-02-22 14:43:06,408 INFO    SenderThread:8280 [dir_watcher.py:finish():409] scan save: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\config.yaml config.yaml
+2024-02-22 14:43:06,411 INFO    SenderThread:8280 [dir_watcher.py:finish():409] scan save: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\output.log output.log
+2024-02-22 14:43:06,426 INFO    SenderThread:8280 [dir_watcher.py:finish():409] scan save: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\requirements.txt requirements.txt
+2024-02-22 14:43:06,431 INFO    SenderThread:8280 [dir_watcher.py:finish():409] scan save: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\wandb-metadata.json wandb-metadata.json
+2024-02-22 14:43:06,432 INFO    SenderThread:8280 [dir_watcher.py:finish():409] scan save: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\wandb-summary.json wandb-summary.json
+2024-02-22 14:43:06,433 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 10
+2024-02-22 14:43:06,440 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:06,441 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 10
+2024-02-22 14:43:06,446 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:06,446 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 10
+2024-02-22 14:43:06,446 INFO    SenderThread:8280 [file_pusher.py:finish():164] shutting down file pusher
+2024-02-22 14:43:06,879 INFO    wandb-upload_2:8280 [upload_job.py:push():138] Uploaded file C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\requirements.txt
+2024-02-22 14:43:06,929 INFO    wandb-upload_0:8280 [upload_job.py:push():138] Uploaded file C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\config.yaml
+2024-02-22 14:43:06,935 INFO    wandb-upload_1:8280 [upload_job.py:push():138] Uploaded file C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\output.log
+2024-02-22 14:43:06,978 INFO    wandb-upload_3:8280 [upload_job.py:push():138] Uploaded file C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\files\wandb-summary.json
+2024-02-22 14:43:07,196 INFO    Thread-16 (_thread_body):8280 [sender.py:transition_state():587] send defer: 11
+2024-02-22 14:43:07,196 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:07,196 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 11
+2024-02-22 14:43:07,197 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:07,197 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 11
+2024-02-22 14:43:07,197 INFO    SenderThread:8280 [file_pusher.py:join():169] waiting for file pusher
+2024-02-22 14:43:07,197 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 12
+2024-02-22 14:43:07,197 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:07,198 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 12
+2024-02-22 14:43:07,198 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:07,198 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 12
+2024-02-22 14:43:07,360 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 13
+2024-02-22 14:43:07,360 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:07,360 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 13
+2024-02-22 14:43:07,361 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:07,361 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 13
+2024-02-22 14:43:07,361 INFO    SenderThread:8280 [sender.py:transition_state():587] send defer: 14
+2024-02-22 14:43:07,361 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: defer
+2024-02-22 14:43:07,361 DEBUG   SenderThread:8280 [sender.py:send():336] send: final
+2024-02-22 14:43:07,361 INFO    HandlerThread:8280 [handler.py:handle_request_defer():170] handle defer: 14
+2024-02-22 14:43:07,361 DEBUG   SenderThread:8280 [sender.py:send():336] send: footer
+2024-02-22 14:43:07,362 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: defer
+2024-02-22 14:43:07,362 INFO    SenderThread:8280 [sender.py:send_request_defer():583] handle sender defer: 14
+2024-02-22 14:43:07,362 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: poll_exit
+2024-02-22 14:43:07,362 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: server_info
+2024-02-22 14:43:07,362 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: get_summary
+2024-02-22 14:43:07,363 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: poll_exit
+2024-02-22 14:43:07,363 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: sampled_history
+2024-02-22 14:43:07,363 DEBUG   SenderThread:8280 [sender.py:send_request():363] send_request: server_info
+2024-02-22 14:43:07,569 INFO    MainThread:8280 [wandb_run.py:_footer_history_summary_info():3429] rendering history
+2024-02-22 14:43:07,570 INFO    MainThread:8280 [wandb_run.py:_footer_history_summary_info():3461] rendering summary
+2024-02-22 14:43:07,570 INFO    MainThread:8280 [wandb_run.py:_footer_sync_info():3387] logging synced files
+2024-02-22 14:43:07,572 DEBUG   HandlerThread:8280 [handler.py:handle_request():144] handle_request: shutdown
+2024-02-22 14:43:07,573 INFO    HandlerThread:8280 [handler.py:finish():842] shutting down handler
+2024-02-22 14:43:08,373 INFO    WriterThread:8280 [datastore.py:close():298] close: C:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\wandb\run-20240222_144257-466w01ax\run-466w01ax.wandb
+2024-02-22 14:43:08,578 INFO    SenderThread:8280 [sender.py:finish():1504] shutting down sender
+2024-02-22 14:43:08,579 INFO    SenderThread:8280 [file_pusher.py:finish():164] shutting down file pusher
+2024-02-22 14:43:08,579 INFO    SenderThread:8280 [file_pusher.py:join():169] waiting for file pusher

@@ -1,0 +1,911 @@
+episode: 0
+episode 0 terminated at 25
+episode: 1
+episode 1 terminated at 50
+episode: 2
+episode 2 terminated at 75
+episode: 3
+episode 3 terminated at 100
+episode: 4
+episode:  4 training step:  1 loss of agent  0 :  0.29756709933280945
+episode:  4 training step:  1 loss of agent  1 :  0.37306270003318787
+episode:  4 training step:  1 loss of agent  2 :  0.37024247646331787
+episode:  4 training step:  2 loss of agent  0 :  0.27533990144729614
+episode:  4 training step:  2 loss of agent  1 :  0.4177357256412506
+episode:  4 training step:  2 loss of agent  2 :  0.2030750811100006
+episode:  4 training step:  3 loss of agent  0 :  0.26911410689353943
+episode:  4 training step:  3 loss of agent  1 :  0.28015539050102234
+episode:  4 training step:  3 loss of agent  2 :  0.35924598574638367
+episode:  4 training step:  4 loss of agent  0 :  0.2227107286453247
+episode:  4 training step:  4 loss of agent  1 :  0.33451128005981445
+episode:  4 training step:  4 loss of agent  2 :  0.24417223036289215
+episode:  4 training step:  5 loss of agent  0 :  0.24276293814182281
+episode:  4 training step:  5 loss of agent  1 :  0.32372260093688965
+episode:  4 training step:  5 loss of agent  2 :  0.2606143057346344
+episode:  4 training step:  6 loss of agent  0 :  0.290301650762558
+episode:  4 training step:  6 loss of agent  1 :  0.34527164697647095
+episode:  4 training step:  6 loss of agent  2 :  0.2144172042608261
+episode:  4 training step:  7 loss of agent  0 :  0.27048036456108093
+episode:  4 training step:  7 loss of agent  1 :  0.2432946264743805
+episode:  4 training step:  7 loss of agent  2 :  0.32689324021339417
+episode:  4 training step:  8 loss of agent  0 :  0.27933570742607117
+episode:  4 training step:  8 loss of agent  1 :  0.2846921682357788
+episode:  4 training step:  8 loss of agent  2 :  0.3024105429649353
+episode:  4 training step:  9 loss of agent  0 :  0.26374661922454834
+episode:  4 training step:  9 loss of agent  1 :  0.2174767255783081
+episode:  4 training step:  9 loss of agent  2 :  0.3021504282951355
+episode:  4 training step:  10 loss of agent  0 :  0.2617124915122986
+episode:  4 training step:  10 loss of agent  1 :  0.31319111585617065
+episode:  4 training step:  10 loss of agent  2 :  0.32026833295822144
+Evaluation
+env seed: 6 evaluation score at the training step:  10 :  {'adversary_0': -32.40370364050509, 'agent_0': -15.029111336220785, 'agent_1': -15.029111336220785}
+episode:  4 training step:  11 loss of agent  0 :  0.31191539764404297
+episode:  4 training step:  11 loss of agent  1 :  0.3664636015892029
+episode:  4 training step:  11 loss of agent  2 :  0.2921234965324402
+episode:  4 training step:  12 loss of agent  0 :  0.2884824573993683
+episode:  4 training step:  12 loss of agent  1 :  0.26300349831581116
+episode:  4 training step:  12 loss of agent  2 :  0.3574208915233612
+episode:  4 training step:  13 loss of agent  0 :  0.31836503744125366
+episode:  4 training step:  13 loss of agent  1 :  0.3447061777114868
+episode:  4 training step:  13 loss of agent  2 :  0.33912208676338196
+episode:  4 training step:  14 loss of agent  0 :  0.2558377981185913
+episode:  4 training step:  14 loss of agent  1 :  0.30783700942993164
+episode:  4 training step:  14 loss of agent  2 :  0.3194405436515808
+episode:  4 training step:  15 loss of agent  0 :  0.2848464548587799
+episode:  4 training step:  15 loss of agent  1 :  0.31234270334243774
+episode:  4 training step:  15 loss of agent  2 :  0.3085656464099884
+episode:  4 training step:  16 loss of agent  0 :  0.33056244254112244
+episode:  4 training step:  16 loss of agent  1 :  0.2810550630092621
+episode:  4 training step:  16 loss of agent  2 :  0.3090071976184845
+episode:  4 training step:  17 loss of agent  0 :  0.40737679600715637
+episode:  4 training step:  17 loss of agent  1 :  0.3633671998977661
+episode:  4 training step:  17 loss of agent  2 :  0.33060336112976074
+episode:  4 training step:  18 loss of agent  0 :  0.30124223232269287
+episode:  4 training step:  18 loss of agent  1 :  0.3610064387321472
+episode:  4 training step:  18 loss of agent  2 :  0.2704695165157318
+episode:  4 training step:  19 loss of agent  0 :  0.2323620319366455
+episode:  4 training step:  19 loss of agent  1 :  0.34413012862205505
+episode:  4 training step:  19 loss of agent  2 :  0.2426636964082718
+episode:  4 training step:  20 loss of agent  0 :  0.30630192160606384
+episode:  4 training step:  20 loss of agent  1 :  0.3468196988105774
+episode:  4 training step:  20 loss of agent  2 :  0.3263041377067566
+Evaluation
+env seed: 6 evaluation score at the training step:  20 :  {'adversary_0': -32.878157405812125, 'agent_0': -14.91805782670203, 'agent_1': -14.91805782670203}
+episode:  4 training step:  21 loss of agent  0 :  0.29793357849121094
+episode:  4 training step:  21 loss of agent  1 :  0.31751373410224915
+episode:  4 training step:  21 loss of agent  2 :  0.24251699447631836
+episode 4 terminated at 125
+episode: 5
+episode:  5 training step:  22 loss of agent  0 :  0.3964580297470093
+episode:  5 training step:  22 loss of agent  1 :  0.38215339183807373
+episode:  5 training step:  22 loss of agent  2 :  0.3137591779232025
+episode:  5 training step:  23 loss of agent  0 :  0.3596457540988922
+episode:  5 training step:  23 loss of agent  1 :  0.3047008812427521
+episode:  5 training step:  23 loss of agent  2 :  0.23171451687812805
+episode:  5 training step:  24 loss of agent  0 :  0.33559176325798035
+episode:  5 training step:  24 loss of agent  1 :  0.2913837432861328
+episode:  5 training step:  24 loss of agent  2 :  0.29808974266052246
+episode:  5 training step:  25 loss of agent  0 :  0.34146320819854736
+episode:  5 training step:  25 loss of agent  1 :  0.18563887476921082
+episode:  5 training step:  25 loss of agent  2 :  0.34228503704071045
+episode:  5 training step:  26 loss of agent  0 :  0.4424963593482971
+episode:  5 training step:  26 loss of agent  1 :  0.2981388568878174
+episode:  5 training step:  26 loss of agent  2 :  0.3503745198249817
+episode:  5 training step:  27 loss of agent  0 :  0.2911970615386963
+episode:  5 training step:  27 loss of agent  1 :  0.27262625098228455
+episode:  5 training step:  27 loss of agent  2 :  0.2398717701435089
+episode:  5 training step:  28 loss of agent  0 :  0.2875475287437439
+episode:  5 training step:  28 loss of agent  1 :  0.3373487591743469
+episode:  5 training step:  28 loss of agent  2 :  0.22331096231937408
+episode:  5 training step:  29 loss of agent  0 :  0.3461037874221802
+episode:  5 training step:  29 loss of agent  1 :  0.23001091182231903
+episode:  5 training step:  29 loss of agent  2 :  0.3077988028526306
+episode:  5 training step:  30 loss of agent  0 :  0.34242838621139526
+episode:  5 training step:  30 loss of agent  1 :  0.3352409601211548
+episode:  5 training step:  30 loss of agent  2 :  0.2822263836860657
+Evaluation
+env seed: 6 evaluation score at the training step:  30 :  {'adversary_0': -32.42393058887307, 'agent_0': -14.412089603807843, 'agent_1': -14.412089603807843}
+episode:  5 training step:  31 loss of agent  0 :  0.2557305693626404
+episode:  5 training step:  31 loss of agent  1 :  0.28556033968925476
+episode:  5 training step:  31 loss of agent  2 :  0.34737661480903625
+episode:  5 training step:  32 loss of agent  0 :  0.3129712641239166
+episode:  5 training step:  32 loss of agent  1 :  0.3554529547691345
+episode:  5 training step:  32 loss of agent  2 :  0.3035636842250824
+episode:  5 training step:  33 loss of agent  0 :  0.24006271362304688
+episode:  5 training step:  33 loss of agent  1 :  0.3174348473548889
+episode:  5 training step:  33 loss of agent  2 :  0.2816429138183594
+episode:  5 training step:  34 loss of agent  0 :  0.3770011067390442
+episode:  5 training step:  34 loss of agent  1 :  0.29612597823143005
+episode:  5 training step:  34 loss of agent  2 :  0.3273690342903137
+episode:  5 training step:  35 loss of agent  0 :  0.36270588636398315
+episode:  5 training step:  35 loss of agent  1 :  0.31759536266326904
+episode:  5 training step:  35 loss of agent  2 :  0.2773192822933197
+episode:  5 training step:  36 loss of agent  0 :  0.3536842465400696
+episode:  5 training step:  36 loss of agent  1 :  0.39973580837249756
+episode:  5 training step:  36 loss of agent  2 :  0.33358141779899597
+episode:  5 training step:  37 loss of agent  0 :  0.2884885370731354
+episode:  5 training step:  37 loss of agent  1 :  0.4037402868270874
+episode:  5 training step:  37 loss of agent  2 :  0.2827332615852356
+episode:  5 training step:  38 loss of agent  0 :  0.19690349698066711
+episode:  5 training step:  38 loss of agent  1 :  0.33744266629219055
+episode:  5 training step:  38 loss of agent  2 :  0.3390478789806366
+episode:  5 training step:  39 loss of agent  0 :  0.39259228110313416
+episode:  5 training step:  39 loss of agent  1 :  0.3204774558544159
+episode:  5 training step:  39 loss of agent  2 :  0.2727351188659668
+episode:  5 training step:  40 loss of agent  0 :  0.2723597586154938
+episode:  5 training step:  40 loss of agent  1 :  0.37132981419563293
+episode:  5 training step:  40 loss of agent  2 :  0.36684536933898926
+Evaluation
+env seed: 6 evaluation score at the training step:  40 :  {'adversary_0': -32.837669470408336, 'agent_0': -14.204352381645538, 'agent_1': -14.204352381645538}
+episode:  5 training step:  41 loss of agent  0 :  0.20724698901176453
+episode:  5 training step:  41 loss of agent  1 :  0.23130451142787933
+episode:  5 training step:  41 loss of agent  2 :  0.42300134897232056
+episode:  5 training step:  42 loss of agent  0 :  0.3008717894554138
+episode:  5 training step:  42 loss of agent  1 :  0.3257177472114563
+episode:  5 training step:  42 loss of agent  2 :  0.33736252784729004
+episode:  5 training step:  43 loss of agent  0 :  0.3565986454486847
+episode:  5 training step:  43 loss of agent  1 :  0.3945986032485962
+episode:  5 training step:  43 loss of agent  2 :  0.4026481807231903
+episode:  5 training step:  44 loss of agent  0 :  0.3269280195236206
+episode:  5 training step:  44 loss of agent  1 :  0.349853515625
+episode:  5 training step:  44 loss of agent  2 :  0.31435978412628174
+episode:  5 training step:  45 loss of agent  0 :  0.298725962638855
+episode:  5 training step:  45 loss of agent  1 :  0.4467892050743103
+episode:  5 training step:  45 loss of agent  2 :  0.343879759311676
+episode 5 terminated at 150
+episode: 6
+episode:  6 training step:  46 loss of agent  0 :  0.24834796786308289
+episode:  6 training step:  46 loss of agent  1 :  0.44972512125968933
+episode:  6 training step:  46 loss of agent  2 :  0.37979379296302795
+episode:  6 training step:  47 loss of agent  0 :  0.31819096207618713
+episode:  6 training step:  47 loss of agent  1 :  0.4882117509841919
+episode:  6 training step:  47 loss of agent  2 :  0.4812511205673218
+episode:  6 training step:  48 loss of agent  0 :  0.2939148247241974
+episode:  6 training step:  48 loss of agent  1 :  0.3009694516658783
+episode:  6 training step:  48 loss of agent  2 :  0.3586641252040863
+episode:  6 training step:  49 loss of agent  0 :  0.31193026900291443
+episode:  6 training step:  49 loss of agent  1 :  0.3934573233127594
+episode:  6 training step:  49 loss of agent  2 :  0.38928982615470886
+episode:  6 training step:  50 loss of agent  0 :  0.2696841061115265
+episode:  6 training step:  50 loss of agent  1 :  0.2966262698173523
+episode:  6 training step:  50 loss of agent  2 :  0.3389406204223633
+Evaluation
+env seed: 6 evaluation score at the training step:  50 :  {'adversary_0': -33.00988333471883, 'agent_0': -14.78633189779533, 'agent_1': -14.78633189779533}
+episode:  6 training step:  51 loss of agent  0 :  0.2728210985660553
+episode:  6 training step:  51 loss of agent  1 :  0.3744196891784668
+episode:  6 training step:  51 loss of agent  2 :  0.43302756547927856
+episode:  6 training step:  52 loss of agent  0 :  0.29424500465393066
+episode:  6 training step:  52 loss of agent  1 :  0.31038323044776917
+episode:  6 training step:  52 loss of agent  2 :  0.295268714427948
+episode:  6 training step:  53 loss of agent  0 :  0.2163323611021042
+episode:  6 training step:  53 loss of agent  1 :  0.3186905086040497
+episode:  6 training step:  53 loss of agent  2 :  0.33076661825180054
+episode:  6 training step:  54 loss of agent  0 :  0.21487586200237274
+episode:  6 training step:  54 loss of agent  1 :  0.3955662250518799
+episode:  6 training step:  54 loss of agent  2 :  0.43171268701553345
+episode:  6 training step:  55 loss of agent  0 :  0.32851603627204895
+episode:  6 training step:  55 loss of agent  1 :  0.3114559054374695
+episode:  6 training step:  55 loss of agent  2 :  0.2969909608364105
+episode:  6 training step:  56 loss of agent  0 :  0.19985760748386383
+episode:  6 training step:  56 loss of agent  1 :  0.29486319422721863
+episode:  6 training step:  56 loss of agent  2 :  0.4256006181240082
+episode:  6 training step:  57 loss of agent  0 :  0.25241732597351074
+episode:  6 training step:  57 loss of agent  1 :  0.29388201236724854
+episode:  6 training step:  57 loss of agent  2 :  0.28137701749801636
+episode:  6 training step:  58 loss of agent  0 :  0.27646908164024353
+episode:  6 training step:  58 loss of agent  1 :  0.3190929591655731
+episode:  6 training step:  58 loss of agent  2 :  0.3574490547180176
+episode:  6 training step:  59 loss of agent  0 :  0.2772192358970642
+episode:  6 training step:  59 loss of agent  1 :  0.2986651360988617
+episode:  6 training step:  59 loss of agent  2 :  0.31157979369163513
+episode:  6 training step:  60 loss of agent  0 :  0.2231878936290741
+episode:  6 training step:  60 loss of agent  1 :  0.41129961609840393
+episode:  6 training step:  60 loss of agent  2 :  0.3793260157108307
+Evaluation
+env seed: 6 evaluation score at the training step:  60 :  {'adversary_0': -33.00988333471883, 'agent_0': -11.8355966463977, 'agent_1': -11.8355966463977}
+episode:  6 training step:  61 loss of agent  0 :  0.34678351879119873
+episode:  6 training step:  61 loss of agent  1 :  0.2977026104927063
+episode:  6 training step:  61 loss of agent  2 :  0.30798596143722534
+episode:  6 training step:  62 loss of agent  0 :  0.21821683645248413
+episode:  6 training step:  62 loss of agent  1 :  0.4069485068321228
+episode:  6 training step:  62 loss of agent  2 :  0.32604074478149414
+episode:  6 training step:  63 loss of agent  0 :  0.2925722301006317
+episode:  6 training step:  63 loss of agent  1 :  0.480890691280365
+episode:  6 training step:  63 loss of agent  2 :  0.24829791486263275
+episode:  6 training step:  64 loss of agent  0 :  0.2513911724090576
+episode:  6 training step:  64 loss of agent  1 :  0.30214864015579224
+episode:  6 training step:  64 loss of agent  2 :  0.41852420568466187
+episode:  6 training step:  65 loss of agent  0 :  0.1838337481021881
+episode:  6 training step:  65 loss of agent  1 :  0.5030584931373596
+episode:  6 training step:  65 loss of agent  2 :  0.2691537141799927
+episode:  6 training step:  66 loss of agent  0 :  0.31056010723114014
+episode:  6 training step:  66 loss of agent  1 :  0.30801814794540405
+episode:  6 training step:  66 loss of agent  2 :  0.3202148377895355
+episode:  6 training step:  67 loss of agent  0 :  0.35968369245529175
+episode:  6 training step:  67 loss of agent  1 :  0.26908496022224426
+episode:  6 training step:  67 loss of agent  2 :  0.27233266830444336
+episode:  6 training step:  68 loss of agent  0 :  0.33580443263053894
+episode:  6 training step:  68 loss of agent  1 :  0.31295597553253174
+episode:  6 training step:  68 loss of agent  2 :  0.28460049629211426
+episode:  6 training step:  69 loss of agent  0 :  0.36056026816368103
+episode:  6 training step:  69 loss of agent  1 :  0.19005392491817474
+episode:  6 training step:  69 loss of agent  2 :  0.3274577260017395
+episode 6 terminated at 175
+episode: 7
+episode:  7 training step:  70 loss of agent  0 :  0.19865357875823975
+episode:  7 training step:  70 loss of agent  1 :  0.31928855180740356
+episode:  7 training step:  70 loss of agent  2 :  0.2663775682449341
+Evaluation
+env seed: 6 evaluation score at the training step:  70 :  {'adversary_0': -32.75812676495431, 'agent_0': -10.422820929234394, 'agent_1': -10.422820929234394}
+episode:  7 training step:  71 loss of agent  0 :  0.18725833296775818
+episode:  7 training step:  71 loss of agent  1 :  0.2753661572933197
+episode:  7 training step:  71 loss of agent  2 :  0.22910067439079285
+episode:  7 training step:  72 loss of agent  0 :  0.16460812091827393
+episode:  7 training step:  72 loss of agent  1 :  0.16634657979011536
+episode:  7 training step:  72 loss of agent  2 :  0.23108169436454773
+episode:  7 training step:  73 loss of agent  0 :  0.17383833229541779
+episode:  7 training step:  73 loss of agent  1 :  0.29313844442367554
+episode:  7 training step:  73 loss of agent  2 :  0.2206481248140335
+episode:  7 training step:  74 loss of agent  0 :  0.24953593313694
+episode:  7 training step:  74 loss of agent  1 :  0.22676706314086914
+episode:  7 training step:  74 loss of agent  2 :  0.295013427734375
+episode:  7 training step:  75 loss of agent  0 :  0.18633851408958435
+episode:  7 training step:  75 loss of agent  1 :  0.24931710958480835
+episode:  7 training step:  75 loss of agent  2 :  0.2372496873140335
+episode:  7 training step:  76 loss of agent  0 :  0.2839254140853882
+episode:  7 training step:  76 loss of agent  1 :  0.16000181436538696
+episode:  7 training step:  76 loss of agent  2 :  0.33710452914237976
+episode:  7 training step:  77 loss of agent  0 :  0.23235592246055603
+episode:  7 training step:  77 loss of agent  1 :  0.3206160366535187
+episode:  7 training step:  77 loss of agent  2 :  0.34249699115753174
+episode:  7 training step:  78 loss of agent  0 :  0.237176775932312
+episode:  7 training step:  78 loss of agent  1 :  0.2699638605117798
+episode:  7 training step:  78 loss of agent  2 :  0.2952263653278351
+episode:  7 training step:  79 loss of agent  0 :  0.3182540833950043
+episode:  7 training step:  79 loss of agent  1 :  0.27391597628593445
+episode:  7 training step:  79 loss of agent  2 :  0.2620919644832611
+episode:  7 training step:  80 loss of agent  0 :  0.19288299977779388
+episode:  7 training step:  80 loss of agent  1 :  0.2003576159477234
+episode:  7 training step:  80 loss of agent  2 :  0.33138397336006165
+Evaluation
+env seed: 6 evaluation score at the training step:  80 :  {'adversary_0': -32.382900599648664, 'agent_0': -13.760227038428472, 'agent_1': -13.760227038428472}
+episode:  7 training step:  81 loss of agent  0 :  0.23836374282836914
+episode:  7 training step:  81 loss of agent  1 :  0.3164510428905487
+episode:  7 training step:  81 loss of agent  2 :  0.19602112472057343
+episode:  7 training step:  82 loss of agent  0 :  0.24235621094703674
+episode:  7 training step:  82 loss of agent  1 :  0.2583293914794922
+episode:  7 training step:  82 loss of agent  2 :  0.31059980392456055
+episode:  7 training step:  83 loss of agent  0 :  0.2561682164669037
+episode:  7 training step:  83 loss of agent  1 :  0.3318800926208496
+episode:  7 training step:  83 loss of agent  2 :  0.19492536783218384
+episode:  7 training step:  84 loss of agent  0 :  0.32732805609703064
+episode:  7 training step:  84 loss of agent  1 :  0.26403120160102844
+episode:  7 training step:  84 loss of agent  2 :  0.19583538174629211
+episode:  7 training step:  85 loss of agent  0 :  0.22732758522033691
+episode:  7 training step:  85 loss of agent  1 :  0.286286860704422
+episode:  7 training step:  85 loss of agent  2 :  0.28173646330833435
+episode:  7 training step:  86 loss of agent  0 :  0.33218398690223694
+episode:  7 training step:  86 loss of agent  1 :  0.3298203945159912
+episode:  7 training step:  86 loss of agent  2 :  0.29676783084869385
+episode:  7 training step:  87 loss of agent  0 :  0.2698632478713989
+episode:  7 training step:  87 loss of agent  1 :  0.2781984508037567
+episode:  7 training step:  87 loss of agent  2 :  0.20163853466510773
+episode:  7 training step:  88 loss of agent  0 :  0.1819484978914261
+episode:  7 training step:  88 loss of agent  1 :  0.24400630593299866
+episode:  7 training step:  88 loss of agent  2 :  0.28550344705581665
+episode:  7 training step:  89 loss of agent  0 :  0.32472601532936096
+episode:  7 training step:  89 loss of agent  1 :  0.329349160194397
+episode:  7 training step:  89 loss of agent  2 :  0.19652247428894043
+episode:  7 training step:  90 loss of agent  0 :  0.21701949834823608
+episode:  7 training step:  90 loss of agent  1 :  0.30721375346183777
+episode:  7 training step:  90 loss of agent  2 :  0.19449183344841003
+Evaluation
+env seed: 6 evaluation score at the training step:  90 :  {'adversary_0': -32.42387647732015, 'agent_0': -14.607287251594467, 'agent_1': -14.607287251594467}
+episode:  7 training step:  91 loss of agent  0 :  0.3285757899284363
+episode:  7 training step:  91 loss of agent  1 :  0.20690445601940155
+episode:  7 training step:  91 loss of agent  2 :  0.3148249685764313
+episode:  7 training step:  92 loss of agent  0 :  0.36985766887664795
+episode:  7 training step:  92 loss of agent  1 :  0.2078126072883606
+episode:  7 training step:  92 loss of agent  2 :  0.22609665989875793
+episode:  7 training step:  93 loss of agent  0 :  0.26243019104003906
+episode:  7 training step:  93 loss of agent  1 :  0.19339774549007416
+episode:  7 training step:  93 loss of agent  2 :  0.24608200788497925
+episode 7 terminated at 200
+episode: 8
+episode:  8 training step:  94 loss of agent  0 :  0.3173944354057312
+episode:  8 training step:  94 loss of agent  1 :  0.274509996175766
+episode:  8 training step:  94 loss of agent  2 :  0.27485209703445435
+episode:  8 training step:  95 loss of agent  0 :  0.21570518612861633
+episode:  8 training step:  95 loss of agent  1 :  0.1756603717803955
+episode:  8 training step:  95 loss of agent  2 :  0.2809455990791321
+episode:  8 training step:  96 loss of agent  0 :  0.3094842731952667
+episode:  8 training step:  96 loss of agent  1 :  0.18728995323181152
+episode:  8 training step:  96 loss of agent  2 :  0.25389865040779114
+episode:  8 training step:  97 loss of agent  0 :  0.2953036427497864
+episode:  8 training step:  97 loss of agent  1 :  0.2527645528316498
+episode:  8 training step:  97 loss of agent  2 :  0.1745494306087494
+episode:  8 training step:  98 loss of agent  0 :  0.18896454572677612
+episode:  8 training step:  98 loss of agent  1 :  0.29127609729766846
+episode:  8 training step:  98 loss of agent  2 :  0.29219892621040344
+episode:  8 training step:  99 loss of agent  0 :  0.3547196388244629
+episode:  8 training step:  99 loss of agent  1 :  0.1764335036277771
+episode:  8 training step:  99 loss of agent  2 :  0.2814108431339264
+episode:  8 training step:  100 loss of agent  0 :  0.2554052174091339
+episode:  8 training step:  100 loss of agent  1 :  0.18058638274669647
+episode:  8 training step:  100 loss of agent  2 :  0.2238125205039978
+Evaluation
+env seed: 6 evaluation score at the training step:  100 :  {'adversary_0': -32.77035574443264, 'agent_0': -14.140566550960912, 'agent_1': -14.140566550960912}
+episode:  8 training step:  101 loss of agent  0 :  0.22972489893436432
+episode:  8 training step:  101 loss of agent  1 :  0.31988486647605896
+episode:  8 training step:  101 loss of agent  2 :  0.2948421835899353
+episode:  8 training step:  102 loss of agent  0 :  0.20720677077770233
+episode:  8 training step:  102 loss of agent  1 :  0.23339605331420898
+episode:  8 training step:  102 loss of agent  2 :  0.22776764631271362
+episode:  8 training step:  103 loss of agent  0 :  0.3410940170288086
+episode:  8 training step:  103 loss of agent  1 :  0.17667609453201294
+episode:  8 training step:  103 loss of agent  2 :  0.29059192538261414
+episode:  8 training step:  104 loss of agent  0 :  0.23378737270832062
+episode:  8 training step:  104 loss of agent  1 :  0.2630854845046997
+episode:  8 training step:  104 loss of agent  2 :  0.176423579454422
+episode:  8 training step:  105 loss of agent  0 :  0.24775268137454987
+episode:  8 training step:  105 loss of agent  1 :  0.3517231345176697
+episode:  8 training step:  105 loss of agent  2 :  0.2326367199420929
+episode:  8 training step:  106 loss of agent  0 :  0.21388761699199677
+episode:  8 training step:  106 loss of agent  1 :  0.17165888845920563
+episode:  8 training step:  106 loss of agent  2 :  0.13077066838741302
+episode:  8 training step:  107 loss of agent  0 :  0.24301530420780182
+episode:  8 training step:  107 loss of agent  1 :  0.29212963581085205
+episode:  8 training step:  107 loss of agent  2 :  0.19610609114170074
+episode:  8 training step:  108 loss of agent  0 :  0.3529084324836731
+episode:  8 training step:  108 loss of agent  1 :  0.2712652385234833
+episode:  8 training step:  108 loss of agent  2 :  0.25130149722099304
+episode:  8 training step:  109 loss of agent  0 :  0.2905145287513733
+episode:  8 training step:  109 loss of agent  1 :  0.30188822746276855
+episode:  8 training step:  109 loss of agent  2 :  0.25634241104125977
+episode:  8 training step:  110 loss of agent  0 :  0.22448934614658356
+episode:  8 training step:  110 loss of agent  1 :  0.24817970395088196
+episode:  8 training step:  110 loss of agent  2 :  0.225362166762352
+Evaluation
+env seed: 6 evaluation score at the training step:  110 :  {'adversary_0': -32.635975164912836, 'agent_0': -14.497997966469473, 'agent_1': -14.497997966469473}
+episode:  8 training step:  111 loss of agent  0 :  0.2994404435157776
+episode:  8 training step:  111 loss of agent  1 :  0.2948608100414276
+episode:  8 training step:  111 loss of agent  2 :  0.23220610618591309
+episode:  8 training step:  112 loss of agent  0 :  0.32561561465263367
+episode:  8 training step:  112 loss of agent  1 :  0.2485300898551941
+episode:  8 training step:  112 loss of agent  2 :  0.23578083515167236
+episode:  8 training step:  113 loss of agent  0 :  0.16339938342571259
+episode:  8 training step:  113 loss of agent  1 :  0.2553098499774933
+episode:  8 training step:  113 loss of agent  2 :  0.28436729311943054
+episode:  8 training step:  114 loss of agent  0 :  0.3087667226791382
+episode:  8 training step:  114 loss of agent  1 :  0.29066941142082214
+episode:  8 training step:  114 loss of agent  2 :  0.2505702078342438
+episode:  8 training step:  115 loss of agent  0 :  0.25631633400917053
+episode:  8 training step:  115 loss of agent  1 :  0.2681850492954254
+episode:  8 training step:  115 loss of agent  2 :  0.2621247172355652
+episode:  8 training step:  116 loss of agent  0 :  0.1802695095539093
+episode:  8 training step:  116 loss of agent  1 :  0.2946256399154663
+episode:  8 training step:  116 loss of agent  2 :  0.18526984751224518
+episode:  8 training step:  117 loss of agent  0 :  0.25359901785850525
+episode:  8 training step:  117 loss of agent  1 :  0.238200843334198
+episode:  8 training step:  117 loss of agent  2 :  0.23643840849399567
+episode 8 terminated at 225
+episode: 9
+episode:  9 training step:  118 loss of agent  0 :  0.2167123556137085
+episode:  9 training step:  118 loss of agent  1 :  0.34189820289611816
+episode:  9 training step:  118 loss of agent  2 :  0.3135635256767273
+episode:  9 training step:  119 loss of agent  0 :  0.27078935503959656
+episode:  9 training step:  119 loss of agent  1 :  0.26428282260894775
+episode:  9 training step:  119 loss of agent  2 :  0.2398661971092224
+episode:  9 training step:  120 loss of agent  0 :  0.14103055000305176
+episode:  9 training step:  120 loss of agent  1 :  0.26509222388267517
+episode:  9 training step:  120 loss of agent  2 :  0.33388444781303406
+Evaluation
+env seed: 6 evaluation score at the training step:  120 :  {'adversary_0': -33.00988333471883, 'agent_0': -10.838168164349556, 'agent_1': -10.838168164349556}
+episode:  9 training step:  121 loss of agent  0 :  0.23756036162376404
+episode:  9 training step:  121 loss of agent  1 :  0.2903645634651184
+episode:  9 training step:  121 loss of agent  2 :  0.27410268783569336
+episode:  9 training step:  122 loss of agent  0 :  0.15775901079177856
+episode:  9 training step:  122 loss of agent  1 :  0.2705909311771393
+episode:  9 training step:  122 loss of agent  2 :  0.3474275469779968
+episode:  9 training step:  123 loss of agent  0 :  0.169172465801239
+episode:  9 training step:  123 loss of agent  1 :  0.27263766527175903
+episode:  9 training step:  123 loss of agent  2 :  0.18418273329734802
+episode:  9 training step:  124 loss of agent  0 :  0.1869887262582779
+episode:  9 training step:  124 loss of agent  1 :  0.24586035311222076
+episode:  9 training step:  124 loss of agent  2 :  0.2722446918487549
+episode:  9 training step:  125 loss of agent  0 :  0.21231599152088165
+episode:  9 training step:  125 loss of agent  1 :  0.19564662873744965
+episode:  9 training step:  125 loss of agent  2 :  0.21108655631542206
+episode:  9 training step:  126 loss of agent  0 :  0.2242756485939026
+episode:  9 training step:  126 loss of agent  1 :  0.3154015839099884
+episode:  9 training step:  126 loss of agent  2 :  0.29038292169570923
+episode:  9 training step:  127 loss of agent  0 :  0.2203511893749237
+episode:  9 training step:  127 loss of agent  1 :  0.28043878078460693
+episode:  9 training step:  127 loss of agent  2 :  0.19819068908691406
+episode:  9 training step:  128 loss of agent  0 :  0.20495760440826416
+episode:  9 training step:  128 loss of agent  1 :  0.2746095061302185
+episode:  9 training step:  128 loss of agent  2 :  0.29823145270347595
+episode:  9 training step:  129 loss of agent  0 :  0.10425242781639099
+episode:  9 training step:  129 loss of agent  1 :  0.269789457321167
+episode:  9 training step:  129 loss of agent  2 :  0.16135990619659424
+episode:  9 training step:  130 loss of agent  0 :  0.21041882038116455
+episode:  9 training step:  130 loss of agent  1 :  0.2588316798210144
+episode:  9 training step:  130 loss of agent  2 :  0.2970828413963318
+Evaluation
+env seed: 6 evaluation score at the training step:  130 :  {'adversary_0': -33.00988333471883, 'agent_0': 0.76350510696754, 'agent_1': 0.76350510696754}
+episode:  9 training step:  131 loss of agent  0 :  0.32000651955604553
+episode:  9 training step:  131 loss of agent  1 :  0.2464088797569275
+episode:  9 training step:  131 loss of agent  2 :  0.18594779074192047
+episode:  9 training step:  132 loss of agent  0 :  0.17035983502864838
+episode:  9 training step:  132 loss of agent  1 :  0.20227167010307312
+episode:  9 training step:  132 loss of agent  2 :  0.1571776568889618
+episode:  9 training step:  133 loss of agent  0 :  0.2106221616268158
+episode:  9 training step:  133 loss of agent  1 :  0.14537157118320465
+episode:  9 training step:  133 loss of agent  2 :  0.20656026899814606
+episode:  9 training step:  134 loss of agent  0 :  0.22011792659759521
+episode:  9 training step:  134 loss of agent  1 :  0.2506836950778961
+episode:  9 training step:  134 loss of agent  2 :  0.1881113052368164
+episode:  9 training step:  135 loss of agent  0 :  0.15884342789649963
+episode:  9 training step:  135 loss of agent  1 :  0.16252239048480988
+episode:  9 training step:  135 loss of agent  2 :  0.2364903688430786
+episode:  9 training step:  136 loss of agent  0 :  0.14685465395450592
+episode:  9 training step:  136 loss of agent  1 :  0.2729833424091339
+episode:  9 training step:  136 loss of agent  2 :  0.1996237337589264
+episode:  9 training step:  137 loss of agent  0 :  0.23790813982486725
+episode:  9 training step:  137 loss of agent  1 :  0.21882018446922302
+episode:  9 training step:  137 loss of agent  2 :  0.13103492558002472
+episode:  9 training step:  138 loss of agent  0 :  0.1478535681962967
+episode:  9 training step:  138 loss of agent  1 :  0.2164469063282013
+episode:  9 training step:  138 loss of agent  2 :  0.23180456459522247
+episode:  9 training step:  139 loss of agent  0 :  0.1639498919248581
+episode:  9 training step:  139 loss of agent  1 :  0.3112667500972748
+episode:  9 training step:  139 loss of agent  2 :  0.19915401935577393
+episode:  9 training step:  140 loss of agent  0 :  0.11730765551328659
+episode:  9 training step:  140 loss of agent  1 :  0.28524264693260193
+episode:  9 training step:  140 loss of agent  2 :  0.1567326784133911
+Evaluation
+env seed: 6 evaluation score at the training step:  140 :  {'adversary_0': -32.70389862670184, 'agent_0': -14.349200998345784, 'agent_1': -14.349200998345784}
+episode:  9 training step:  141 loss of agent  0 :  0.14048418402671814
+episode:  9 training step:  141 loss of agent  1 :  0.17282669246196747
+episode:  9 training step:  141 loss of agent  2 :  0.18785199522972107
+episode 9 terminated at 250
+episode: 10
+episode:  10 training step:  142 loss of agent  0 :  0.13697683811187744
+episode:  10 training step:  142 loss of agent  1 :  0.22864452004432678
+episode:  10 training step:  142 loss of agent  2 :  0.3357762098312378
+episode:  10 training step:  143 loss of agent  0 :  0.15662485361099243
+episode:  10 training step:  143 loss of agent  1 :  0.1929042786359787
+episode:  10 training step:  143 loss of agent  2 :  0.17427071928977966
+episode:  10 training step:  144 loss of agent  0 :  0.21306529641151428
+episode:  10 training step:  144 loss of agent  1 :  0.23049785196781158
+episode:  10 training step:  144 loss of agent  2 :  0.24368420243263245
+episode:  10 training step:  145 loss of agent  0 :  0.1408105492591858
+episode:  10 training step:  145 loss of agent  1 :  0.22139102220535278
+episode:  10 training step:  145 loss of agent  2 :  0.16938573122024536
+episode:  10 training step:  146 loss of agent  0 :  0.1720009297132492
+episode:  10 training step:  146 loss of agent  1 :  0.18004409968852997
+episode:  10 training step:  146 loss of agent  2 :  0.18224287033081055
+episode:  10 training step:  147 loss of agent  0 :  0.14301761984825134
+episode:  10 training step:  147 loss of agent  1 :  0.3177911043167114
+episode:  10 training step:  147 loss of agent  2 :  0.24939537048339844
+episode:  10 training step:  148 loss of agent  0 :  0.17753000557422638
+episode:  10 training step:  148 loss of agent  1 :  0.187247633934021
+episode:  10 training step:  148 loss of agent  2 :  0.2288425862789154
+episode:  10 training step:  149 loss of agent  0 :  0.19818854331970215
+episode:  10 training step:  149 loss of agent  1 :  0.15694640576839447
+episode:  10 training step:  149 loss of agent  2 :  0.2121293544769287
+episode:  10 training step:  150 loss of agent  0 :  0.19186174869537354
+episode:  10 training step:  150 loss of agent  1 :  0.16643519699573517
+episode:  10 training step:  150 loss of agent  2 :  0.20109786093235016
+Evaluation
+env seed: 6 evaluation score at the training step:  150 :  {'adversary_0': -32.43571360626231, 'agent_0': -14.09730466594172, 'agent_1': -14.09730466594172}
+episode:  10 training step:  151 loss of agent  0 :  0.14037925004959106
+episode:  10 training step:  151 loss of agent  1 :  0.24070583283901215
+episode:  10 training step:  151 loss of agent  2 :  0.21135671436786652
+episode:  10 training step:  152 loss of agent  0 :  0.12524253129959106
+episode:  10 training step:  152 loss of agent  1 :  0.21546338498592377
+episode:  10 training step:  152 loss of agent  2 :  0.1970287561416626
+episode:  10 training step:  153 loss of agent  0 :  0.13086692988872528
+episode:  10 training step:  153 loss of agent  1 :  0.3253946602344513
+episode:  10 training step:  153 loss of agent  2 :  0.15674546360969543
+episode:  10 training step:  154 loss of agent  0 :  0.14193660020828247
+episode:  10 training step:  154 loss of agent  1 :  0.18740300834178925
+episode:  10 training step:  154 loss of agent  2 :  0.2474452257156372
+episode:  10 training step:  155 loss of agent  0 :  0.14291167259216309
+episode:  10 training step:  155 loss of agent  1 :  0.23250630497932434
+episode:  10 training step:  155 loss of agent  2 :  0.13065959513187408
+episode:  10 training step:  156 loss of agent  0 :  0.10493125766515732
+episode:  10 training step:  156 loss of agent  1 :  0.2461090385913849
+episode:  10 training step:  156 loss of agent  2 :  0.24445083737373352
+episode:  10 training step:  157 loss of agent  0 :  0.17868652939796448
+episode:  10 training step:  157 loss of agent  1 :  0.168215811252594
+episode:  10 training step:  157 loss of agent  2 :  0.1318546086549759
+episode:  10 training step:  158 loss of agent  0 :  0.1447272002696991
+episode:  10 training step:  158 loss of agent  1 :  0.23807159066200256
+episode:  10 training step:  158 loss of agent  2 :  0.18482449650764465
+episode:  10 training step:  159 loss of agent  0 :  0.11264775693416595
+episode:  10 training step:  159 loss of agent  1 :  0.15574149787425995
+episode:  10 training step:  159 loss of agent  2 :  0.21905897557735443
+episode:  10 training step:  160 loss of agent  0 :  0.08924984931945801
+episode:  10 training step:  160 loss of agent  1 :  0.2140319049358368
+episode:  10 training step:  160 loss of agent  2 :  0.15418487787246704
+Evaluation
+env seed: 6 evaluation score at the training step:  160 :  {'adversary_0': -32.996176756716444, 'agent_0': -13.950123432037376, 'agent_1': -13.950123432037376}
+episode:  10 training step:  161 loss of agent  0 :  0.16803373396396637
+episode:  10 training step:  161 loss of agent  1 :  0.19879186153411865
+episode:  10 training step:  161 loss of agent  2 :  0.14017297327518463
+episode:  10 training step:  162 loss of agent  0 :  0.12399676442146301
+episode:  10 training step:  162 loss of agent  1 :  0.2545376420021057
+episode:  10 training step:  162 loss of agent  2 :  0.18792670965194702
+episode:  10 training step:  163 loss of agent  0 :  0.11842142790555954
+episode:  10 training step:  163 loss of agent  1 :  0.24590739607810974
+episode:  10 training step:  163 loss of agent  2 :  0.23804232478141785
+episode:  10 training step:  164 loss of agent  0 :  0.11213728785514832
+episode:  10 training step:  164 loss of agent  1 :  0.1739906370639801
+episode:  10 training step:  164 loss of agent  2 :  0.17749154567718506
+episode:  10 training step:  165 loss of agent  0 :  0.09640952944755554
+episode:  10 training step:  165 loss of agent  1 :  0.27855876088142395
+episode:  10 training step:  165 loss of agent  2 :  0.12265583127737045
+episode 10 terminated at 275
+episode: 11
+episode:  11 training step:  166 loss of agent  0 :  0.06701184064149857
+episode:  11 training step:  166 loss of agent  1 :  0.20268955826759338
+episode:  11 training step:  166 loss of agent  2 :  0.1497088372707367
+episode:  11 training step:  167 loss of agent  0 :  0.08264242112636566
+episode:  11 training step:  167 loss of agent  1 :  0.17260131239891052
+episode:  11 training step:  167 loss of agent  2 :  0.15813852846622467
+episode:  11 training step:  168 loss of agent  0 :  0.08830283582210541
+episode:  11 training step:  168 loss of agent  1 :  0.1720718890428543
+episode:  11 training step:  168 loss of agent  2 :  0.22644315659999847
+episode:  11 training step:  169 loss of agent  0 :  0.05015089362859726
+episode:  11 training step:  169 loss of agent  1 :  0.16822947561740875
+episode:  11 training step:  169 loss of agent  2 :  0.15193036198616028
+episode:  11 training step:  170 loss of agent  0 :  0.08908377587795258
+episode:  11 training step:  170 loss of agent  1 :  0.17819851636886597
+episode:  11 training step:  170 loss of agent  2 :  0.20051516592502594
+Evaluation
+env seed: 6 evaluation score at the training step:  170 :  {'adversary_0': -32.45535306777463, 'agent_0': -14.300793306286916, 'agent_1': -14.300793306286916}
+episode:  11 training step:  171 loss of agent  0 :  0.1599981188774109
+episode:  11 training step:  171 loss of agent  1 :  0.24272549152374268
+episode:  11 training step:  171 loss of agent  2 :  0.11473995447158813
+episode:  11 training step:  172 loss of agent  0 :  0.13095872104167938
+episode:  11 training step:  172 loss of agent  1 :  0.12718357145786285
+episode:  11 training step:  172 loss of agent  2 :  0.12128401547670364
+episode:  11 training step:  173 loss of agent  0 :  0.09636430442333221
+episode:  11 training step:  173 loss of agent  1 :  0.14523088932037354
+episode:  11 training step:  173 loss of agent  2 :  0.19211536645889282
+episode:  11 training step:  174 loss of agent  0 :  0.14357972145080566
+episode:  11 training step:  174 loss of agent  1 :  0.15458250045776367
+episode:  11 training step:  174 loss of agent  2 :  0.22183312475681305
+episode:  11 training step:  175 loss of agent  0 :  0.11774925887584686
+episode:  11 training step:  175 loss of agent  1 :  0.27287209033966064
+episode:  11 training step:  175 loss of agent  2 :  0.16882167756557465
+episode:  11 training step:  176 loss of agent  0 :  0.09295768290758133
+episode:  11 training step:  176 loss of agent  1 :  0.2003517597913742
+episode:  11 training step:  176 loss of agent  2 :  0.07842464745044708
+episode:  11 training step:  177 loss of agent  0 :  0.12193331867456436
+episode:  11 training step:  177 loss of agent  1 :  0.20524106919765472
+episode:  11 training step:  177 loss of agent  2 :  0.13305015861988068
+episode:  11 training step:  178 loss of agent  0 :  0.12994319200515747
+episode:  11 training step:  178 loss of agent  1 :  0.2223762571811676
+episode:  11 training step:  178 loss of agent  2 :  0.18141260743141174
+episode:  11 training step:  179 loss of agent  0 :  0.12038204818964005
+episode:  11 training step:  179 loss of agent  1 :  0.16919027268886566
+episode:  11 training step:  179 loss of agent  2 :  0.1993180811405182
+episode:  11 training step:  180 loss of agent  0 :  0.10311493277549744
+episode:  11 training step:  180 loss of agent  1 :  0.21320582926273346
+episode:  11 training step:  180 loss of agent  2 :  0.10722999274730682
+Evaluation
+env seed: 6 evaluation score at the training step:  180 :  {'adversary_0': -32.568148537795444, 'agent_0': -1.1689312332777224, 'agent_1': -1.1689312332777224}
+episode:  11 training step:  181 loss of agent  0 :  0.0860198587179184
+episode:  11 training step:  181 loss of agent  1 :  0.2523832619190216
+episode:  11 training step:  181 loss of agent  2 :  0.2636663019657135
+episode:  11 training step:  182 loss of agent  0 :  0.0997672826051712
+episode:  11 training step:  182 loss of agent  1 :  0.14818158745765686
+episode:  11 training step:  182 loss of agent  2 :  0.12768518924713135
+episode:  11 training step:  183 loss of agent  0 :  0.13098137080669403
+episode:  11 training step:  183 loss of agent  1 :  0.159671351313591
+episode:  11 training step:  183 loss of agent  2 :  0.17534762620925903
+episode:  11 training step:  184 loss of agent  0 :  0.07118625938892365
+episode:  11 training step:  184 loss of agent  1 :  0.19407546520233154
+episode:  11 training step:  184 loss of agent  2 :  0.11241473257541656
+episode:  11 training step:  185 loss of agent  0 :  0.0928691178560257
+episode:  11 training step:  185 loss of agent  1 :  0.2684841454029083
+episode:  11 training step:  185 loss of agent  2 :  0.165153369307518
+episode:  11 training step:  186 loss of agent  0 :  0.129697784781456
+episode:  11 training step:  186 loss of agent  1 :  0.18950730562210083
+episode:  11 training step:  186 loss of agent  2 :  0.17010974884033203
+episode:  11 training step:  187 loss of agent  0 :  0.07587558776140213
+episode:  11 training step:  187 loss of agent  1 :  0.19955454766750336
+episode:  11 training step:  187 loss of agent  2 :  0.14068086445331573
+episode:  11 training step:  188 loss of agent  0 :  0.09950551390647888
+episode:  11 training step:  188 loss of agent  1 :  0.1374587118625641
+episode:  11 training step:  188 loss of agent  2 :  0.2048434317111969
+episode:  11 training step:  189 loss of agent  0 :  0.09622901678085327
+episode:  11 training step:  189 loss of agent  1 :  0.21719440817832947
+episode:  11 training step:  189 loss of agent  2 :  0.1257825344800949
+episode 11 terminated at 300
+episode: 12
+episode:  12 training step:  190 loss of agent  0 :  0.10964968800544739
+episode:  12 training step:  190 loss of agent  1 :  0.11137843132019043
+episode:  12 training step:  190 loss of agent  2 :  0.17005614936351776
+Evaluation
+env seed: 6 evaluation score at the training step:  190 :  {'adversary_0': -33.00988333471883, 'agent_0': -12.163597122861095, 'agent_1': -12.163597122861095}
+episode:  12 training step:  191 loss of agent  0 :  0.08926472067832947
+episode:  12 training step:  191 loss of agent  1 :  0.13853701949119568
+episode:  12 training step:  191 loss of agent  2 :  0.19131317734718323
+episode:  12 training step:  192 loss of agent  0 :  0.03888547420501709
+episode:  12 training step:  192 loss of agent  1 :  0.13420002162456512
+episode:  12 training step:  192 loss of agent  2 :  0.11960122734308243
+episode:  12 training step:  193 loss of agent  0 :  0.0966067686676979
+episode:  12 training step:  193 loss of agent  1 :  0.15381450951099396
+episode:  12 training step:  193 loss of agent  2 :  0.17328351736068726
+episode:  12 training step:  194 loss of agent  0 :  0.10130862146615982
+episode:  12 training step:  194 loss of agent  1 :  0.13609439134597778
+episode:  12 training step:  194 loss of agent  2 :  0.1232692077755928
+episode:  12 training step:  195 loss of agent  0 :  0.03721185401082039
+episode:  12 training step:  195 loss of agent  1 :  0.27168169617652893
+episode:  12 training step:  195 loss of agent  2 :  0.165315181016922
+episode:  12 training step:  196 loss of agent  0 :  0.05703997239470482
+episode:  12 training step:  196 loss of agent  1 :  0.18367339670658112
+episode:  12 training step:  196 loss of agent  2 :  0.12322715669870377
+episode:  12 training step:  197 loss of agent  0 :  0.03613279014825821
+episode:  12 training step:  197 loss of agent  1 :  0.12625707685947418
+episode:  12 training step:  197 loss of agent  2 :  0.16819849610328674
+episode:  12 training step:  198 loss of agent  0 :  0.09760535508394241
+episode:  12 training step:  198 loss of agent  1 :  0.19576627016067505
+episode:  12 training step:  198 loss of agent  2 :  0.1745842844247818
+episode:  12 training step:  199 loss of agent  0 :  0.09151669591665268
+episode:  12 training step:  199 loss of agent  1 :  0.14998817443847656
+episode:  12 training step:  199 loss of agent  2 :  0.09818597882986069
+episode:  12 training step:  200 loss of agent  0 :  0.07263848185539246
+episode:  12 training step:  200 loss of agent  1 :  0.1381276398897171
+episode:  12 training step:  200 loss of agent  2 :  0.16361284255981445
+Evaluation
+env seed: 6 evaluation score at the training step:  200 :  {'adversary_0': -33.00988333471883, 'agent_0': 11.049918588718409, 'agent_1': 11.049918588718409}
+episode:  12 training step:  201 loss of agent  0 :  0.038821741938591
+episode:  12 training step:  201 loss of agent  1 :  0.15386730432510376
+episode:  12 training step:  201 loss of agent  2 :  0.20943905413150787
+episode:  12 training step:  202 loss of agent  0 :  0.07170456647872925
+episode:  12 training step:  202 loss of agent  1 :  0.16974645853042603
+episode:  12 training step:  202 loss of agent  2 :  0.11276975274085999
+episode:  12 training step:  203 loss of agent  0 :  0.07960829883813858
+episode:  12 training step:  203 loss of agent  1 :  0.08987849205732346
+episode:  12 training step:  203 loss of agent  2 :  0.11073021590709686
+episode:  12 training step:  204 loss of agent  0 :  0.036796845495700836
+episode:  12 training step:  204 loss of agent  1 :  0.11360268294811249
+episode:  12 training step:  204 loss of agent  2 :  0.09484840929508209
+episode:  12 training step:  205 loss of agent  0 :  0.0547715462744236
+episode:  12 training step:  205 loss of agent  1 :  0.1950940489768982
+episode:  12 training step:  205 loss of agent  2 :  0.10874675214290619
+episode:  12 training step:  206 loss of agent  0 :  0.07832812517881393
+episode:  12 training step:  206 loss of agent  1 :  0.12666016817092896
+episode:  12 training step:  206 loss of agent  2 :  0.13366135954856873
+episode:  12 training step:  207 loss of agent  0 :  0.09187471121549606
+episode:  12 training step:  207 loss of agent  1 :  0.1285894364118576
+episode:  12 training step:  207 loss of agent  2 :  0.2094268649816513
+episode:  12 training step:  208 loss of agent  0 :  0.06760217994451523
+episode:  12 training step:  208 loss of agent  1 :  0.13700304925441742
+episode:  12 training step:  208 loss of agent  2 :  0.12359399348497391
+episode:  12 training step:  209 loss of agent  0 :  0.07218868285417557
+episode:  12 training step:  209 loss of agent  1 :  0.11938294768333435
+episode:  12 training step:  209 loss of agent  2 :  0.12678900361061096
+episode:  12 training step:  210 loss of agent  0 :  0.07128500938415527
+episode:  12 training step:  210 loss of agent  1 :  0.26484233140945435
+episode:  12 training step:  210 loss of agent  2 :  0.15582896769046783
+Evaluation
+env seed: 6 evaluation score at the training step:  210 :  {'adversary_0': -32.7322114435636, 'agent_0': -8.423677566991012, 'agent_1': -8.423677566991012}
+episode:  12 training step:  211 loss of agent  0 :  0.08753688633441925
+episode:  12 training step:  211 loss of agent  1 :  0.16001449525356293
+episode:  12 training step:  211 loss of agent  2 :  0.10886213183403015
+episode:  12 training step:  212 loss of agent  0 :  0.03665206953883171
+episode:  12 training step:  212 loss of agent  1 :  0.12252835929393768
+episode:  12 training step:  212 loss of agent  2 :  0.11553987860679626
+episode:  12 training step:  213 loss of agent  0 :  0.066693514585495
+episode:  12 training step:  213 loss of agent  1 :  0.09677980095148087
+episode:  12 training step:  213 loss of agent  2 :  0.11616060882806778
+episode 12 terminated at 325
+episode: 13
+episode:  13 training step:  214 loss of agent  0 :  0.06307891756296158
+episode:  13 training step:  214 loss of agent  1 :  0.11756199598312378
+episode:  13 training step:  214 loss of agent  2 :  0.16486087441444397
+episode:  13 training step:  215 loss of agent  0 :  0.08312898129224777
+episode:  13 training step:  215 loss of agent  1 :  0.09318803250789642
+episode:  13 training step:  215 loss of agent  2 :  0.1678059846162796
+episode:  13 training step:  216 loss of agent  0 :  0.04551701992750168
+episode:  13 training step:  216 loss of agent  1 :  0.1301407814025879
+episode:  13 training step:  216 loss of agent  2 :  0.14998452365398407
+episode:  13 training step:  217 loss of agent  0 :  0.09197880327701569
+episode:  13 training step:  217 loss of agent  1 :  0.1529109925031662
+episode:  13 training step:  217 loss of agent  2 :  0.1205923929810524
+episode:  13 training step:  218 loss of agent  0 :  0.04365980625152588
+episode:  13 training step:  218 loss of agent  1 :  0.14324116706848145
+episode:  13 training step:  218 loss of agent  2 :  0.1565895527601242
+episode:  13 training step:  219 loss of agent  0 :  0.07246409356594086
+episode:  13 training step:  219 loss of agent  1 :  0.11132493615150452
+episode:  13 training step:  219 loss of agent  2 :  0.1629573106765747
+episode:  13 training step:  220 loss of agent  0 :  0.08756425976753235
+episode:  13 training step:  220 loss of agent  1 :  0.08459684997797012
+episode:  13 training step:  220 loss of agent  2 :  0.0875685065984726
+Evaluation
+env seed: 6 evaluation score at the training step:  220 :  {'adversary_0': -32.4836743117649, 'agent_0': -13.277230855840775, 'agent_1': -13.277230855840775}
+episode:  13 training step:  221 loss of agent  0 :  0.03779175877571106
+episode:  13 training step:  221 loss of agent  1 :  0.1676519811153412
+episode:  13 training step:  221 loss of agent  2 :  0.05599576607346535
+episode:  13 training step:  222 loss of agent  0 :  0.04646217077970505
+episode:  13 training step:  222 loss of agent  1 :  0.10918837040662766
+episode:  13 training step:  222 loss of agent  2 :  0.09385457634925842
+episode:  13 training step:  223 loss of agent  0 :  0.03137172758579254
+episode:  13 training step:  223 loss of agent  1 :  0.20561037957668304
+episode:  13 training step:  223 loss of agent  2 :  0.13718070089817047
+episode:  13 training step:  224 loss of agent  0 :  0.058850109577178955
+episode:  13 training step:  224 loss of agent  1 :  0.13452360033988953
+episode:  13 training step:  224 loss of agent  2 :  0.13333237171173096
+episode:  13 training step:  225 loss of agent  0 :  0.08056429773569107
+episode:  13 training step:  225 loss of agent  1 :  0.09280017018318176
+episode:  13 training step:  225 loss of agent  2 :  0.10221119225025177
+episode:  13 training step:  226 loss of agent  0 :  0.03673770651221275
+episode:  13 training step:  226 loss of agent  1 :  0.17009040713310242
+episode:  13 training step:  226 loss of agent  2 :  0.09798024594783783
+episode:  13 training step:  227 loss of agent  0 :  0.04539206251502037
+episode:  13 training step:  227 loss of agent  1 :  0.13280224800109863
+episode:  13 training step:  227 loss of agent  2 :  0.10569851845502853
+episode:  13 training step:  228 loss of agent  0 :  0.07450422644615173
+episode:  13 training step:  228 loss of agent  1 :  0.14467160403728485
+episode:  13 training step:  228 loss of agent  2 :  0.06431632488965988
+episode:  13 training step:  229 loss of agent  0 :  0.06071706861257553
+episode:  13 training step:  229 loss of agent  1 :  0.14515838027000427
+episode:  13 training step:  229 loss of agent  2 :  0.07903536409139633
+episode:  13 training step:  230 loss of agent  0 :  0.062128614634275436
+episode:  13 training step:  230 loss of agent  1 :  0.08816387504339218
+episode:  13 training step:  230 loss of agent  2 :  0.10324998199939728
+Evaluation
+env seed: 6 evaluation score at the training step:  230 :  {'adversary_0': -31.818472799882954, 'agent_0': 17.32803004950464, 'agent_1': 17.32803004950464}
+episode:  13 training step:  231 loss of agent  0 :  0.038915570825338364
+episode:  13 training step:  231 loss of agent  1 :  0.2306719869375229
+episode:  13 training step:  231 loss of agent  2 :  0.18645977973937988
+episode:  13 training step:  232 loss of agent  0 :  0.059572815895080566
+episode:  13 training step:  232 loss of agent  1 :  0.13133426010608673
+episode:  13 training step:  232 loss of agent  2 :  0.10022713989019394
+episode:  13 training step:  233 loss of agent  0 :  0.04982393980026245
+episode:  13 training step:  233 loss of agent  1 :  0.137156680226326
+episode:  13 training step:  233 loss of agent  2 :  0.09723817557096481
+episode:  13 training step:  234 loss of agent  0 :  0.05045866221189499
+episode:  13 training step:  234 loss of agent  1 :  0.11951009929180145
+episode:  13 training step:  234 loss of agent  2 :  0.060571324080228806
+episode:  13 training step:  235 loss of agent  0 :  0.06295131146907806
+episode:  13 training step:  235 loss of agent  1 :  0.14625512063503265
+episode:  13 training step:  235 loss of agent  2 :  0.09953939914703369
+episode:  13 training step:  236 loss of agent  0 :  0.0438222698867321
+episode:  13 training step:  236 loss of agent  1 :  0.1430816650390625
+episode:  13 training step:  236 loss of agent  2 :  0.10725612938404083
+episode:  13 training step:  237 loss of agent  0 :  0.05039779841899872
+episode:  13 training step:  237 loss of agent  1 :  0.1216147318482399
+episode:  13 training step:  237 loss of agent  2 :  0.11073222011327744
+episode 13 terminated at 350
+episode: 14
+episode:  14 training step:  238 loss of agent  0 :  0.04654167219996452
+episode:  14 training step:  238 loss of agent  1 :  0.12042778730392456
+episode:  14 training step:  238 loss of agent  2 :  0.1023716926574707
+episode:  14 training step:  239 loss of agent  0 :  0.08670204877853394
+episode:  14 training step:  239 loss of agent  1 :  0.12498708069324493
+episode:  14 training step:  239 loss of agent  2 :  0.12684449553489685
+episode:  14 training step:  240 loss of agent  0 :  0.03814025595784187
+episode:  14 training step:  240 loss of agent  1 :  0.14918164908885956
+episode:  14 training step:  240 loss of agent  2 :  0.13473853468894958
+Evaluation
+env seed: 6 evaluation score at the training step:  240 :  {'adversary_0': -32.19350738886085, 'agent_0': 17.02178070271646, 'agent_1': 17.02178070271646}
+episode:  14 training step:  241 loss of agent  0 :  0.06079428270459175
+episode:  14 training step:  241 loss of agent  1 :  0.1715545803308487
+episode:  14 training step:  241 loss of agent  2 :  0.18121206760406494
+episode:  14 training step:  242 loss of agent  0 :  0.06107855215668678
+episode:  14 training step:  242 loss of agent  1 :  0.1633959263563156
+episode:  14 training step:  242 loss of agent  2 :  0.08881785720586777
+episode:  14 training step:  243 loss of agent  0 :  0.07277247309684753
+episode:  14 training step:  243 loss of agent  1 :  0.11290779709815979
+episode:  14 training step:  243 loss of agent  2 :  0.08944597840309143
+episode:  14 training step:  244 loss of agent  0 :  0.07298354059457779
+episode:  14 training step:  244 loss of agent  1 :  0.13385413587093353
+episode:  14 training step:  244 loss of agent  2 :  0.11899006366729736
+episode:  14 training step:  245 loss of agent  0 :  0.05158146470785141
+episode:  14 training step:  245 loss of agent  1 :  0.08034306764602661
+episode:  14 training step:  245 loss of agent  2 :  0.098324254155159
+episode:  14 training step:  246 loss of agent  0 :  0.06528429687023163
+episode:  14 training step:  246 loss of agent  1 :  0.12430515885353088
+episode:  14 training step:  246 loss of agent  2 :  0.07408100366592407
+episode:  14 training step:  247 loss of agent  0 :  0.04651680961251259
+episode:  14 training step:  247 loss of agent  1 :  0.11481879651546478
+episode:  14 training step:  247 loss of agent  2 :  0.08876055479049683
+episode:  14 training step:  248 loss of agent  0 :  0.08491437137126923
+episode:  14 training step:  248 loss of agent  1 :  0.13877688348293304
+episode:  14 training step:  248 loss of agent  2 :  0.04941770061850548
+episode:  14 training step:  249 loss of agent  0 :  0.08710300922393799
+episode:  14 training step:  249 loss of agent  1 :  0.08590037375688553
+episode:  14 training step:  249 loss of agent  2 :  0.0869894027709961
+episode:  14 training step:  250 loss of agent  0 :  0.07039275765419006
+episode:  14 training step:  250 loss of agent  1 :  0.1253613829612732
+episode:  14 training step:  250 loss of agent  2 :  0.14320005476474762
+Evaluation
+env seed: 6 evaluation score at the training step:  250 :  {'adversary_0': -32.17881284645482, 'agent_0': 16.184009732326178, 'agent_1': 16.184009732326178}
+episode:  14 training step:  251 loss of agent  0 :  0.10241081565618515
+episode:  14 training step:  251 loss of agent  1 :  0.08966727554798126
+episode:  14 training step:  251 loss of agent  2 :  0.1071263775229454
+episode:  14 training step:  252 loss of agent  0 :  0.09728384017944336
+episode:  14 training step:  252 loss of agent  1 :  0.13196814060211182
+episode:  14 training step:  252 loss of agent  2 :  0.09724321216344833
+episode:  14 training step:  253 loss of agent  0 :  0.0886167511343956
+episode:  14 training step:  253 loss of agent  1 :  0.15305335819721222
+episode:  14 training step:  253 loss of agent  2 :  0.12691231071949005
+episode:  14 training step:  254 loss of agent  0 :  0.04841064661741257
+episode:  14 training step:  254 loss of agent  1 :  0.0876942127943039
+episode:  14 training step:  254 loss of agent  2 :  0.10067235678434372
+episode:  14 training step:  255 loss of agent  0 :  0.03005317412316799
+episode:  14 training step:  255 loss of agent  1 :  0.15997153520584106
+episode:  14 training step:  255 loss of agent  2 :  0.11023684591054916
+episode:  14 training step:  256 loss of agent  0 :  0.053843773901462555
+episode:  14 training step:  256 loss of agent  1 :  0.11232894659042358
+episode:  14 training step:  256 loss of agent  2 :  0.12856587767601013
+episode:  14 training step:  257 loss of agent  0 :  0.050845228135585785
+episode:  14 training step:  257 loss of agent  1 :  0.10730361193418503
+episode:  14 training step:  257 loss of agent  2 :  0.11565603315830231
+episode:  14 training step:  258 loss of agent  0 :  0.05237133055925369
+episode:  14 training step:  258 loss of agent  1 :  0.16692513227462769
+episode:  14 training step:  258 loss of agent  2 :  0.11441482603549957
+episode:  14 training step:  259 loss of agent  0 :  0.0480593703687191
+episode:  14 training step:  259 loss of agent  1 :  0.11526459455490112
+episode:  14 training step:  259 loss of agent  2 :  0.07891155779361725
+episode:  14 training step:  260 loss of agent  0 :  0.098969966173172
+episode:  14 training step:  260 loss of agent  1 :  0.23189672827720642
+episode:  14 training step:  260 loss of agent  2 :  0.15940406918525696
+Evaluation
+env seed: 6 evaluation score at the training step:  260 :  {'adversary_0': -53.554713362904565, 'agent_0': 38.55836544206089, 'agent_1': 38.55836544206089}
+episode:  14 training step:  261 loss of agent  0 :  0.03954292833805084
+episode:  14 training step:  261 loss of agent  1 :  0.1958378702402115
+episode:  14 training step:  261 loss of agent  2 :  0.11995403468608856
+episode 14 terminated at 375
+episode: 15
+episode:  15 training step:  262 loss of agent  0 :  0.06712132692337036
+episode:  15 training step:  262 loss of agent  1 :  0.11445730924606323
+episode:  15 training step:  262 loss of agent  2 :  0.1395411640405655
+episode:  15 training step:  263 loss of agent  0 :  0.06988410651683807
+episode:  15 training step:  263 loss of agent  1 :  0.15030832588672638
+episode:  15 training step:  263 loss of agent  2 :  0.10246819257736206
+episode:  15 training step:  264 loss of agent  0 :  0.05123147740960121
+episode:  15 training step:  264 loss of agent  1 :  0.13800610601902008
+episode:  15 training step:  264 loss of agent  2 :  0.16469165682792664
+episode:  15 training step:  265 loss of agent  0 :  0.07477403432130814
+episode:  15 training step:  265 loss of agent  1 :  0.14327065646648407
+episode:  15 training step:  265 loss of agent  2 :  0.10651546716690063
+episode:  15 training step:  266 loss of agent  0 :  0.07234159111976624
+episode:  15 training step:  266 loss of agent  1 :  0.12361250072717667
+episode:  15 training step:  266 loss of agent  2 :  0.0673728808760643
+episode:  15 training step:  267 loss of agent  0 :  0.04255219176411629
+episode:  15 training step:  267 loss of agent  1 :  0.16482773423194885
+episode:  15 training step:  267 loss of agent  2 :  0.09899170696735382
+episode:  15 training step:  268 loss of agent  0 :  0.02721557766199112
+episode:  15 training step:  268 loss of agent  1 :  0.15214122831821442
+episode:  15 training step:  268 loss of agent  2 :  0.1340394914150238
+episode:  15 training step:  269 loss of agent  0 :  0.05952486768364906
+episode:  15 training step:  269 loss of agent  1 :  0.09330123662948608
+episode:  15 training step:  269 loss of agent  2 :  0.09281718730926514
+episode:  15 training step:  270 loss of agent  0 :  0.05539354681968689
+episode:  15 training step:  270 loss of agent  1 :  0.12371808290481567
+episode:  15 training step:  270 loss of agent  2 :  0.08402662724256516
+Evaluation
+env seed: 6 evaluation score at the training step:  270 :  {'adversary_0': -56.99190850132451, 'agent_0': 41.7632305579581, 'agent_1': 41.7632305579581}
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 95, in <module>
+    main()
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 69, in main
+    loop_iteration(num_games, env_pretrain, eval_env_pretrain, opt, agent_models, agent_buffers)
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\utils.py", line 107, in loop_iteration
+    model.save(f"{algo}_{a}",EnvName)
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\dddqn.py", line 172, in save
+    torch.save(self.q_net.state_dict(), save_path)
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\serialization.py", line 618, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\serialization.py", line 492, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\serialization.py", line 463, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name))
+RuntimeError: File ./model/dddQN_source_agent_0_simple_adversary_2.pth cannot be opened.
