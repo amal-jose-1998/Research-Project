@@ -31,7 +31,7 @@ parser.add_argument('--good_agents_pretrain', type=int, default=2, help='no of g
 parser.add_argument('--good_agents_target', type=int, default=3, help='no of good agents for the target')
 parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
 parser.add_argument('--transfer_train', type=str2bool, default=True, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
-parser.add_argument('--games', type=int, default=60, help='no of episodes')
+parser.add_argument('--games', type=int, default=45, help='no of episodes')
 parser.add_argument('--train_all_agents', type=str2bool, default=True, help='to select if all the agents in the target task are to be loaded with pretrained models')
 parser.add_argument('--best_good_agent', type=int, default=2, help='best model for the good agent')
 opt = parser.parse_args()
