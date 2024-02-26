@@ -1,9 +1,6 @@
 import numpy as np
 import torch
-#import gym
 from dddqn import dddQN_Agent, ReplayBuffer
-#import os
-#from datetime import datetime
 import argparse
 from utils import str2bool, loop_iteration
 from pettingzoo.mpe import simple_adversary_v3
@@ -15,8 +12,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--write', type=str2bool, default=True, help='Use wandb to record the training')
 parser.add_argument('--render', type=str, default="human", help='Render or Not')
 parser.add_argument('--seed', type=int, default=5, help='random seed')
-parser.add_argument('--save_interval', type=int, default=10, help='Model saving interval, in steps.')
-parser.add_argument('--eval_interval', type=int, default=1, help='Model evaluating interval, in steps.')
+parser.add_argument('--save_interval', type=int, default=10, help='Model saving interval, in training steps.')
+parser.add_argument('--eval_interval', type=int, default=5, help='Model evaluating interval, in training steps.')
 parser.add_argument('--random_steps', type=int, default=100, help=' min no of replay buffer experiences to start training')
 parser.add_argument('--gamma', type=float, default=0.99, help='Discounted Factor')
 parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate')
