@@ -30,6 +30,7 @@ def evaluate_policy(s, eval_env, agent_models, num_episodes=10):
         total_reward[agent_name] = total_reward[agent_name] / num_episodes
     return total_reward
 
+
 def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, good_agents):
     schedualer = LinearSchedule(schedule_timesteps=opt.anneal_frac, final_p=0.02, initial_p=opt.exp_noise) #explore noise linearly annealed from 1.0 to 0.02 within 200k steps
     loss = {}
@@ -39,16 +40,19 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, g
     total_training_steps = 1 # total training step
     for i in range(num_games):
         print('episode:', i)
+        total_episode_reward = {}
         actions={}
         done = False
         s, infos = env.reset(seed=opt.seed)
         for agent_name in env.agents:
+            total_episode_reward[agent_name] = 0
             terminations[agent_name] = False
             truncations[agent_name] = False
         while not done:
             if any(terminations.values()) or any(truncations.values()):
                 print('episode',i, 'terminated at', total_steps)
                 done = 1
+                wandb.log({f'total episode rewards during training': total_episode_reward}) 
             else:
                 total_steps += 1
                 j = 0
@@ -72,6 +76,7 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, g
                         done = 1
                     buffer = agent_buffers[j]
                     buffer.add(current_state, action, reward, next_state, done)
+                    total_episode_reward[agent_name] += reward
                     flag = 0
                     if buffer.size >= opt.random_steps: #checks if the replay buffer has accumulated enough experiences to start training.
                         flag = 1
@@ -97,16 +102,19 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, g
                         if opt.transfer_train == True:
                             algo = 'dddQN_target_agent'
                             EnvName = "simple_adversary_3Good_Agents"
-                        else:
+                        elif opt.pretrain == True:
                             algo = 'dddQN_source_agent'
                             EnvName = "simple_adversary_2Good_Agents"
+                        else:
+                            algo = 'dddQN_target_agent'
+                            EnvName = "simple_adversary_3Good_Agents_trained_from_scratch"
                         for a in range(value):
                             model = agent_models[a]
                             model.save(f"{algo}_{a}",EnvName)                    
                     total_training_steps+=1
 
                 s = s_prime
-
+                
 def str2bool(v):
     '''Transfer str to bool for argparse'''
     if isinstance(v, bool):

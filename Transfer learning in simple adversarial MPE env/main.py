@@ -30,8 +30,10 @@ parser.add_argument('--train_freq', type=int, default=1, help='model trainning f
 parser.add_argument('--good_agents_pretrain', type=int, default=2, help='no of good agents for the pretraining')
 parser.add_argument('--good_agents_target', type=int, default=3, help='no of good agents for the target')
 parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
-parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
-parser.add_argument('--games', type=int, default=50, help='no of episodes')
+parser.add_argument('--transfer_train', type=str2bool, default=True, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
+parser.add_argument('--games', type=int, default=60, help='no of episodes')
+parser.add_argument('--train_all_agents', type=str2bool, default=True, help='to select if all the agents in the target task are to be loaded with pretrained models')
+parser.add_argument('--best_good_agent', type=int, default=2, help='best model for the good agent')
 opt = parser.parse_args()
 print(opt)
 
@@ -53,6 +55,13 @@ def set_observation_dimension(agent_id, transfer_train=False, pretrain = False):
         else:
             return 14
 
+def set_input_layer_dimensions(agent_id, agent_opt):
+    agent_opt.obs_dim = set_observation_dimension(agent_id, pretrain= True)
+    model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent
+    conv_input_dim = agent_opt.obs_dim
+    obs_dim = set_observation_dimension(agent_id, transfer_train=True)
+    input_obs_dim = obs_dim
+    return input_obs_dim,conv_input_dim, model
 
 def main():
     num_games = opt.games
@@ -110,20 +119,27 @@ def main():
     
     else:
         if opt.write:
-            wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training', config=vars(opt))
+            if opt.train_all_agents == False:
+                wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training (only corresponding agents learned)', config=vars(opt))
+            else:
+                wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training (all agents learned)', config=vars(opt))
         print(env_transfer_train.observation_space)
         for agent_id in range(opt.good_agents_target+1):  
             agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
-            if agent_id < opt.good_agents_pretrain:
-                agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=False)
-                conv_input_dim = agent_opt.obs_dim
-                model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent 
-                agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)
-                input_obs_dim = agent_opt.obs_dim
-                model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2", input_obs_dim, conv_input_dim, opt.transfer_train) # Load pretrained models for the first two good agents and the adversary  
+            if opt.train_all_agents == False:
+                if agent_id < opt.good_agents_pretrain: 
+                    input_obs_dim, conv_input_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
+                    model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, opt.transfer_train) # Load pretrained models for the first two good agents and the adversary  
+                else:
+                    agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)
+                    model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent 
             else:
-                agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)
-                model = dddQN_Agent(agent_opt, agent_id) # Create a model for each agent 
+                input_obs_dim, conv_input_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
+                if agent_id!=0:
+                    agent_id=opt.best_good_agent
+                print(agent_id, input_obs_dim, conv_input_dim)
+                model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, opt.transfer_train)
+           
             agent_models.append(model)
             
             agent_opt.obs_dim = set_observation_dimension(agent_id, transfer_train=True)

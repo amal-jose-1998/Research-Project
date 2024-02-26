@@ -1,1 +1,0 @@
-{"Loss for agent0": 4.873907566070557, "step": 700, "_timestamp": 1708001035.388702, "_runtime": 82.68677687644958, "_step": 2111, "Loss for agent1": 1.2431899309158325, "Loss for agent2": 2.381019353866577, "step reward": {"adversary_0": -938.0982560143239, "agent_0": 51.9886161576301, "agent_1": 51.9886161576301}, "global_step": 251, "noise": 0.99804}

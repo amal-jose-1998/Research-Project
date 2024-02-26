@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 149, in <module>
-    main()
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\main.py", line 81, in main
-    s, infos = env_pretrain.reset(np_random = np.random.RandomState(opt.seed))
-TypeError: aec_to_parallel_wrapper.reset() got an unexpected keyword argument 'np_random'
-episode: 0

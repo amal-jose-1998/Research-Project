@@ -89,6 +89,7 @@ class dddQN_Agent(object):
 		self.obs_dim = opt.obs_dim
 		self.exp_noise = opt.exp_noise
 		self.transfer_train = opt.transfer_train
+		summary(self.q_net, input_size=(1,self.obs_dim))
 
     # this function balances exploration and exploitation during decision-making. If in evaluation mode, the agent mostly exploits its knowledge, but with a small probability of exploration. 
 	# if in training mode, the agent explores with a probability determined by the exploration noise parameter (self.exp_noise)
@@ -113,12 +114,6 @@ class dddQN_Agent(object):
 			max_q_prime = self.q_target(s_prime)[2].gather(1, argmax_a) # Q-values of the chosen action in the next state, from the target network 
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
 			
-		# Set requires_grad to False for convolutional layers if it is transfer learning
-	#	if self.transfer_train:
-	#		print(self.q_net)
-	#		for param in self.q_net.conv_layers.parameters():
-	#			param.requires_grad = False
-
 		# Get current Q estimates
 		s = s.view(self.batch_size,1,s.shape[1])
 		current_q = self.q_net(s)[2] # Q-values for all possible actions in the current state
@@ -156,6 +151,7 @@ class dddQN_Agent(object):
 			self.obs_dim = input_obs_dim
 			input_net = Inputnet(self.obs_dim, conv_input_dim)
 			self.q_net = Combine(input_net, self.q_net)
+			summary(self.q_net, input_size=(1,self.obs_dim))
 			self.q_target = Combine(input_net, self.q_target)
 
 class Combine(nn.Module):

@@ -6,7 +6,8 @@ Target task: 3 good agents and an adversary<br>
 Pretraining is done on the source task.<br>
 <br>
 To do pretraining, run the code: `python main.py --pretrain True`<br>
-To do transfer learning on the target task, run the code: `python main.py --transfer_train True`<br>
+To do transfer learning on the target task (only for the corresponding agents), run the code: `python main.py --transfer_train True`<br>
+To do transfer learning on the target task (for all the agents), run the code: `python main.py --transfer_train True --train_all_agents True --best_good_agent 2`, the best good agent should be chossen based on the loss curves obtained during pretraining<br>
 To learn the target task from scratch, run the code: `python main.py`<br>
 <br>
 On the target task, the following experiments are conducted. To compare the perfomance, all the agents are also learned from scratch in the very same environment:
