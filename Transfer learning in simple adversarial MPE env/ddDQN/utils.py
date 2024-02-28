@@ -67,6 +67,7 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, g
 
                 j = 0
                 flag = 0
+                wandb.log({f'rewards for each step': r})
                 for agent_name in env.agents:
                     current_state = torch.tensor(s[agent_name])
                     next_state = torch.tensor(s_prime[agent_name])
