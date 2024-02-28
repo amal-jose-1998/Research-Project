@@ -1,4 +1,4 @@
-# Adversarial-MATL on a simple adversarial environment
+# Adversarial-MATL on a simple adversarial environment (ddDQN)
 
 Here, I am initially training 2  good agents and an adversary agent in the simple adversary environment of the pettingzoo, by using duelling double DQN algorithm.<br><br>
 Source task: 2 good agents and an adversary<br>
