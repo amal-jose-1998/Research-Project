@@ -95,7 +95,7 @@ class dddQN_Agent(object):
 	# if in training mode, the agent explores with a probability determined by the exploration noise parameter (self.exp_noise)
 	def select_action(self, state, evaluate):
 		with torch.no_grad():
-			state = state.view(1, 1, -1).to(device)
+			state = state.view(1, 1, -1).to(device) # 1d tensor to 3d tensor for the neural network (batch_size, channels, sequence_length)
 			epsilon = 0.01 if evaluate else self.exp_noise
 			if np.random.rand() < epsilon:
 				a = np.random.randint(0,self.action_dim)

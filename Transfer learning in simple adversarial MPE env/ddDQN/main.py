@@ -36,17 +36,26 @@ parser.add_argument('--best_good_agent', type=int, default=2, help='best model f
 opt = parser.parse_args()
 print(opt)
 
+env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
+eval_env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
+source_adversary_obs_size = 8
+source_agent_obs_size = 10
+env_target= simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
+eval_env_target = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
+target_adversary_obs_size = 12
+target_agent_obs_size = 14
+
 def set_observation_dimension(agent_id, pretrain = False):
     if pretrain == True:
         if agent_id==0:
-            return 8
+            return source_adversary_obs_size
         else:
-            return 10
+            return source_agent_obs_size
     else:
         if agent_id==0:
-            return 12
+            return target_adversary_obs_size
         else:
-            return 14
+            return target_agent_obs_size
 
 def set_input_layer_dimensions(agent_id, agent_opt): # for transfer learning
     agent_opt.obs_dim = set_observation_dimension(agent_id, pretrain= True)
@@ -95,11 +104,6 @@ if __name__ == '__main__':
     num_games = opt.games
     torch.manual_seed(opt.seed)
     np.random.seed(opt.seed)
-
-    env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
-    eval_env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
-    env_target= simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
-    eval_env_target = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
 
     agent_models = [] # agent[0] is the adversary
     agent_buffers = []
