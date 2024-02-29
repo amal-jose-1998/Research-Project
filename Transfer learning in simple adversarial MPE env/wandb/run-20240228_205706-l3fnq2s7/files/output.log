@@ -1,0 +1,1163 @@
+<bound method aec_to_parallel_wrapper.observation_space of <pettingzoo.utils.conversions.aec_to_parallel_wrapper object at 0x00000176726B55A0>>
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv1d-1                [-1, 5, 10]              20
+              ReLU-2                [-1, 5, 10]               0
+            Conv1d-3                [-1, 10, 8]             160
+              ReLU-4                [-1, 10, 8]               0
+            Conv1d-5                [-1, 15, 8]             465
+              ReLU-6                [-1, 15, 8]               0
+            Conv1d-7                [-1, 20, 8]             920
+              ReLU-8                [-1, 20, 8]               0
+            Conv1d-9                [-1, 25, 8]           1,525
+             ReLU-10                [-1, 25, 8]               0
+           Conv1d-11                [-1, 30, 6]           2,280
+             ReLU-12                [-1, 30, 6]               0
+          Flatten-13                  [-1, 180]               0
+           Linear-14                  [-1, 100]          18,100
+             ReLU-15                  [-1, 100]               0
+           Linear-16                    [-1, 1]             101
+           Linear-17                    [-1, 5]             505
+================================================================
+Total params: 24,076
+Trainable params: 24,076
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.09
+Estimated Total Size (MB): 0.11
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv1d-1                [-1, 4, 12]              16
+              ReLU-2                [-1, 4, 12]               0
+            Conv1d-3                [-1, 8, 10]             104
+              ReLU-4                [-1, 8, 10]               0
+            Conv1d-5                [-1, 16, 8]             400
+              ReLU-6                [-1, 16, 8]               0
+            Conv1d-7                [-1, 32, 8]             544
+              ReLU-8                [-1, 32, 8]               0
+           Flatten-9                  [-1, 256]               0
+           Linear-10                  [-1, 100]          25,700
+             ReLU-11                  [-1, 100]               0
+           Linear-12                    [-1, 1]             101
+           Linear-13                    [-1, 5]             505
+================================================================
+Total params: 27,370
+Trainable params: 27,370
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.10
+Estimated Total Size (MB): 0.12
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv1d-1                [-1, 4, 12]              16
+              ReLU-2                [-1, 4, 12]               0
+            Conv1d-3                [-1, 8, 10]             104
+              ReLU-4                [-1, 8, 10]               0
+            Conv1d-5                [-1, 16, 8]             400
+              ReLU-6                [-1, 16, 8]               0
+            Conv1d-7                [-1, 32, 8]             544
+              ReLU-8                [-1, 32, 8]               0
+           Flatten-9                  [-1, 256]               0
+           Linear-10                  [-1, 100]          25,700
+             ReLU-11                  [-1, 100]               0
+           Linear-12                    [-1, 1]             101
+           Linear-13                    [-1, 5]             505
+================================================================
+Total params: 27,370
+Trainable params: 27,370
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.10
+Estimated Total Size (MB): 0.12
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv1d-1                [-1, 4, 12]              16
+              ReLU-2                [-1, 4, 12]               0
+            Conv1d-3                [-1, 8, 10]             104
+              ReLU-4                [-1, 8, 10]               0
+            Conv1d-5                [-1, 16, 8]             400
+              ReLU-6                [-1, 16, 8]               0
+            Conv1d-7                [-1, 32, 8]             544
+              ReLU-8                [-1, 32, 8]               0
+           Flatten-9                  [-1, 256]               0
+           Linear-10                  [-1, 100]          25,700
+             ReLU-11                  [-1, 100]               0
+           Linear-12                    [-1, 1]             101
+           Linear-13                    [-1, 5]             505
+================================================================
+Total params: 27,370
+Trainable params: 27,370
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.10
+Estimated Total Size (MB): 0.12
+----------------------------------------------------------------
+episode: 0
+episode 0 terminated at 25
+episode: 1
+episode 1 terminated at 50
+episode: 2
+episode 2 terminated at 75
+episode: 3
+episode 3 terminated at 100
+episode: 4
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  1 loss of agent  0 :  0.7393121123313904
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  1 loss of agent  1 :  0.5765480995178223
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  1 loss of agent  2 :  0.623568594455719
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  1 loss of agent  3 :  0.5012435913085938
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  2 loss of agent  0 :  0.6321684718132019
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  2 loss of agent  1 :  0.6007922887802124
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  2 loss of agent  2 :  0.7834349274635315
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  2 loss of agent  3 :  0.5353054404258728
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  3 loss of agent  0 :  0.5457492470741272
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  3 loss of agent  1 :  0.7058119773864746
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  3 loss of agent  2 :  0.7945669889450073
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  3 loss of agent  3 :  0.5313761234283447
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  4 loss of agent  0 :  0.6357029676437378
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  4 loss of agent  1 :  0.69830322265625
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  4 loss of agent  2 :  0.789691686630249
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  4 loss of agent  3 :  0.5954132080078125
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  5 loss of agent  0 :  0.7245792150497437
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  5 loss of agent  1 :  0.6725082993507385
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  5 loss of agent  2 :  0.6741888523101807
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  5 loss of agent  3 :  0.51716148853302
+Evaluation
+env seed: 6 evaluation score at the training step:  5 :  {'adversary_0': -69.85570836910902, 'agent_0': 30.405374502587346, 'agent_1': 30.405374502587346, 'agent_2': 30.405374502587346}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  6 loss of agent  0 :  0.6952924132347107
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  6 loss of agent  1 :  0.5154411792755127
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  6 loss of agent  2 :  0.5009129047393799
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  6 loss of agent  3 :  0.5164953470230103
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  7 loss of agent  0 :  0.6289396286010742
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  7 loss of agent  1 :  0.5820885896682739
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  7 loss of agent  2 :  0.619635283946991
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  7 loss of agent  3 :  0.5445469617843628
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  8 loss of agent  0 :  0.5198836326599121
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  8 loss of agent  1 :  0.60954350233078
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  8 loss of agent  2 :  0.6942892670631409
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  8 loss of agent  3 :  0.6641108989715576
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  9 loss of agent  0 :  0.8190029859542847
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  9 loss of agent  1 :  0.5512679219245911
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  9 loss of agent  2 :  0.7917371988296509
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  9 loss of agent  3 :  0.600846529006958
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  10 loss of agent  0 :  0.5356775522232056
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  10 loss of agent  1 :  0.5505792498588562
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  10 loss of agent  2 :  0.6362162232398987
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  10 loss of agent  3 :  0.6737724542617798
+Evaluation
+env seed: 6 evaluation score at the training step:  10 :  {'adversary_0': -70.23342032391578, 'agent_0': 30.34456811331563, 'agent_1': 30.34456811331563, 'agent_2': 30.34456811331563}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  11 loss of agent  0 :  0.6183449029922485
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  11 loss of agent  1 :  0.683040976524353
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  11 loss of agent  2 :  0.6899751424789429
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  11 loss of agent  3 :  0.7125608921051025
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  12 loss of agent  0 :  0.668353259563446
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  12 loss of agent  1 :  0.5033131837844849
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  12 loss of agent  2 :  0.6539567708969116
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  12 loss of agent  3 :  0.5015002489089966
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  13 loss of agent  0 :  0.6029345393180847
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  13 loss of agent  1 :  0.6947826147079468
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  13 loss of agent  2 :  0.675470232963562
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  13 loss of agent  3 :  0.5497743487358093
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  14 loss of agent  0 :  0.5960358381271362
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  14 loss of agent  1 :  0.5008735656738281
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  14 loss of agent  2 :  0.665346622467041
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  14 loss of agent  3 :  0.47793400287628174
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  15 loss of agent  0 :  0.5761095881462097
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  15 loss of agent  1 :  0.715229332447052
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  15 loss of agent  2 :  0.7136563658714294
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  15 loss of agent  3 :  0.5755492448806763
+Evaluation
+env seed: 6 evaluation score at the training step:  15 :  {'adversary_0': -69.92814188628455, 'agent_0': 30.61259840514962, 'agent_1': 30.61259840514962, 'agent_2': 30.61259840514962}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  16 loss of agent  0 :  0.6796716451644897
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  16 loss of agent  1 :  0.5101467370986938
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  16 loss of agent  2 :  0.5997562408447266
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  16 loss of agent  3 :  0.3676556944847107
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  17 loss of agent  0 :  0.5956008434295654
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  17 loss of agent  1 :  0.429114431142807
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  17 loss of agent  2 :  0.6863157749176025
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  17 loss of agent  3 :  0.5637452006340027
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  18 loss of agent  0 :  0.4991590976715088
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  18 loss of agent  1 :  0.5482722520828247
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  18 loss of agent  2 :  0.567634105682373
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  18 loss of agent  3 :  0.5451744794845581
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  19 loss of agent  0 :  0.49977198243141174
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  19 loss of agent  1 :  0.47724640369415283
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  19 loss of agent  2 :  0.5179314613342285
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  19 loss of agent  3 :  0.6479409337043762
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  20 loss of agent  0 :  0.7490204572677612
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  20 loss of agent  1 :  0.5857973694801331
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  20 loss of agent  2 :  0.49552133679389954
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  20 loss of agent  3 :  0.4708532691001892
+Evaluation
+env seed: 6 evaluation score at the training step:  20 :  {'adversary_0': -70.23342032391578, 'agent_0': 30.927056016649807, 'agent_1': 30.927056016649807, 'agent_2': 30.927056016649807}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  4 training step:  21 loss of agent  0 :  0.5043375492095947
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  21 loss of agent  1 :  0.4672819674015045
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  21 loss of agent  2 :  0.5774476528167725
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  4 training step:  21 loss of agent  3 :  0.5046665072441101
+episode 4 terminated at 125
+episode: 5
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  22 loss of agent  0 :  0.6237815618515015
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  22 loss of agent  1 :  0.40947186946868896
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  22 loss of agent  2 :  0.6115744113922119
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  22 loss of agent  3 :  0.5439868569374084
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  23 loss of agent  0 :  0.5180161595344543
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  23 loss of agent  1 :  0.4542957842350006
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  23 loss of agent  2 :  0.610751748085022
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  23 loss of agent  3 :  0.2813482880592346
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  24 loss of agent  0 :  0.5141250491142273
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  24 loss of agent  1 :  0.4739673137664795
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  24 loss of agent  2 :  0.561244547367096
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  24 loss of agent  3 :  0.43675148487091064
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  25 loss of agent  0 :  0.6095068454742432
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  25 loss of agent  1 :  0.5179756283760071
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  25 loss of agent  2 :  0.6019736528396606
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  25 loss of agent  3 :  0.40019690990448
+Evaluation
+env seed: 6 evaluation score at the training step:  25 :  {'adversary_0': -70.09164847750398, 'agent_0': 30.491516484025034, 'agent_1': 30.491516484025034, 'agent_2': 30.491516484025034}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  26 loss of agent  0 :  0.5792747735977173
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  26 loss of agent  1 :  0.37399813532829285
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  26 loss of agent  2 :  0.43476352095603943
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  26 loss of agent  3 :  0.4117855131626129
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  27 loss of agent  0 :  0.5934329032897949
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  27 loss of agent  1 :  0.4530789256095886
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  27 loss of agent  2 :  0.5610116720199585
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  27 loss of agent  3 :  0.508719265460968
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  28 loss of agent  0 :  0.5630276203155518
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  28 loss of agent  1 :  0.42697539925575256
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  28 loss of agent  2 :  0.45593738555908203
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  28 loss of agent  3 :  0.40839651226997375
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  29 loss of agent  0 :  0.5505523681640625
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  29 loss of agent  1 :  0.3921327292919159
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  29 loss of agent  2 :  0.5193795561790466
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  29 loss of agent  3 :  0.5213033556938171
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  30 loss of agent  0 :  0.5946531891822815
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  30 loss of agent  1 :  0.3924349844455719
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  30 loss of agent  2 :  0.6496738195419312
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  30 loss of agent  3 :  0.38440534472465515
+Evaluation
+env seed: 6 evaluation score at the training step:  30 :  {'adversary_0': -69.48806375296911, 'agent_0': 29.456592873988825, 'agent_1': 29.456592873988825, 'agent_2': 29.456592873988825}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  31 loss of agent  0 :  0.5683003067970276
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  31 loss of agent  1 :  0.3596958816051483
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  31 loss of agent  2 :  0.4030667543411255
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  31 loss of agent  3 :  0.5104801654815674
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  32 loss of agent  0 :  0.6149160265922546
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  32 loss of agent  1 :  0.4625348746776581
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  32 loss of agent  2 :  0.520751416683197
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  32 loss of agent  3 :  0.4540693461894989
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  33 loss of agent  0 :  0.45646995306015015
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  33 loss of agent  1 :  0.32543429732322693
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  33 loss of agent  2 :  0.5044137239456177
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  33 loss of agent  3 :  0.49887168407440186
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  34 loss of agent  0 :  0.5898118615150452
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  34 loss of agent  1 :  0.5041005611419678
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  34 loss of agent  2 :  0.47836893796920776
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  34 loss of agent  3 :  0.35381394624710083
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  35 loss of agent  0 :  0.5652035474777222
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  35 loss of agent  1 :  0.3569861352443695
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  35 loss of agent  2 :  0.48566290736198425
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  35 loss of agent  3 :  0.4367370307445526
+Evaluation
+env seed: 6 evaluation score at the training step:  35 :  {'adversary_0': -70.07783030785708, 'agent_0': 30.584272967825086, 'agent_1': 30.584272967825086, 'agent_2': 30.584272967825086}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  36 loss of agent  0 :  0.4811580777168274
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  36 loss of agent  1 :  0.3933067321777344
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  36 loss of agent  2 :  0.4224473237991333
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  36 loss of agent  3 :  0.40455353260040283
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  37 loss of agent  0 :  0.6690259575843811
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  37 loss of agent  1 :  0.40162813663482666
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  37 loss of agent  2 :  0.46579018235206604
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  37 loss of agent  3 :  0.3588409423828125
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  38 loss of agent  0 :  0.517892599105835
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  38 loss of agent  1 :  0.39229387044906616
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  38 loss of agent  2 :  0.48976999521255493
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  38 loss of agent  3 :  0.3724602460861206
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  39 loss of agent  0 :  0.5335927605628967
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  39 loss of agent  1 :  0.393001914024353
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  39 loss of agent  2 :  0.48458757996559143
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  39 loss of agent  3 :  0.46644601225852966
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  40 loss of agent  0 :  0.5312252640724182
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  40 loss of agent  1 :  0.37545132637023926
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  40 loss of agent  2 :  0.47002509236335754
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  40 loss of agent  3 :  0.3965435028076172
+Evaluation
+env seed: 6 evaluation score at the training step:  40 :  {'adversary_0': -69.34905077333973, 'agent_0': 30.292417951982873, 'agent_1': 30.292417951982873, 'agent_2': 30.292417951982873}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  41 loss of agent  0 :  0.4517640173435211
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  41 loss of agent  1 :  0.3150184452533722
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  41 loss of agent  2 :  0.46782660484313965
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  41 loss of agent  3 :  0.32053858041763306
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  42 loss of agent  0 :  0.5606191158294678
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  42 loss of agent  1 :  0.31457361578941345
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  42 loss of agent  2 :  0.4209614396095276
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  42 loss of agent  3 :  0.43850499391555786
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  43 loss of agent  0 :  0.6286155581474304
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  43 loss of agent  1 :  0.3137606978416443
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  43 loss of agent  2 :  0.5521329641342163
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  43 loss of agent  3 :  0.4086618423461914
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  44 loss of agent  0 :  0.46845078468322754
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  44 loss of agent  1 :  0.4049813747406006
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  44 loss of agent  2 :  0.45460668206214905
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  44 loss of agent  3 :  0.37028375267982483
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  5 training step:  45 loss of agent  0 :  0.551903486251831
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  45 loss of agent  1 :  0.2949292063713074
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  45 loss of agent  2 :  0.4702005088329315
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  5 training step:  45 loss of agent  3 :  0.47422513365745544
+Evaluation
+env seed: 6 evaluation score at the training step:  45 :  {'adversary_0': -69.5168651310944, 'agent_0': 29.97039099295956, 'agent_1': 29.97039099295956, 'agent_2': 29.97039099295956}
+episode 5 terminated at 150
+episode: 6
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  46 loss of agent  0 :  0.5654584169387817
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  46 loss of agent  1 :  0.41637519001960754
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  46 loss of agent  2 :  0.5001969933509827
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  46 loss of agent  3 :  0.31296154856681824
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  47 loss of agent  0 :  0.565299391746521
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  47 loss of agent  1 :  0.411782443523407
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  47 loss of agent  2 :  0.6123591661453247
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  47 loss of agent  3 :  0.3467564582824707
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  48 loss of agent  0 :  0.4988534450531006
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  48 loss of agent  1 :  0.3067198395729065
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  48 loss of agent  2 :  0.40237852931022644
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  48 loss of agent  3 :  0.3220233917236328
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  49 loss of agent  0 :  0.6495169997215271
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  49 loss of agent  1 :  0.3588517904281616
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  49 loss of agent  2 :  0.4291524291038513
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  49 loss of agent  3 :  0.3868226110935211
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  50 loss of agent  0 :  0.5148270130157471
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  50 loss of agent  1 :  0.3923127055168152
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  50 loss of agent  2 :  0.38526976108551025
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  50 loss of agent  3 :  0.33324259519577026
+Evaluation
+env seed: 6 evaluation score at the training step:  50 :  {'adversary_0': -69.85117769039019, 'agent_0': 30.327065049992825, 'agent_1': 30.327065049992825, 'agent_2': 30.327065049992825}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  51 loss of agent  0 :  0.616481363773346
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  51 loss of agent  1 :  0.39207470417022705
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  51 loss of agent  2 :  0.44386357069015503
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  51 loss of agent  3 :  0.4741954207420349
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  52 loss of agent  0 :  0.484463632106781
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  52 loss of agent  1 :  0.33293062448501587
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  52 loss of agent  2 :  0.48641300201416016
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  52 loss of agent  3 :  0.32738637924194336
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  53 loss of agent  0 :  0.5048704743385315
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  53 loss of agent  1 :  0.2823101282119751
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  53 loss of agent  2 :  0.5080915689468384
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  53 loss of agent  3 :  0.3721163272857666
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  54 loss of agent  0 :  0.6040576100349426
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  54 loss of agent  1 :  0.40773627161979675
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  54 loss of agent  2 :  0.3976593017578125
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  54 loss of agent  3 :  0.2921420931816101
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  55 loss of agent  0 :  0.5239467620849609
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  55 loss of agent  1 :  0.2587257921695709
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  55 loss of agent  2 :  0.35374996066093445
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  55 loss of agent  3 :  0.31550025939941406
+Evaluation
+env seed: 6 evaluation score at the training step:  55 :  {'adversary_0': -69.63869135565149, 'agent_0': 29.924114036177052, 'agent_1': 29.924114036177052, 'agent_2': 29.924114036177052}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  56 loss of agent  0 :  0.5998406410217285
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  56 loss of agent  1 :  0.30057522654533386
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  56 loss of agent  2 :  0.31596988439559937
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  56 loss of agent  3 :  0.2995762228965759
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  57 loss of agent  0 :  0.5289312601089478
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  57 loss of agent  1 :  0.42769187688827515
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  57 loss of agent  2 :  0.4564169943332672
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  57 loss of agent  3 :  0.3066812753677368
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  58 loss of agent  0 :  0.6034210920333862
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  58 loss of agent  1 :  0.28595003485679626
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  58 loss of agent  2 :  0.4615640640258789
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  58 loss of agent  3 :  0.3361431062221527
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  59 loss of agent  0 :  0.6061661839485168
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  59 loss of agent  1 :  0.3154318928718567
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  59 loss of agent  2 :  0.3284323215484619
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  59 loss of agent  3 :  0.26695817708969116
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  60 loss of agent  0 :  0.5693775415420532
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  60 loss of agent  1 :  0.25766292214393616
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  60 loss of agent  2 :  0.4943089485168457
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  60 loss of agent  3 :  0.351714164018631
+Evaluation
+env seed: 6 evaluation score at the training step:  60 :  {'adversary_0': -70.22921395237957, 'agent_0': 30.46430632030306, 'agent_1': 30.46430632030306, 'agent_2': 30.46430632030306}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  61 loss of agent  0 :  0.5826218128204346
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  61 loss of agent  1 :  0.35776177048683167
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  61 loss of agent  2 :  0.30843091011047363
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  61 loss of agent  3 :  0.2520499527454376
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  62 loss of agent  0 :  0.6298531293869019
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  62 loss of agent  1 :  0.22542738914489746
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  62 loss of agent  2 :  0.4174485206604004
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  62 loss of agent  3 :  0.2911970019340515
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  63 loss of agent  0 :  0.48928430676460266
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  63 loss of agent  1 :  0.36553269624710083
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  63 loss of agent  2 :  0.3718089163303375
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  63 loss of agent  3 :  0.37592247128486633
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  64 loss of agent  0 :  0.653798520565033
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  64 loss of agent  1 :  0.32718315720558167
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  64 loss of agent  2 :  0.43857482075691223
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  64 loss of agent  3 :  0.26523348689079285
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  65 loss of agent  0 :  0.6103619933128357
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  65 loss of agent  1 :  0.25872206687927246
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  65 loss of agent  2 :  0.46870702505111694
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  65 loss of agent  3 :  0.27916646003723145
+Evaluation
+env seed: 6 evaluation score at the training step:  65 :  {'adversary_0': -69.65706261657598, 'agent_0': 30.143372606064133, 'agent_1': 30.143372606064133, 'agent_2': 30.143372606064133}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  66 loss of agent  0 :  0.6439363360404968
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  66 loss of agent  1 :  0.4024783670902252
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  66 loss of agent  2 :  0.3655645251274109
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  66 loss of agent  3 :  0.29559579491615295
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  67 loss of agent  0 :  0.6900409460067749
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  67 loss of agent  1 :  0.32886144518852234
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  67 loss of agent  2 :  0.46850889921188354
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  67 loss of agent  3 :  0.29646724462509155
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  68 loss of agent  0 :  0.6360000967979431
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  68 loss of agent  1 :  0.3799881041049957
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  68 loss of agent  2 :  0.3967651426792145
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  68 loss of agent  3 :  0.2354758381843567
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  6 training step:  69 loss of agent  0 :  0.6794847249984741
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  69 loss of agent  1 :  0.25859329104423523
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  69 loss of agent  2 :  0.45374324917793274
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  6 training step:  69 loss of agent  3 :  0.30031219124794006
+episode 6 terminated at 175
+episode: 7
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  70 loss of agent  0 :  0.5206560492515564
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  70 loss of agent  1 :  0.3081442713737488
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  70 loss of agent  2 :  0.4498065710067749
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  70 loss of agent  3 :  0.35709279775619507
+Evaluation
+env seed: 6 evaluation score at the training step:  70 :  {'adversary_0': -69.83677852433235, 'agent_0': 30.290304386197512, 'agent_1': 30.290304386197512, 'agent_2': 30.290304386197512}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  71 loss of agent  0 :  0.6225463151931763
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  71 loss of agent  1 :  0.3222273290157318
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  71 loss of agent  2 :  0.3612203598022461
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  71 loss of agent  3 :  0.32549887895584106
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  72 loss of agent  0 :  0.5747658014297485
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  72 loss of agent  1 :  0.35965120792388916
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  72 loss of agent  2 :  0.3422234058380127
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  72 loss of agent  3 :  0.353658527135849
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  73 loss of agent  0 :  0.5740200877189636
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  73 loss of agent  1 :  0.2497129887342453
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  73 loss of agent  2 :  0.3347148001194
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  73 loss of agent  3 :  0.2550875246524811
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  74 loss of agent  0 :  0.5867067575454712
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  74 loss of agent  1 :  0.32516926527023315
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  74 loss of agent  2 :  0.31714409589767456
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  74 loss of agent  3 :  0.30255556106567383
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  75 loss of agent  0 :  0.5388308763504028
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  75 loss of agent  1 :  0.28065115213394165
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  75 loss of agent  2 :  0.4133144021034241
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  75 loss of agent  3 :  0.22860480844974518
+Evaluation
+env seed: 6 evaluation score at the training step:  75 :  {'adversary_0': -69.44772091064911, 'agent_0': 42.42237964513026, 'agent_1': 42.42237964513026, 'agent_2': 42.42237964513026}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  76 loss of agent  0 :  0.5392851233482361
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  76 loss of agent  1 :  0.3880974054336548
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  76 loss of agent  2 :  0.3743170499801636
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  76 loss of agent  3 :  0.3139021396636963
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  77 loss of agent  0 :  0.5612878799438477
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  77 loss of agent  1 :  0.3498258590698242
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  77 loss of agent  2 :  0.37449556589126587
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  77 loss of agent  3 :  0.23328129947185516
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  78 loss of agent  0 :  0.5160442590713501
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  78 loss of agent  1 :  0.36114072799682617
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  78 loss of agent  2 :  0.5186019539833069
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  78 loss of agent  3 :  0.24458634853363037
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  79 loss of agent  0 :  0.5278289914131165
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  79 loss of agent  1 :  0.2860134541988373
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  79 loss of agent  2 :  0.3950161337852478
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  79 loss of agent  3 :  0.2912260890007019
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  80 loss of agent  0 :  0.56328946352005
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  80 loss of agent  1 :  0.28301504254341125
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  80 loss of agent  2 :  0.2625558078289032
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  80 loss of agent  3 :  0.4226784110069275
+Evaluation
+env seed: 6 evaluation score at the training step:  80 :  {'adversary_0': -68.88511110320522, 'agent_0': 42.06054288007107, 'agent_1': 42.06054288007107, 'agent_2': 42.06054288007107}
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  81 loss of agent  0 :  0.44102025032043457
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  81 loss of agent  1 :  0.3383309543132782
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  81 loss of agent  2 :  0.3826417028903961
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  81 loss of agent  3 :  0.2726442813873291
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  82 loss of agent  0 :  0.5521045327186584
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  82 loss of agent  1 :  0.23138311505317688
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  82 loss of agent  2 :  0.37354013323783875
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  82 loss of agent  3 :  0.2624361515045166
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  83 loss of agent  0 :  0.5263040065765381
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  83 loss of agent  1 :  0.29460611939430237
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  83 loss of agent  2 :  0.37547916173934937
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  83 loss of agent  3 :  0.2987906038761139
+Original shape: torch.Size([32, 12])
+New shape: torch.Size([32, 1, 12])
+episode:  7 training step:  84 loss of agent  0 :  0.37524187564849854
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  84 loss of agent  1 :  0.3306937515735626
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])
+episode:  7 training step:  84 loss of agent  2 :  0.27209576964378357
+Original shape: torch.Size([32, 14])
+New shape: torch.Size([32, 1, 14])

@@ -20,7 +20,7 @@ class Inputnet(nn.Module):
 		return self.dynamic_input_layer(obs)
 
 class dddQ_Net(nn.Module):
-	def __init__(self, obs_dim, hidden, id):
+	def __init__(self, obs_dim, id):
 		super(dddQ_Net, self).__init__()
 		if id == 0:
 			self.conv_layers = nn.Sequential(                                          # more convolutional layers for the adversary to make it strong against the agent team
@@ -53,11 +53,11 @@ class dddQ_Net(nn.Module):
 			i = (obs_dim-6)*32
 			
 		self.fc_layers = nn.Sequential(	                                               # fully connected layers 
-			nn.Linear(i,hidden),
+			nn.Linear(i,100),
 			nn.ReLU()
 			)                                                                      
-		self.V = nn.Linear(hidden, 1)  # the value
-		self.A = nn.Linear(hidden, 5)  # the advantage of actions, relative value of each action
+		self.V = nn.Linear(100, 1)  # the value
+		self.A = nn.Linear(100, 5)  # the advantage of actions, relative value of each action
 
 	def forward(self,obs):
 		conv_output = self.conv_layers(obs)
@@ -71,7 +71,7 @@ class dddQ_Net(nn.Module):
 	
 class dddQN_Agent(object):
 	def __init__(self, opt, id):
-		self.q_net = dddQ_Net(opt.obs_dim, opt.hidden, id).to(device)
+		self.q_net = dddQ_Net(opt.obs_dim, id).to(device)
 		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=opt.lr)
 		self.q_target = copy.deepcopy(self.q_net)
 		self.replay_buffer = ReplayBuffer(opt.obs_dim, max_size=int(1e5))
@@ -109,7 +109,7 @@ class dddQN_Agent(object):
 		s, a, r, s_prime, dw_mask = replay_buffer.sample(self.batch_size)
 		# Compute the target Q value
 		with torch.no_grad():
-			s_prime = s_prime.view(self.batch_size,1,s_prime.shape[1])
+			s_prime = s_prime.view(self.batch_size, 1, s_prime.shape[1])
 			argmax_a = self.q_net(s_prime)[2].argmax(dim=1).unsqueeze(-1) # action with the maximum Q-value for each sample in the next state 
 			max_q_prime = self.q_target(s_prime)[2].gather(1, argmax_a) # Q-values of the chosen action in the next state, from the target network 
 			target_Q = r + (1 - dw_mask) * self.gamma * max_q_prime
