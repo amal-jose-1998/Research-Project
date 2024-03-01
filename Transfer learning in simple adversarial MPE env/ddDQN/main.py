@@ -35,15 +35,16 @@ parser.add_argument('--train_all_agents', type=str2bool, default=False, help='to
 parser.add_argument('--best_good_agent', type=int, default=2, help='best model for the good agent')
 opt = parser.parse_args()
 print(opt)
-
+# source task
 env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
 eval_env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
-source_adversary_obs_size = 8
-source_agent_obs_size = 10
+source_adversary_obs_size = env_source.observation_space('adversary_0').shape[0] # 8
+source_agent_obs_size = env_source.observation_space('agent_0').shape[0]  # 10
+# target task
 env_target= simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
 eval_env_target = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False)
-target_adversary_obs_size = 12
-target_agent_obs_size = 14
+target_adversary_obs_size = env_target.observation_space('adversary_0').shape[0] # 12
+target_agent_obs_size = env_target.observation_space('agent_0').shape[0]  # 14
 
 def set_observation_dimension(agent_id, pretrain = False):
     if pretrain == True:

@@ -123,7 +123,7 @@ class Agent:
         self.critic.load_checkpoint()
 
     def choose_action(self, observation):
-        state = T.tensor([observation], dtype=T.float).to(self.actor.device)
+        state = T.tensor([observation[0]], dtype=T.float).to(self.actor.device)
         dist = self.actor(state) # distribution for choosing an action
         value = self.critic(state)
         action = dist.sample()
@@ -134,19 +134,15 @@ class Agent:
 
     def learn(self):
         for _ in range(self.n_epochs):
-            state_arr, action_arr, old_prob_arr, vals_arr,\
-            reward_arr, dones_arr, batches = \
-                    self.memory.generate_batches()
-
+            state_arr, action_arr, old_prob_arr, vals_arr, reward_arr, dones_arr, batches = self.memory.generate_batches()
             values = vals_arr
             advantage = np.zeros(len(reward_arr), dtype=np.float32)
 
             for t in range(len(reward_arr)-1):
                 discount = 1
-                a_t = 0
+                a_t = 0 # advantage at time t
                 for k in range(t, len(reward_arr)-1):
-                    a_t += discount*(reward_arr[k] + self.gamma*values[k+1]*\
-                            (1-int(dones_arr[k])) - values[k])
+                    a_t += discount*(reward_arr[k] + self.gamma*values[k+1]*(1-int(dones_arr[k])) - values[k])
                     discount *= self.gamma*self.gae_lambda
                 advantage[t] = a_t
             advantage = T.tensor(advantage).to(self.actor.device)
@@ -175,10 +171,10 @@ class Agent:
                 critic_loss = critic_loss.mean()
 
                 total_loss = actor_loss + 0.5*critic_loss
-                self.actor.optimizer.zero_grad()
+                self.actor.optimizer.zero_grad() # sets the gradients of all model parameters to zero
                 self.critic.optimizer.zero_grad()
-                total_loss.backward()
-                self.actor.optimizer.step()
+                total_loss.backward() # Backward pass
+                self.actor.optimizer.step() # Update model parameters using an optimizer
                 self.critic.optimizer.step()
 
         self.memory.clear_memory()      
