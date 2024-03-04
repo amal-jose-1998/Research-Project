@@ -1,0 +1,101 @@
+game: 0 black_0 's iteration: 1  trajectory 1 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 1  trajectory 1 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 2  trajectory 2 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 2  trajectory 2 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 3  trajectory 3 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 3  trajectory 3 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 4  trajectory 4 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 4  trajectory 4 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 5  trajectory 5 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 5  trajectory 5 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 6  trajectory 6 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 6  trajectory 6 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 7  trajectory 7 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 7  trajectory 7 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 8  trajectory 8 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 8  trajectory 8 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 9  trajectory 9 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 9  trajectory 9 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 10  trajectory 10 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 10  trajectory 10 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 11  trajectory 11 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 11  trajectory 11 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 12  trajectory 12 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 12  trajectory 12 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 13  trajectory 13 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 13  trajectory 13 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 14  trajectory 14 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 14  trajectory 14 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 15  trajectory 15 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 15  trajectory 15 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 16  trajectory 16 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 16  trajectory 16 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 17  trajectory 17 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 17  trajectory 17 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 18  trajectory 18 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 18  trajectory 18 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 19  trajectory 19 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 19  trajectory 19 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 20  trajectory 20 for  black_0  saved in memory. done flag: False reward:  0.0
+loss of  black_0  at learning step 1 : tensor(0.0791, dtype=torch.float64, grad_fn=<AddBackward0>)
+game: 0 white_0 's iteration: 20  trajectory 20 for  white_0  saved in memory. done flag: False reward:  0.0
+loss of  white_0  at learning step 1 : tensor(0.0659, dtype=torch.float64, grad_fn=<AddBackward0>)
+c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\PPO\ppo.py:198: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  states = T.tensor(states).permute(0, 3, 1, 2)
+game: 0 black_0 's iteration: 21  trajectory 21 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 21  trajectory 21 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 22  trajectory 22 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 22  trajectory 22 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 23  trajectory 23 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 23  trajectory 23 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 24  trajectory 24 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 24  trajectory 24 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 25  trajectory 25 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 25  trajectory 25 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 26  trajectory 26 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 26  trajectory 26 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 27  trajectory 27 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 27  trajectory 27 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 28  trajectory 28 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 28  trajectory 28 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 29  trajectory 29 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 29  trajectory 29 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 30  trajectory 30 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 30  trajectory 30 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 31  trajectory 31 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 31  trajectory 31 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 32  trajectory 32 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 32  trajectory 32 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 33  trajectory 33 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 33  trajectory 33 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 34  trajectory 34 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 34  trajectory 34 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 35  trajectory 35 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 35  trajectory 35 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 36  trajectory 36 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 36  trajectory 36 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 37  trajectory 37 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 37  trajectory 37 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 38  trajectory 38 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 38  trajectory 38 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 39  trajectory 39 for  black_0  saved in memory. done flag: False reward:  0.0
+game: 0 white_0 's iteration: 39  trajectory 39 for  white_0  saved in memory. done flag: False reward:  0.0
+game: 0 black_0 's iteration: 40  trajectory 40 for  black_0  saved in memory. done flag: False reward:  0.0
+loss of  black_0  at learning step 2 : tensor(0.2409, dtype=torch.float64, grad_fn=<AddBackward0>)
+game: 0 white_0 's iteration: 40  trajectory 40 for  white_0  saved in memory. done flag: False reward:  0.0
+loss of  white_0  at learning step 2 : tensor(0.0480, dtype=torch.float64, grad_fn=<AddBackward0>)
+Traceback (most recent call last):
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\PPO\main.py", line 94, in <module>
+    action, prob, val = agents[agent].choose_action(observation)
+  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\PPO\ppo.py", line 169, in choose_action
+    action = Categorical(masked_dist).sample() # sample an action
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\distributions\categorical.py", line 70, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "C:\Users\amalj\anaconda3\lib\site-packages\torch\distributions\distribution.py", line 68, in __init__
+    raise ValueError(
+ValueError: Expected parameter probs (Tensor of shape (1, 82)) of distribution Categorical(probs: torch.Size([1, 82])) to satisfy the constraint Simplex(), but found invalid values:
+tensor([[nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+         nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+         nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan,
+         nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]],
+       grad_fn=<DivBackward0>)

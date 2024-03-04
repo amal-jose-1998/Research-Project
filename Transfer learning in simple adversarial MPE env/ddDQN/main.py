@@ -35,6 +35,15 @@ parser.add_argument('--train_all_agents', type=str2bool, default=False, help='to
 parser.add_argument('--best_good_agent', type=int, default=2, help='best model for the good agent')
 opt = parser.parse_args()
 print(opt)
+
+
+#@article{mordatch2017emergence,
+#  title={Emergence of Grounded Compositional Language in Multi-Agent Populations},
+#  author={Mordatch, Igor and Abbeel, Pieter},
+#  journal={arXiv preprint arXiv:1703.04908},
+#  year={2017}
+#}
+
 # source task
 env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)
 eval_env_source = simple_adversary_v3.parallel_env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False)

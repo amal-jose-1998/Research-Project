@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import argparse
 
 def plot_learning_curve(x, scores, figure_file):
     running_avg = np.zeros(len(scores))
