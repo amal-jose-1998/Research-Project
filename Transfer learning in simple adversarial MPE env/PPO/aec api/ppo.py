@@ -177,6 +177,7 @@ class Agent:
 #            action = Categorical(masked_dist).sample() # sample an action
         
         state = T.tensor(observation, dtype=T.float32).to(self.actor.device) 
+        state = state.view(1, 1, -1).to(self.actor.device)
         dist = self.actor(state) #  probability distribution over actions   
         action = dist.sample() # sample an action
         probability = dist.log_prob(action) # log probability of the chosen action from the distribution
@@ -206,6 +207,7 @@ class Agent:
             values = T.tensor(values).to(self.actor.device)
             for batch in batches:
                 states = T.tensor(state_arr[batch], dtype=T.float32).to(self.actor.device)
+                states = states.view(states.shape[0], 1, states.shape[1])
 #                states = states.clone().detach().requires_grad_(True)
 #                states = T.squeeze(states)
 #                states = states.clone().detach().permute(0, 3, 1, 2)
@@ -224,13 +226,15 @@ class Agent:
                 weighted_clipped_probs = T.clamp(prob_ratio, 1-self.policy_clip,
                         1+self.policy_clip)*advantage[batch]
                 actor_loss = -T.min(weighted_probs, weighted_clipped_probs).mean()
-
                 returns = advantage[batch] + values[batch]
                 critic_loss = (returns-critic_value)**2
                 critic_loss = critic_loss.mean()
-
                 total_loss = actor_loss + 0.5*critic_loss
-                wandb.log({f'loss for {agent}': total_loss})
+                
+                wandb.log({f'critic loss for {agent}': critic_loss.item()})
+                wandb.log({f'actor loss for {agent}': actor_loss.item()})
+                wandb.log({f'total loss for {agent}': total_loss.item()})
+                print(f'total loss for {agent}:', total_loss.item())
                 self.actor.optimizer.zero_grad() # sets the gradients of all model parameters to zero
                 self.critic.optimizer.zero_grad()
                 total_loss.backward() # Backward pass

@@ -16,12 +16,12 @@ parser.add_argument('--alpha', type=float, default=0.009, help='Learning rate of
 parser.add_argument('--gamma', type=float, default=0.99, help='Discount factor for future rewards in the reinforcement learning problem.')
 parser.add_argument('--gae_lambda', type=float, default=0.95, help='The parameter for Generalized Advantage Estimation (GAE)')
 parser.add_argument('--policy_clip', type=float, default=0.2, help='Policy clipping restricts the update to a certain range (1 - policy_clip, 1 + policy_clip), preventing large policy changes.')
-parser.add_argument('--batch_size', type=int, default=5, help='lenth of sliced trajectory')
-parser.add_argument('--epoch', type=int, default=4, help='no of epochs (one epoch is one complete pass through the entire training data in the memory)')
-parser.add_argument('--train_freq', type=int, default=20, help='model trainning frequency, ie. no of buffer experiences to start training')
+parser.add_argument('--batch_size', type=int, default=5, help='length of sliced trajectory')
+parser.add_argument('--epoch', type=int, default=2, help='no of epochs (one epoch is one complete pass through the entire training data in the memory)')
+parser.add_argument('--train_freq', type=int, default=25, help='model trainning frequency, ie. no of buffer experiences to start training')
 parser.add_argument('--pretrain', type=str2bool, default=True, help='to select if pretraining on the source task is to be done')
 parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
-parser.add_argument('--games', type=int, default=100, help='no of episodes')
+parser.add_argument('--games', type=int, default=25, help='no of episodes')
 parser.add_argument('--good_agents_source', type=int, default=2, help='no of good agents for the pretraining')
 parser.add_argument('--good_agents_target', type=int, default=3, help='no of good agents for the target')
 parser.add_argument('--best_good_agent', type=int, default=2, help='best model for the good agent')
@@ -40,7 +40,7 @@ if __name__ == '__main__':
         env = simple_adversary_v3.env(render_mode=opt.render, N=opt.good_agents_source, max_cycles=25, continuous_actions=False) # source task
         env_name = '1 Adv and 2 Good'
         if opt.write:
-            wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining', config=vars(opt))
+            wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining (PPO)', config=vars(opt))
     else:
         env = simple_adversary_v3.env(render_mode=opt.render, N=opt.good_agents_target, max_cycles=25, continuous_actions=False) # target task
         env_name = '1 Adv and 3 Good'
@@ -75,11 +75,11 @@ if __name__ == '__main__':
         learn_iters[agent_name] = 0
     
     n_games = opt.games
+    loop_coumter = {}
     
     for i in range(n_games):
         wandb.log({f'game': i}) 
         env.reset(seed=opt.seed)
-        loop_coumter = {}
         for agent_name in env.agents:
             score[agent_name] = 0
             loop_coumter[agent_name] = 0
@@ -106,10 +106,10 @@ if __name__ == '__main__':
             wandb.log({'total steps': n_steps}) 
 
             score[agent] += reward
-            wandb.log({f'score for {agent}':  score[agent]})
+            wandb.log({f'score at each step for {agent}':  score[agent]})
             agents[agent].remember(observation, action, prob, val, reward, done)
             
-            print('game:', i, agent,'\'s iteration:', loop_coumter[agent],' trajectory', n_steps[agent] ,'for ',agent, ' saved in memory. done flag:', done, 'reward: ',reward)
+            print('game:', i,' iteration:', loop_coumter[agent], agent,' trajectory', n_steps[agent])
             if n_steps[agent] % N == 0:
                 agents[agent].learn(agent)
                 learn_iters[agent] += 1
@@ -126,3 +126,4 @@ if __name__ == '__main__':
             print('game', i, agent_name,'\'s avg score %.1f' % avg_score)
    
     env.close()
+    wandb.finish()
