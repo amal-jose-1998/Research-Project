@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\PPO\main.py", line 69, in <module>
-    agents[agent_name] = Agent(n_actions, input_dims, gamma, alpha, gae_lambda, policy_clip, batch_size, n_epochs, env_name, agent_name)
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\PPO\ppo.py", line 145, in __init__
-    self.actor = ActorNetwork(n_actions, input_dims, alpha, f'{env_name}_{agent_name}_actor')
-  File "c:\Users\amalj\OneDrive\Desktop\lecture materials\S3\Research Project\Local Git Repo\Adversarial-MATL\Transfer learning in simple adversarial MPE env\PPO\ppo.py", line 53, in __init__
-    super(CriticNetwork, self).__init__()
-TypeError: super(type, obj): obj must be an instance or subtype of type

@@ -1,1 +1,0 @@
-{"game": 0, "_timestamp": 1709573166.63965, "_runtime": 198.50903916358948, "_step": 247, "game steps": {"black_0": 36, "white_0": 35}, "total steps": {"black_0": 36, "white_0": 35}, "score for black_0": 0.0, "score for white_0": 0.0, "loss for black_0": 0.07908029857827449, "learning steps of black_0": 1, "loss for white_0": 0.0659334032223979, "learning steps of white_0": 1}
