@@ -19,6 +19,18 @@ class Inputnet(nn.Module):
 	def forward(self, obs):
 		return self.dynamic_input_layer(obs)
 
+class Outputnet(nn.Module):
+	def __init__(self, old_action_dim, new_action_dim):
+		super(Outputnet, self).__init__()
+		self.dynamic_output_layer = nn.Sequential(
+			nn.Linear(old_action_dim, new_action_dim)
+		)
+	
+	def forward(self, A):
+		return self.dynamic_output_layer(A)
+
+
+
 class dddQ_Net(nn.Module):
 	def __init__(self, obs_dim, agent_name):
 		super(dddQ_Net, self).__init__()
@@ -144,28 +156,36 @@ class dddQN_Agent(object):
 		os.makedirs(os.path.dirname(save_path), exist_ok=True)  # Create the directory if it doesn't exist
 		torch.save(self.q_net.state_dict(), save_path)
 
-	def load(self, algo, EnvName, input_obs_dim, conv_input_dim, transfer_train=False):
+	def load(self, algo, EnvName, input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, lrate, transfer_train=False):
 		self.q_net.load_state_dict(torch.load("C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\model\\{}_{}.pth".format(algo,EnvName)))
 		self.q_target.load_state_dict(torch.load("C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\model\\{}_{}.pth".format(algo,EnvName)))
 		if transfer_train:
 			self.obs_dim = input_obs_dim
+			self.action_dim = new_action_dim
 			input_net = Inputnet(self.obs_dim, conv_input_dim)
-			self.q_net = Combine(input_net, self.q_net)
+			output_net = Outputnet(old_action_dim, self.action_dim)
+			self.q_net = Combine(input_net, self.q_net, output_net)
+			self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=lrate)
+			print("target network")
 			summary(self.q_net, input_size=(1,self.obs_dim))
-			self.q_target = Combine(input_net, self.q_target)
+			self.q_target = Combine(input_net, self.q_target, output_net)
 
 class Combine(nn.Module):
-	def __init__(self,input_net, q_net):
+	def __init__(self,input_net, q_net, output_net):
 		super(Combine, self).__init__()
 		self.input_net = input_net
 		self.q_net = q_net
-		# Set requires_grad to False for convolutional layers if it is transfer learning
+		self.output_net = output_net
+		# Set requires_grad to False for convolutional layers if it is to be frozen and not tuned in the target task
 		for param in self.q_net.conv_layers.parameters():
 			param.requires_grad = True
 
 	def forward(self, obs):
 		input = self.input_net(obs)
-		return self.q_net(input)
+		V,A,_ = self.q_net(input)
+		A = self.output_net(A)
+		Q = V + (A - A.mean(dim=1, keepdim=True))
+		return V,A,Q
 
 class ReplayBuffer():
 	def __init__(self, obs_dim, max_size=int(1e5)):
