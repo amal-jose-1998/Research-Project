@@ -74,10 +74,11 @@ def set_input_layer_dimensions(agent_id, agent_opt): # for transfer learning
     agent_obs_dim, agent_action_dim = set_observation_dimension(agent_id, pretrain= True)
     model = dddQN_Agent(agent_obs_dim, agent_id, agent_opt.lr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)
     conv_input_dim = agent_obs_dim
-    obs_dim, action_dim = set_observation_dimension(agent_id, pretrain=False)
+    old_action_dim = agent_action_dim
+    obs_dim, new_action_dim = set_observation_dimension(agent_id, pretrain=False)
     input_obs_dim = obs_dim
-    return input_obs_dim,conv_input_dim, model
-
+    return input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, model
+ 
 def train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env, n_good_agents):
     #Build model and replay buffer
     for agent_id in range(n_good_agents+1):  
@@ -96,16 +97,16 @@ def transfer_and_train(agent_models, agent_buffers, num_games, env, eval_env, n_
         agent_opt = copy.deepcopy(opt)  
         if opt.train_all_agents == False:
             if agent_id < n_good_agents_source: # load models for the already trained agents and adjust their input layer 
-                input_obs_dim, conv_input_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
-                model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, agent_opt.transfer_train) # Load pretrained models for the first two good agents and the adversary  
+                input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
+                model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, agent_opt.lr, agent_opt.transfer_train) # Load pretrained models for the first two good agents and the adversary  
             else: # create new models for the rest of the untrained agents
                 agent_obs_dim, agent_action_dim = set_observation_dimension(agent_id, pretrain=False)
                 model = dddQN_Agent(agent_obs_dim, agent_id, agent_opt.lr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)      
         else: # load the trained models for all the agents
-            input_obs_dim, conv_input_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
+            input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
             if agent_id!=0: # load the model for the best trained good agent from the source task to the target task
                 agent_id=opt.best_good_agent
-            model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, opt.transfer_train)
+            model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, agent_opt.lr, agent_opt.transfer_train)
         agent_models.append(model)
         agent_obs_dim, agent_action_dim = set_observation_dimension(agent_id, pretrain=False)
         buffer = ReplayBuffer(agent_obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent

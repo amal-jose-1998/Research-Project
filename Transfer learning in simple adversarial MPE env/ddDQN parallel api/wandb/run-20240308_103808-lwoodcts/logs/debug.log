@@ -1,0 +1,26 @@
+2024-03-08 10:38:08,973 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Current SDK version is 0.16.4
+2024-03-08 10:38:08,974 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Configure stats pid to 6204
+2024-03-08 10:38:08,974 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Loading settings from C:\Users\amalj\.config\wandb\settings
+2024-03-08 10:38:08,974 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Loading settings from C:\Users\amalj\Desktop\ddDQN parallel api\wandb\settings
+2024-03-08 10:38:08,974 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-08 10:38:08,975 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-08 10:38:08,975 INFO    MainThread:6204 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': 'C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\main.py', 'program': 'C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\main.py'}
+2024-03-08 10:38:08,976 INFO    MainThread:6204 [wandb_init.py:_log_setup():526] Logging user logs to C:\Users\amalj\Desktop\ddDQN parallel api\wandb\run-20240308_103808-lwoodcts\logs\debug.log
+2024-03-08 10:38:08,976 INFO    MainThread:6204 [wandb_init.py:_log_setup():527] Logging internal logs to C:\Users\amalj\Desktop\ddDQN parallel api\wandb\run-20240308_103808-lwoodcts\logs\debug-internal.log
+2024-03-08 10:38:08,977 INFO    MainThread:6204 [wandb_init.py:init():566] calling init triggers
+2024-03-08 10:38:08,978 INFO    MainThread:6204 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'write': True, 'render': 'human', 'seed': 5, 'save_interval': 10, 'eval_interval': 5, 'random_steps': 100, 'gamma': 0.99, 'lr': 0.0001, 'batch_size': 32, 'exp_noise': 1.0, 'buffersize': 100000.0, 'target_freq': 100, 'hardtarget': False, 'anneal_frac': 200000.0, 'train_freq': 1, 'pretrain': False, 'transfer_train': True, 'games': 25, 'epoch': 2, 'good_agents_source': 2, 'good_agents_target': 3, 'train_all_agents': True, 'best_good_agent': 2}
+2024-03-08 10:38:08,978 INFO    MainThread:6204 [wandb_init.py:init():616] starting backend
+2024-03-08 10:38:08,978 INFO    MainThread:6204 [wandb_init.py:init():620] setting up manager
+2024-03-08 10:38:08,983 INFO    MainThread:6204 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-03-08 10:38:08,987 INFO    MainThread:6204 [wandb_init.py:init():628] backend started and connected
+2024-03-08 10:38:09,003 INFO    MainThread:6204 [wandb_init.py:init():720] updated telemetry
+2024-03-08 10:38:09,006 INFO    MainThread:6204 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-08 10:38:09,490 INFO    MainThread:6204 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-08 10:38:09,598 INFO    MainThread:6204 [wandb_run.py:_on_init():2271] got version response 
+2024-03-08 10:38:09,598 INFO    MainThread:6204 [wandb_init.py:init():804] starting run threads in backend
+2024-03-08 10:38:26,222 INFO    MainThread:6204 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-08 10:38:26,223 INFO    MainThread:6204 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-08 10:38:26,224 INFO    MainThread:6204 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-08 10:38:26,224 INFO    MainThread:6204 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-08 10:38:26,225 INFO    MainThread:6204 [wandb_init.py:init():847] run started, returning control to user process
