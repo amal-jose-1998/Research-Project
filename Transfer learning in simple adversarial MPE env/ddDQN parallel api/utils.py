@@ -41,7 +41,7 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, g
     for i in range(num_games):
         print('episode:', i)
         for _ in range(epochs): 
-            print('epoch:', _)
+            print('epoch:', _+1)
             total_episode_reward = {}
             actions={}
             done = False
