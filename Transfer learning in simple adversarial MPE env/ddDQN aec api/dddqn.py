@@ -73,7 +73,6 @@ class dddQ_Net(nn.Module):
 
 	def forward(self,obs):
 		conv_output = self.conv_layers(obs)
-		#print("conv_output shape:", conv_output.shape)
 		fc_output = self.fc_layers(conv_output)
 		V = self.V(fc_output)
 		A = self.A(fc_output)
@@ -166,9 +165,9 @@ class dddQN_Agent(object):
 			output_net = Outputnet(old_action_dim, self.action_dim)
 			self.q_net = Combine(input_net, self.q_net, output_net)
 			self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=lrate)
-			print("target network")
+			print("target task network")
 			summary(self.q_net, input_size=(1,self.obs_dim))
-			self.q_target = Combine(input_net, self.q_target, output_net)
+			self.q_target = Combine(input_net, self.q_target, output_net) 
 
 class Combine(nn.Module):
 	def __init__(self,input_net, q_net, output_net):

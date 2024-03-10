@@ -24,7 +24,7 @@ parser.add_argument('--target_freq', type=int, default=100, help='frequency of t
 parser.add_argument('--hardtarget', type=str2bool, default=False, help='True: update target net hardly(copy)')
 parser.add_argument('--anneal_frac', type=int, default=2e5, help='annealing fraction of e-greedy nosise')
 parser.add_argument('--train_freq', type=int, default=1, help='model trainning frequency')
-parser.add_argument('--pretrain', type=str2bool, default=True, help='to select if pretraining on the source task is to be done')
+parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
 parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
 parser.add_argument('--games', type=int, default=25, help='no of episodes')
 parser.add_argument('--epoch', type=int, default=2, help='no of epochs (one epoch is one complete pass through the entire training data in the memory, even if it is by sampling)')
@@ -62,28 +62,65 @@ def set_observation_dimension(agent_name, pretrain = False):
         else:
             return target_agent_obs_size, target_agent_action_size
 
-def train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env, n_good_agents):
+def set_input_layer_dimensions(agent_id, agent_opt): # for transfer learning
+    agent_obs_dim, agent_action_dim = set_observation_dimension(agent_id, pretrain= True)
+    model = dddQN_Agent(agent_obs_dim, agent_id, agent_opt.lr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)
+    conv_input_dim = agent_obs_dim
+    old_action_dim = agent_action_dim
+    obs_dim, new_action_dim = set_observation_dimension(agent_id, pretrain=False)
+    input_obs_dim = obs_dim
+    return input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, model
+
+def train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env):
     env.reset(seed=opt.seed)
+    i = 0
+    agents = []
+    agent_id = {}
     #Build model and replay buffer
     for agent_name in env.agents: 
+        agents.append(agent_name)
+        agent_id[agent_name] = i
+        i+=1
         agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
         agent_obs_dim, agent_action_dim = set_observation_dimension(agent_name, pretrain = agent_opt.pretrain)
         model = dddQN_Agent(agent_obs_dim, agent_name, agent_opt.lr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)  # Create a model for each agent    
-        agent_models[agent_name] = model
+        agent_models.append(model)
         buffer = ReplayBuffer(agent_obs_dim,max_size=int(agent_opt.buffersize)) # Create a replay buffer for each agent
-        agent_buffers[agent_name] = buffer
-    good_agents = n_good_agents
+        agent_buffers.append(buffer)
     epochs = opt.epoch
     rand_seed = opt.seed
-    loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, good_agents, epochs,rand_seed)
+    loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, agents, agent_id, epochs, rand_seed)
+
+def transfer_and_train(agent_models, agent_buffers, num_games, env, eval_env):
+    env.reset(seed=opt.seed)
+    i = 0
+    agents = []
+    agent_id = {}
+    for agent_name in env.agents: 
+        agents.append(agent_name)
+        agent_id[agent_name] = i
+        i+=1
+        agent_opt = copy.deepcopy(opt)  
+         # load the trained models for all the agents
+        input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, model = set_input_layer_dimensions(agent_id, agent_opt)
+        if agent_id!=0: # load the model for the best trained good agent from the source task to the target task
+            agent_id=opt.best_good_agent
+        model.load(f"dddQN_source_agent_{agent_id}","simple_adversary_2Good_Agents", input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, agent_opt.lr, agent_opt.transfer_train)
+        agent_models.append(model)
+        agent_obs_dim, agent_action_dim = set_observation_dimension(agent_id, pretrain=False)
+        buffer = ReplayBuffer(agent_obs_dim,max_size=int(opt.buffersize)) # Create a replay buffer for each agent
+        agent_buffers.append(buffer)     
+    epochs = opt.epoch
+    rand_seed = opt.seed
+    loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, agents, agent_id, epochs, rand_seed)
 
 if __name__ == '__main__':
     num_games = opt.games
     torch.manual_seed(opt.seed)
     np.random.seed(opt.seed)
 
-    agent_models = {} 
-    agent_buffers = {}
+    agent_models = []
+    agent_buffers = []
     if opt.transfer_train == False:
         if opt.pretrain == True:
             if opt.write:
@@ -91,6 +128,29 @@ if __name__ == '__main__':
             env = env_source
             eval_env = eval_env_source
             n_good_agents = opt.good_agents_source
-            train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env, n_good_agents)
+            train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env)
             env_source.close()
             eval_env_source.close()
+        else:
+            if opt.write:
+                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Training from scratch (DDDQN)', config=vars(opt))
+            env = env_target
+            eval_env = eval_env_target
+            n_good_agents = opt.good_agents_target
+            train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env)
+            env_target.close()
+            eval_env_target.close()
+
+    else:
+        if opt.write:
+            if opt.train_all_agents == False:
+                wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training (DDDQN only corresponding agents learned)', config=vars(opt))
+            else:
+                wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training (DDDQN all agents learned)', config=vars(opt))
+        env = env_target
+        eval_env = eval_env_target
+        n_good_agents_target = opt.good_agents_target
+        n_good_agents_source = opt.good_agents_source
+        transfer_and_train(agent_models, agent_buffers, num_games, env, eval_env)
+        env_target.close()
+        eval_env_target.close()
