@@ -154,7 +154,7 @@ class dddQN_Agent(object):
 		save_path = "C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\model\\{}_{}.pth".format(algo, EnvName)
 		os.makedirs(os.path.dirname(save_path), exist_ok=True)  # Create the directory if it doesn't exist
 		torch.save(self.q_net.state_dict(), save_path)
-
+		
 	def load(self, algo, EnvName, input_obs_dim, conv_input_dim, new_action_dim, old_action_dim, lrate, transfer_train=False):
 		self.q_net.load_state_dict(torch.load("C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\model\\{}_{}.pth".format(algo,EnvName)))
 		self.q_target.load_state_dict(torch.load("C:\\Users\\amalj\\Desktop\\ddDQN parallel api\\model\\{}_{}.pth".format(algo,EnvName)))
