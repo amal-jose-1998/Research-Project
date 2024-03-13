@@ -81,7 +81,7 @@ class dddQ_Net(nn.Module):
 		return V,A,Q
 	
 class dddQN_Agent(object):
-	def __init__(self, obs_dim, agent_name, lrate, gamma, batch_size, action_dim, target_freq, hardtarget, exp_noise, transfer_train):
+	def __init__(self, obs_dim, agent_name, lrate, tlrate, gamma, batch_size, action_dim, target_freq, hardtarget, exp_noise, transfer_train):
 		self.q_net = dddQ_Net(obs_dim, agent_name).to(device)
 		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=lrate)
 		self.q_target = copy.deepcopy(self.q_net)
@@ -91,6 +91,7 @@ class dddQN_Agent(object):
 			p.requires_grad = False
 		self.gamma = gamma                 # discount factor for future rewards
 		self.lr = lrate                    # learning rate controls the size of the steps the optimizer takes during gradient descent
+		self.tlr = tlrate
 		self.counter = 0                   # to keep track of the number of steps
 		self.batch_size = batch_size       # size of the mini-batches sampled from the replay buffer 
 		self.action_dim = action_dim       # the number of possible actions the agent can take in its environment
@@ -168,6 +169,18 @@ class dddQN_Agent(object):
 			print("target task network")
 			summary(self.q_net, input_size=(1,self.obs_dim))
 			self.q_target = Combine(input_net, self.q_target, output_net) 
+	
+	def coarse_tuning_settings(self):
+		for param in self.q_net.conv_layers.parameters():
+			param.requires_grad = False
+		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=self.tlrate)
+	
+	def fine_tuning_settings(self):
+		for param in self.q_net.conv_layers.parameters():
+			param.requires_grad = True
+		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=self.lrate)
+
+
 
 class Combine(nn.Module):
 	def __init__(self,input_net, q_net, output_net):

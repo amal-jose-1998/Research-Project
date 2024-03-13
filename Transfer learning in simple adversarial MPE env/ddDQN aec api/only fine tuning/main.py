@@ -16,7 +16,8 @@ parser.add_argument('--save_interval', type=int, default=10, help='Model saving 
 parser.add_argument('--eval_interval', type=int, default=5, help='Model evaluating interval, in training steps.')
 parser.add_argument('--random_steps', type=int, default=100, help=' min no of replay buffer experiences to start training')
 parser.add_argument('--gamma', type=float, default=0.99, help='Discounted Factor')
-parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate')
+parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate - ordinary')
+parser.add_argument('--tlr', type=float, default=0.001, help='Learning rate - coarse tuning during transfer learning')
 parser.add_argument('--batch_size', type=int, default=32, help='lenth of sliced trajectory')
 parser.add_argument('--exp_noise', type=float, default=1.0, help='explore noise')
 parser.add_argument('--buffersize', type=int, default=1e5, help='Size of the replay buffer, max 8e5')
@@ -63,7 +64,7 @@ def set_observation_dimension(agent_name, pretrain = False):
 
 def set_input_layer_dimensions(agent_name, agent_opt): # for transfer learning
     agent_obs_dim, agent_action_dim = set_observation_dimension(agent_name, pretrain= True)
-    model = dddQN_Agent(agent_obs_dim, agent_name, agent_opt.lr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)
+    model = dddQN_Agent(agent_obs_dim, agent_name, agent_opt.lr, agent_opt.tlr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)
     conv_input_dim = agent_obs_dim
     old_action_dim = agent_action_dim
     obs_dim, new_action_dim = set_observation_dimension(agent_name, pretrain=False)
@@ -82,7 +83,7 @@ def train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env):
         i+=1
         agent_opt = copy.deepcopy(opt)  # Create a copy of the original options for each agent
         agent_obs_dim, agent_action_dim = set_observation_dimension(agent_name, pretrain = agent_opt.pretrain)
-        model = dddQN_Agent(agent_obs_dim, agent_name, agent_opt.lr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)  # Create a model for each agent    
+        model = dddQN_Agent(agent_obs_dim, agent_name, agent_opt.lr, agent_opt.tlr, agent_opt.gamma, agent_opt.batch_size, agent_action_dim, agent_opt.target_freq, agent_opt.hardtarget, agent_opt.exp_noise, agent_opt.transfer_train)  # Create a model for each agent    
         agent_models.append(model)
         buffer = ReplayBuffer(agent_obs_dim,max_size=int(agent_opt.buffersize)) # Create a replay buffer for each agent
         agent_buffers.append(buffer)

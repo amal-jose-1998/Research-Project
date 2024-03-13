@@ -112,6 +112,10 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, a
                     a = None
                 else:
                     model = agent_models[id]
+                    if i < 2:
+                        model.coarse_tuning_settings()
+                    else:
+                        model.fine_tuning_settings()
                     current_state[agent] = observation
                     a = model.select_action(torch.tensor(observation), evaluate=False)
                     action[agent] = a
