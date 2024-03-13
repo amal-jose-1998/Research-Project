@@ -10,6 +10,6 @@ To do pretraining, run the code: `python main.py --pretrain True`<br>
 To do transfer learning on the target task (for all the agents), run the code: `python main.py --transfer_train True --train_all_agents True --best_good_agent 2`, the best good agent should be chossen based on the loss curves obtained during pretraining<br>
 To learn the target task from scratch, run the code: `python main.py`<br>
 <br>
-On the target task, the following experiments are conducted.
+On the target task, the following experiments were conducted.
 1. Transfer learning is implimented by just employing the fine tuning. This means that the CNNs in the initial layers are left unfrozzen and learned with each learning iteration. This is provided in the folder named "only fine tuning".
 2. Transfer learning is implemented by employing coarse tuning first and then fine tuning. That is, the CNNs are initially frozzen for any updation while the model takes comparatively larger learning steps. After some training iterations (50 in the code), the CNNs are unfrozzen and enabled for fine tuning, where the learning steps are smaller. This implementation is given in the folder named "coarse & fine tuning".
