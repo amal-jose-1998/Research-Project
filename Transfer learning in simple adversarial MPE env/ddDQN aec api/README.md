@@ -7,7 +7,7 @@ Pretraining is done on the source task.<br>
 <br>
 Run the below commands for the respective implementations (given as 2 seperate folders)<br>
 To do pretraining, run the code: `python main.py --pretrain True`<br>
-To do transfer learning on the target task (for all the agents), run the code: `python main.py --transfer_train True --train_all_agents True --best_good_agent 2`, the best good agent should be chossen based on the loss curves obtained during pretraining<br>
+To do transfer learning on the target task (for all the agents), run the code: `python main.py --transfer_train True --train_all_agents True --best_good_agent agent_1`, the best good agent should be chossen based on the loss curves obtained during pretraining<br>
 To learn the target task from scratch, run the code: `python main.py`<br>
 <br>
 On the target task, the following experiments were conducted.
