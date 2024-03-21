@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model type="DFT" name="ESREL_Example">
+    <event name="G1" type="TOP" gate_type="AND"/>
+    <event name="G2" type="INTERMEDIATE" gate_type="OR"/>
+    <event name="G3" type="INTERMEDIATE" gate_type="OR"/>
+    <event name="C1" type="INTERMEDIATE" gate_type="OR"/>   
+    <event name="C2" type="INTERMEDIATE" gate_type="OR"/>
+    <event name="CSP1" type="INTERMEDIATE" gate_type="CSP"/>
+    <event name="CSP2" type="INTERMEDIATE" gate_type="CSP"/>    
+    <event name="M1" type="INTERMEDIATE" gate_type="OR"/>    
+    <event name="M2" type="INTERMEDIATE" gate_type="OR"/>
+    <event name="M3" type="INTERMEDIATE" gate_type="OR"/>    
+    <event name="FDEP" type="INTERMEDIATE" gate_type="FDEP"/>
+    <event name="PS" type="INTERMEDIATE" gate_type="AND"/>
+    <event name="A" type="BASIC" mttr = "3" repair_cost = "1" failure_cost = "3" initial_state = "1"/>
+    <event name="B" type="BASIC" mttr = "7" repair_cost = "3" failure_cost = "8" initial_state = "1"/>
+    <event name="C" type="BASIC" mttr = "2" repair_cost = "1" failure_cost = "2" initial_state = "1"/>
+    <event name="D" type="BASIC" mttr = "4" repair_cost = "4" failure_cost = "5" initial_state = "1"/>
+    <event name="E" type="BASIC" mttr = "3" repair_cost = "7" failure_cost = "6" initial_state = "1"/>
+    <event name="F" type="BASIC" mttr = "2" repair_cost = "3" failure_cost = "3" initial_state = "1"/>
+    <event name="G" type="BASIC" mttr = "3" repair_cost = "7" failure_cost = "6" initial_state = "1"/>
+    <event name="H" type="BASIC" mttr = "2" repair_cost = "3" failure_cost = "3" initial_state = "1"/>
+    <event name="I" type="BASIC" mttr = "3" repair_cost = "7" failure_cost = "6" initial_state = "1"/>
+    <event name="J" type="BASIC" mttr = "2" repair_cost = "3" failure_cost = "3" initial_state = "1"/>
+    <event name="K" type="BASIC" mttr = "2" repair_cost = "1" failure_cost = "2" initial_state = "1"/>
+    <event name="L" type="BASIC" mttr = "4" repair_cost = "4" failure_cost = "5" initial_state = "1"/>
+    <precedence source="A" target="PS" type="NORMAL"/>
+    <precedence source="B" target="PS" type="NORMAL"/>
+    <precedence source="PS" target="FDEP" type="NORMAL"/>
+    <precedence source="FDEP" target="C1" type="FDEP"/>
+    <precedence source="FDEP" target="C2" type="FDEP"/>
+    <precedence source="C" target="C1" type="NORMAL"/>
+    <precedence source="D" target="C1" type="NORMAL"/>
+    <precedence source="E" target="M1" type="NORMAL"/>
+    <precedence source="F" target="M1" type="NORMAL"/>
+    <precedence source="G" target="M3" type="NORMAL"/>
+    <precedence source="H" target="M3" type="NORMAL"/>
+    <precedence source="I" target="M2" type="NORMAL"/>
+    <precedence source="J" target="M2" type="NORMAL"/>
+    <precedence source="K" target="C2" type="NORMAL"/>
+    <precedence source="L" target="C2" type="NORMAL"/>
+    <precedence source="H" target="M3" type="NORMAL"/>
+    <precedence source="M1" target="CSP1" type="MAIN"/>
+    <precedence source="M2" target="CSP2" type="MAIN"/>
+    <precedence source="M3" target="CSP1" type="CSP" competitor = 'CSP2'/>
+    <precedence source="M3" target="CSP2" type="CSP" competitor = 'CSP1'/>
+    <precedence source="C1" target="G2" type="NORMAL"/>
+    <precedence source="CSP1" target="G2" type="NORMAL"/>
+    <precedence source="C2" target="G3" type="NORMAL"/>
+    <precedence source="CSP2" target="G3" type="NORMAL"/>
+    <precedence source="G2" target="G1" type="NORMAL"/>
+    <precedence source="G3" target="G1" type="NORMAL"/>
+</model>
