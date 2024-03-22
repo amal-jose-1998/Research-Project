@@ -68,6 +68,7 @@ def loop_iteration(num_games, env, eval_env, opt, agent_models, agent_buffers, a
     epoch_reward = {}
     coarse_tuner_counter = {}
 
+    # coarse tuning for the initial steps during transfer learning
     if opt.transfer_train == True:
         reset_coarse_tuner_counters(agents, coarse_tuner_counter)
 
