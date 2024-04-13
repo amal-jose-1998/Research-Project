@@ -124,7 +124,7 @@ if __name__ == '__main__':
     if opt.transfer_train == False:
         if opt.pretrain == True:
             if opt.write:
-                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb", project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining (DDDQN)', config=vars(opt))
+                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb", project='Simple Adversary Transfer Learning', name='1 Adversary and 2 Good Agents - Pretraining (DDDQN-AEC)', config=vars(opt))
             env = env_source
             eval_env = eval_env_source
             n_good_agents = opt.good_agents_source
@@ -133,7 +133,7 @@ if __name__ == '__main__':
             eval_env_source.close()
         else:
             if opt.write:
-                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Training from scratch (DDDQN)', config=vars(opt))
+                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Training from scratch (DDDQN-AEC)', config=vars(opt))
             env = env_target
             eval_env = eval_env_target
             n_good_agents = opt.good_agents_target
@@ -143,7 +143,7 @@ if __name__ == '__main__':
 
     else:
         if opt.write:
-            wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training (DDDQN all agents learned)', config=vars(opt))
+            wandb.init(project='Simple Adversary Transfer Learning', name='1 Adversary and 3 Good Agents - Transfer training (DDDQN only fine tuning-AEC)', config=vars(opt))
         env = env_target
         eval_env = eval_env_target
         n_good_agents_target = opt.good_agents_target

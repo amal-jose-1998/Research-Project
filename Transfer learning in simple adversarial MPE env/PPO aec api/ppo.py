@@ -7,6 +7,7 @@ import torch as T
 import torch.nn as nn
 import torch.optim as optim
 from torch.distributions.categorical import Categorical
+from torchsummary import summary
 
 class PPOMemory:
     def __init__(self, batch_size):
@@ -125,8 +126,7 @@ class CriticNetwork(nn.Module):
                 nn.ReLU(),
                 nn.Linear(fc1_dims, fc2_dims),
                 nn.ReLU(),
-                nn.Linear(fc2_dims, 1),
-                nn.Softmax(dim=-1)
+                nn.Linear(fc2_dims, 1)
         )
         self.optimizer = optim.Adam(self.parameters(), lr=alpha)
         self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu')
@@ -170,24 +170,32 @@ class Combine_for_actor(nn.Module):
     def __init__(self, input_net, Actor_net, output_net, algo, EnvName, agent_name):
         super(Combine_for_actor, self).__init__()
         self.input_net = input_net
-        self.Actor_net = Actor_net
+        self.Actor_net_conv = Actor_net.conv_layers
+        self.Actor_net_fc = Actor_net.fc_layers
+        self.Actor_net_soft = Actor_net.final_layer
         self.output_net = output_net
-        self.final_layer = nn.Softmax(dim=-1)
         self.device = Actor_net.device
         self.algo = algo
         self.EnvName = EnvName
         self.agent_name = agent_name
+        self.Actor_net = nn.Sequential(
+            self.input_net,
+            self.Actor_net_conv,
+            self.Actor_net_fc,
+            self.output_net,
+            self.Actor_net_soft
+        )
 
     def forward(self, obs):
         input = self.input_net(obs)
-        dist, fc_output = self.Actor_net(input)
+        conv_output = self.Actor_net_conv(input)
+        fc_output = self.Actor_net_fc(conv_output)
         dist = self.output_net(fc_output)
-        dist = self.final_layer(dist)
-        dist = Categorical(dist)
+        dist = self.Actor_net_soft(dist)
         return dist, fc_output
 	
     def get_conv_layers(self):
-        return self.Actor_net.conv_layers
+        return self.Actor_net_conv
     
     def save_checkpoint(self):
         save_path = f"./model/{self.algo}_{self.EnvName}_{self.agent_name}_actorNet.pth"
@@ -276,7 +284,7 @@ class Agent:
         state = T.tensor(observation, dtype=T.float32).to(self.actor.device) 
         state = state.view(1, 1, -1).to(self.actor.device)
         dist, fc_output = self.actor(state) #  probability distribution over actions 
-          
+        dist = Categorical(dist) 
         action = dist.sample() # sample an action
         probability = dist.log_prob(action) # log probability of the chosen action from the distribution
         value = self.critic(state) #  predicted value of the state  
@@ -309,6 +317,7 @@ class Agent:
                 old_probs = T.tensor(old_prob_arr[batch]).to(self.actor.device)
                 actions = T.tensor(action_arr[batch]).to(self.actor.device)
                 dist, fc_output = self.actor(states)
+                dist = Categorical(dist)
                 critic_value = self.critic(states)
                 critic_value = T.squeeze(critic_value)
                 new_probs = dist.log_prob(actions)
@@ -332,3 +341,7 @@ class Agent:
                 self.actor.optimizer.step() # Update model parameters using optimizer
                 self.critic.optimizer.step()
         self.memory.clear_memory()     
+
+if __name__ == "__main__":
+    actor_network = ActorNetwork(12, 12, 0.001, "abc", "xyz")  
+    summary(actor_network, input_size=(1, 12))

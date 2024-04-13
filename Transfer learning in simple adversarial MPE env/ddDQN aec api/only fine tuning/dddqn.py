@@ -173,12 +173,12 @@ class dddQN_Agent(object):
 	def coarse_tuning_settings(self):
 		for param in self.q_net.conv_layers.parameters():
 			param.requires_grad = False
-		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=self.tlrate)
+		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=self.tlr)
 	
 	def fine_tuning_settings(self):
 		for param in self.q_net.conv_layers.parameters():
 			param.requires_grad = True
-		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=self.lrate)
+		self.q_net_optimizer = optim.Adam(self.q_net.parameters(), lr=self.lr)
 
 
 

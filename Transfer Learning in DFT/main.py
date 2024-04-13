@@ -12,11 +12,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--write', type=str2bool, default=True, help='Use wandb to record the training')
 parser.add_argument('--seed', type=int, default=5, help='random seed')
 
-parser.add_argument('--games', type=int, default=150, help='no of episodes')
+parser.add_argument('--games', type=int, default=15, help='no of episodes')
 parser.add_argument('--epoch', type=int, default=2, help='no of epochs (one epoch is one complete pass through the entire training data in the memory, even if it is by sampling)')
 parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
-parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
-parser.add_argument('--source_dim', type=str, default='low', help='Use low/high dimensional model as source for pretraining')
+parser.add_argument('--transfer_train', type=str2bool, default=True, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
+parser.add_argument('--source_dim', type=str, default='high', help='Use low/high dimensional model as source for pretraining')
 
 parser.add_argument('--save_interval', type=int, default=10, help='Model saving interval, in training steps.')
 parser.add_argument('--eval_interval', type=int, default=5, help='Model evaluating interval, in training steps.')
@@ -41,9 +41,11 @@ print(opt)
 if opt.source_dim == 'low':
     file_path_source = 'model_low_dimension.xml'
     file_path_target = 'model_high_dimension.xml'
+    pro = "low source"
 else:
     file_path_source = 'model_high_dimension.xml'
     file_path_target = 'model_low_dimension.xml'
+    pro = "high source"
 
 # source task - env creation 
 env_source = env_creator.create_env(file_path_source)
@@ -128,7 +130,7 @@ if __name__ == '__main__':
     if opt.transfer_train == False:
         if opt.pretrain == True:
             if opt.write:
-                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb", project='Transfer Learning for the Adversarial Game in DFT', name='Pretraining (ddDQN)', config=vars(opt))
+                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb", project=f'Transfer Learning for the Adversarial Game in DFT ({pro})', name='Pretraining', config=vars(opt))
             env = env_source
             eval_env = eval_env_source
             train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env)
@@ -136,7 +138,7 @@ if __name__ == '__main__':
             eval_env_source.close()
         else:
             if opt.write:
-                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project='Transfer Learning for the Adversarial Game in DFT', name='Target Task - Training from scratch (ddDQN)', config=vars(opt))
+                wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project=f'Transfer Learning for the Adversarial Game in DFT ({pro})', name='Target Task - Training from scratch', config=vars(opt))
             env = env_target
             eval_env = eval_env_target
             train_from_scratch(agent_models, agent_buffers, num_games, env, eval_env)
@@ -144,7 +146,7 @@ if __name__ == '__main__':
             eval_env_target.close()
     else:
         if opt.write:
-            wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project='Transfer Learning for the Adversarial Game in DFT', name='Target Task - Transfer training (ddDQN)', config=vars(opt))
+            wandb.init(dir="C:\\Users\\amalj\\Desktop\\wandb",project=f'Transfer Learning for the Adversarial Game in DFT ({pro})', name='Target Task - Transfer training', config=vars(opt))
         env = env_target
         eval_env = eval_env_target
         transfer_and_train(agent_models, agent_buffers, num_games, env, eval_env)
