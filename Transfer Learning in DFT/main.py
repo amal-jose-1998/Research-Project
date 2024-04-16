@@ -15,7 +15,7 @@ parser.add_argument('--seed', type=int, default=5, help='random seed')
 parser.add_argument('--games', type=int, default=15, help='no of episodes')
 parser.add_argument('--epoch', type=int, default=2, help='no of epochs (one epoch is one complete pass through the entire training data in the memory, even if it is by sampling)')
 parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
-parser.add_argument('--transfer_train', type=str2bool, default=True, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
+parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
 parser.add_argument('--source_dim', type=str, default='high', help='Use low/high dimensional model as source for pretraining')
 
 parser.add_argument('--save_interval', type=int, default=10, help='Model saving interval, in training steps.')
