@@ -21,7 +21,7 @@ parser.add_argument('--batch_size', type=int, default=10, help='length of sliced
 parser.add_argument('--epoch', type=int, default=2, help='no of epochs (one epoch is one complete pass through the entire training data in the memory)')
 parser.add_argument('--train_freq', type=int, default=50, help='model trainning frequency, ie. no of buffer experiences to start training')
 parser.add_argument('--pretrain', type=str2bool, default=False, help='to select if pretraining on the source task is to be done')
-parser.add_argument('--transfer_train', type=str2bool, default=True, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
+parser.add_argument('--transfer_train', type=str2bool, default=False, help='to select if transfer learning is to be implemented or not (to be selected only after pretraining)')
 parser.add_argument('--games', type=int, default=1000, help='no of episodes')
 parser.add_argument('--good_agents_source', type=int, default=2, help='no of good agents for the pretraining')
 parser.add_argument('--good_agents_target', type=int, default=3, help='no of good agents for the target')
